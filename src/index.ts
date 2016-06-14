@@ -1,11 +1,12 @@
-/// <reference path="../../euglena/typings/node/node.d.ts" />
+/// <reference path="../typings/euglena/euglena.d.ts"/>
+
 
 "use strict";
 
 /**
  * Created by codelovesme on 6/19/2015.
  */
-import {euglena} from "../node_modules/euglena/euglena/src/euglena";
+import * as euglena from "euglena";
 import Exception = euglena.sys.type.Exception;
 import ParticleReference = euglena.being.alive.dna.ParticleReference;
 import Impact = euglena.being.interaction.Impact;
@@ -91,7 +92,7 @@ export module euglena_template {
                 export class OrganelleList extends Particle {
                     constructor(content:Array<string>,of:string){super(constants.particles.OrganelleList,content,of);}
                 }
-                export interface TokenContent {z
+                export interface TokenContent {
                     uuid:string;
                     expiretime:euglena.sys.type.Time;
                     for:string;
