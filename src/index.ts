@@ -1,4 +1,5 @@
-/// <reference path="../typings/euglena/euglena.d.ts"/>
+
+/// <reference path="../node_modules/euglena/src/index.d.ts"/>
 
 
 "use strict";
@@ -6,7 +7,7 @@
 /**
  * Created by codelovesme on 6/19/2015.
  */
-import * as euglena from "euglena";
+import {euglena} from "euglena";
 import Exception = euglena.sys.type.Exception;
 import ParticleReference = euglena.being.alive.dna.ParticleReference;
 import Impact = euglena.being.interaction.Impact;

@@ -1,4 +1,4 @@
-/// <reference path="../typings/euglena/euglena.d.ts" />
+/// <reference path="../node_modules/euglena/src/index.d.ts" />
 /**
  * Created by codelovesme on 6/19/2015.
  */
