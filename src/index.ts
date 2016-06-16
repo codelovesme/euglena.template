@@ -300,10 +300,9 @@ export module euglena_template {
     export namespace reference {
         export namespace being {
             export namespace interaction {
-                export class Impact extends euglena.being.interaction.Impact {
-                    constructor(){super(new euglena.being.Particle("name","content","of"),"token");}
-                }
+                export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle("name","content","of"),"token");
             }
+            export const Particle = new euglena.being.Particle("name","name","of");
         }
     }
 }

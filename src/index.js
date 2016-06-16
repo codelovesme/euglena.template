@@ -411,13 +411,9 @@ var euglena_template;
         (function (being) {
             var interaction;
             (function (interaction) {
-                class Impact extends euglena_1.euglena.being.interaction.Impact {
-                    constructor() {
-                        super(new euglena_1.euglena.being.Particle("name", "content", "of"), "token");
-                    }
-                }
-                interaction.Impact = Impact;
+                interaction.Impact = new euglena_1.euglena.being.interaction.Impact(new euglena_1.euglena.being.Particle("name", "content", "of"), "token");
             })(interaction = being.interaction || (being.interaction = {}));
+            being.Particle = new euglena_1.euglena.being.Particle("name", "name", "of");
         })(being = reference.being || (reference.being = {}));
     })(reference = euglena_template.reference || (euglena_template.reference = {}));
 })(euglena_template = exports.euglena_template || (exports.euglena_template = {}));
