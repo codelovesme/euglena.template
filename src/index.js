@@ -405,5 +405,20 @@ var euglena_template;
             })(organelle = ghost.organelle || (ghost.organelle = {}));
         })(ghost = being.ghost || (being.ghost = {}));
     })(being = euglena_template.being || (euglena_template.being = {}));
+    var reference;
+    (function (reference) {
+        var being;
+        (function (being) {
+            var interaction;
+            (function (interaction) {
+                class Impact extends euglena_1.euglena.being.interaction.Impact {
+                    constructor() {
+                        super(new euglena_1.euglena.being.Particle("name", "content", "of"), "token");
+                    }
+                }
+                interaction.Impact = Impact;
+            })(interaction = being.interaction || (being.interaction = {}));
+        })(being = reference.being || (reference.being = {}));
+    })(reference = euglena_template.reference || (euglena_template.reference = {}));
 })(euglena_template = exports.euglena_template || (exports.euglena_template = {}));
 //# sourceMappingURL=index.js.map

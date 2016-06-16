@@ -304,4 +304,13 @@ export declare module euglena_template {
             }
         }
     }
+    namespace reference {
+        namespace being {
+            namespace interaction {
+                class Impact extends euglena.being.interaction.Impact {
+                    constructor();
+                }
+            }
+        }
+    }
 }
