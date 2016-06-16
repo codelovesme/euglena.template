@@ -1,7 +1,4 @@
 
-/// <reference path="../node_modules/euglena/src/index.d.ts"/>
-
-
 "use strict";
 
 /**

@@ -1,4 +1,3 @@
-/// <reference path="../node_modules/euglena/src/index.d.ts"/>
 "use strict";
 /**
  * Created by codelovesme on 6/19/2015.
