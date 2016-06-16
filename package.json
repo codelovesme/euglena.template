@@ -1,15 +1,15 @@
 {
-  "name": "euglena_template",
+  "name": "euglena.template",
   "domain": "codeloves.me",
   "version": "0.0.3",
-  "main":"src/euglena_template.js",
+  "main":"src/index.js",
   "private": false,
   "license": "GPL v2",
   "author": {
     "name": "Fedai Kaya",
     "email": "codelovesme@gmail.com"
   },
-  "typings": "./typings/euglena/euglena.d.ts",
+  "typings": "./src/index.d.ts",
   "dependencies": {
     "euglena":"https://github.com/codelovesme/euglena.git#develop"
   }
