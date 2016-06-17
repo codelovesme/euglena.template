@@ -67,7 +67,7 @@ export module euglena_template {
             }
             export namespace organelles {
                 import Organelle = euglena.being.alive.Organelle;
-                export abstract class Nucleus extends Organelle<{ applicationDir: string, chromosomeFile: string }>{
+                export abstract class Nucleus extends Organelle<{ applicationDir: string, chromosomeFile: string ,body:Body}>{
                     constructor(className: string) { super(alive.constants.organelles.Nucleus, className) }
                 }
                 export abstract class TimeOrganelle extends Organelle<{}> {
