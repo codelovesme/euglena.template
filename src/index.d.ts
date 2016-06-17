@@ -15,6 +15,7 @@ export declare module euglena_template {
         }
         namespace alive {
             import Particle = euglena.being.Particle;
+            import Body = euglena.being.alive.Body;
             namespace constants {
                 namespace particles {
                     const ParticlesOf: string;
@@ -61,6 +62,7 @@ export declare module euglena_template {
                 abstract class Nucleus extends Organelle<{
                     applicationDir: string;
                     chromosomeFile: string;
+                    body: Body;
                 }> {
                     constructor(className: string);
                 }
