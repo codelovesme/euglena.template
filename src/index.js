@@ -139,7 +139,7 @@ var euglena_template;
                 }
                 particles_1.Time = Time;
                 class Acknowledge extends being.particles.VoidParticle {
-                    constructor(content, of) {
+                    constructor(of) {
                         super(constants.particles.Acknowledge, of);
                     }
                 }

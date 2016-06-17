@@ -104,12 +104,8 @@ export module euglena_template {
                 export class Time extends euglena.being.Particle {
                     constructor(content: euglena.sys.type.Time, of: string) { super(constants.particles.Time, content, of); }
                 }
-                export interface AcknowledgeContent {
-                    of: string,
-                    id: string
-                }
                 export class Acknowledge extends being.particles.VoidParticle {
-                    constructor(content: AcknowledgeContent, of: string) { super(constants.particles.Acknowledge, of); }
+                    constructor(of: string) { super(constants.particles.Acknowledge, of); }
                 }
                 export class ConnectedToTheInternet extends being.particles.BooleanParticle {
                     constructor(content: boolean, of: string) { super(constants.particles.ConnectedToTheInternet, content, of); }
