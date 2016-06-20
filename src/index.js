@@ -325,7 +325,20 @@ var euglena_template;
                             incomingparticles.Serve = "Serve";
                             incomingparticles.ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
                         })(incomingparticles = constants.incomingparticles || (constants.incomingparticles = {}));
+                        var outgoingparticles;
+                        (function (outgoingparticles) {
+                            outgoingparticles.Session = "Session";
+                        })(outgoingparticles = constants.outgoingparticles || (constants.outgoingparticles = {}));
                     })(constants = web.constants || (web.constants = {}));
+                    var outgoingparticles;
+                    (function (outgoingparticles) {
+                        class Session extends euglena_1.euglena.being.Particle {
+                            constructor(content, of) {
+                                super(constants.outgoingparticles.Session, content, of);
+                            }
+                        }
+                        outgoingparticles.Session = Session;
+                    })(outgoingparticles = web.outgoingparticles || (web.outgoingparticles = {}));
                     var incomingparticles;
                     (function (incomingparticles) {
                         var VoidParticle = euglena_template.being.particles.VoidParticle;

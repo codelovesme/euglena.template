@@ -246,6 +246,17 @@ export declare module euglena_template {
                             const Serve: string;
                             const ReturnIfConnectedToTheInternet: string;
                         }
+                        namespace outgoingparticles {
+                            const Session: string;
+                        }
+                    }
+                    namespace outgoingparticles {
+                        interface SessionContent {
+                            token: string;
+                        }
+                        class Session extends euglena.being.Particle {
+                            constructor(content: SessionContent, of: string);
+                        }
                     }
                     namespace incomingparticles {
                         import VoidParticle = euglena_template.being.particles.VoidParticle;
