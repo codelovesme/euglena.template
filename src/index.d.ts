@@ -214,12 +214,12 @@ export declare module euglena_template {
             }
         }
     }
-}
-export declare namespace reference {
-    namespace being {
-        namespace interaction {
-            const Impact: Impact;
+    namespace reference {
+        namespace being {
+            namespace interaction {
+                const Impact: Impact;
+            }
+            const Particle: euglena.being.Particle;
         }
-        const Particle: euglena.being.Particle;
     }
 }

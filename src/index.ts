@@ -210,8 +210,7 @@ export module euglena_template {
             }
         }
     }
-}
-export namespace reference {
+    export namespace reference {
     export namespace being {
         export namespace interaction {
             export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle("name", "content", "of"), "token");
@@ -219,4 +218,6 @@ export namespace reference {
         export const Particle = new euglena.being.Particle("name", "name", "of");
     }
 }
+}
+
 
