@@ -5,7 +5,7 @@ import { euglena } from "euglena";
 import Impact = euglena.being.interaction.Impact;
 export declare module euglena_template {
     namespace being {
-        namespace particles {
+        namespace particle {
             class BooleanParticle extends euglena.being.Particle {
                 constructor(name: string, content: boolean, of: string);
             }
@@ -15,7 +15,6 @@ export declare module euglena_template {
         }
         namespace alive {
             import Particle = euglena.being.Particle;
-            import Body = euglena.being.alive.Body;
             namespace constants {
                 namespace particles {
                     const ParticlesOf: string;
@@ -38,13 +37,25 @@ export declare module euglena_template {
                     const DoesParticleExist: string;
                     const DoesUniqueParticleExist: string;
                     const Gene: string;
+                    const ThrowImpact: string;
+                    const Listen: string;
+                    const ConnectedToEuglena: string;
+                    const DisconnectedFromEuglena: string;
+                    const ConnectToEuglena: string;
+                    const ReturnCurrentTime: string;
+                    const Serve: string;
+                    const ReturnIfConnectedToTheInternet: string;
+                    const Session: string;
+                    const SetTime: string;
+                    const StartClock: string;
+                    const StartDatabase: string;
+                    const DbIsOnline: string;
                 }
                 namespace organelles {
-                    const Net: string;
+                    const NetOrganelle: string;
                     const TimeOrganelle: string;
                     const WebOrganelle: string;
-                    const Db: string;
-                    const Nucleus: string;
+                    const DbOrganelle: string;
                 }
                 namespace impacts {
                     const AddGene: string;
@@ -57,21 +68,14 @@ export declare module euglena_template {
                     const RemoveParticle: string;
                 }
             }
-            namespace organelles {
+            namespace organelle {
                 import Organelle = euglena.being.alive.Organelle;
-                abstract class Nucleus extends Organelle<{
-                    applicationDir: string;
-                    chromosomeFile: string;
-                    body: Body;
-                }> {
-                    constructor(className: string);
-                }
                 abstract class TimeOrganelle extends Organelle<{}> {
                     constructor(className: string);
                 }
-                abstract class ReceptionOrganelle extends Organelle<{
+                abstract class NetOrganelle extends Organelle<{
                     port: string;
-                    euglenaInfo: particles.EuglenaInfo;
+                    euglenaInfo: particle.EuglenaInfo;
                 }> {
                     constructor(className: string);
                 }
@@ -88,7 +92,57 @@ export declare module euglena_template {
                     constructor(className: string);
                 }
             }
-            namespace particles {
+            namespace particle {
+                class DbIsOnline extends being.particle.VoidParticle {
+                    constructor(of: string);
+                }
+                class StartDatabase extends being.particle.VoidParticle {
+                    constructor(of: string);
+                }
+                import VoidParticle = euglena_template.being.particle.VoidParticle;
+                class Serve extends VoidParticle {
+                    constructor(of: string);
+                }
+                class ReturnCurrentTime extends VoidParticle {
+                    constructor(of: string);
+                }
+                class ReturnIfConnectedToTheInternet extends VoidParticle {
+                    constructor(of: string);
+                }
+                interface SessionContent {
+                    token: string;
+                }
+                class Session extends euglena.being.Particle {
+                    constructor(content: SessionContent, of: string);
+                }
+                class SetTime extends Particle {
+                    constructor(time: euglena.sys.type.Time, of: string);
+                }
+                class StartClock extends being.particle.VoidParticle {
+                    constructor(of: string);
+                }
+                class ConnectToEuglena extends euglena.being.Particle {
+                    constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string);
+                }
+                class ConnectedToEuglena extends euglena.being.Particle {
+                    constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string);
+                }
+                class DisconnectedFromEuglena extends euglena.being.Particle {
+                    constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string);
+                }
+                class Listen extends being.particle.VoidParticle {
+                    constructor(of: string);
+                }
+                interface ThrowImpactContent {
+                    to: alive.particle.EuglenaInfo;
+                    impact: Impact;
+                }
+                class ThrowImpact extends euglena.being.Particle {
+                    constructor(content: {
+                        to: alive.particle.EuglenaInfo;
+                        impact: Impact;
+                    }, of: string);
+                }
                 class EuglenaInfo implements euglena.sys.type.Named {
                     name: string;
                     url: string;
@@ -112,16 +166,16 @@ export declare module euglena_template {
                 class Time extends euglena.being.Particle {
                     constructor(content: euglena.sys.type.Time, of: string);
                 }
-                class Acknowledge extends being.particles.VoidParticle {
+                class Acknowledge extends being.particle.VoidParticle {
                     constructor(of: string);
                 }
-                class ConnectedToTheInternet extends being.particles.BooleanParticle {
+                class ConnectedToTheInternet extends being.particle.BooleanParticle {
                     constructor(content: boolean, of: string);
                 }
-                class EuglenaHasBeenBorn extends being.particles.BooleanParticle {
+                class EuglenaHasBeenBorn extends being.particle.BooleanParticle {
                     constructor(of: string);
                 }
-                class EuglenaHasBeenDivided extends being.particles.BooleanParticle {
+                class EuglenaHasBeenDivided extends being.particle.BooleanParticle {
                     constructor(of: string);
                 }
                 class SaveParticle extends Particle {
@@ -159,166 +213,13 @@ export declare module euglena_template {
                 }
             }
         }
-        namespace ghost {
-            namespace organelle {
-                namespace impactthrower {
-                    namespace incomingparticles {
-                        interface ThrowImpactContent {
-                            to: alive.particles.EuglenaInfo;
-                            impact: Impact;
-                        }
-                        class ThrowImpact extends euglena.being.Particle {
-                            constructor(content: {
-                                to: alive.particles.EuglenaInfo;
-                                impact: Impact;
-                            }, of: string);
-                        }
-                    }
-                    namespace constants {
-                        namespace incomingparticles {
-                            const ThrowImpact: string;
-                        }
-                    }
-                }
-                namespace reception {
-                    namespace incomingparticles {
-                        class Listen extends being.particles.VoidParticle {
-                            constructor(of: string);
-                        }
-                        interface ThrowImpactContent {
-                            to: alive.particles.EuglenaInfo;
-                            impact: Impact;
-                        }
-                        class ThrowImpact extends euglena.being.Particle {
-                            constructor(content: ThrowImpactContent, of: string);
-                        }
-                    }
-                    namespace outgoingparticles {
-                        class ImpactReceived extends euglena.being.Particle {
-                            constructor(impact: euglena.being.interaction.Impact, of: string);
-                        }
-                        class ConnectedToEuglena extends euglena.being.Particle {
-                            constructor(euglenaInfo: alive.particles.EuglenaInfo, of: string);
-                        }
-                        class DisconnectedFromEuglena extends euglena.being.Particle {
-                            constructor(euglenaInfo: alive.particles.EuglenaInfo, of: string);
-                        }
-                    }
-                    namespace constants {
-                        namespace incomingparticles {
-                            const Listen: string;
-                            const ThrowImpact: string;
-                        }
-                        namespace outgoingparticles {
-                            const ImpactReceived: string;
-                            const ConnectedToEuglena: string;
-                            const DisconnectedFromEuglena: string;
-                        }
-                    }
-                }
-                namespace impacttransmitter {
-                    namespace incomingparticles {
-                        class ConnectToEuglena extends euglena.being.Particle {
-                            constructor(euglenaInfo: alive.particles.EuglenaInfo, of: string);
-                        }
-                        interface ThrowImpactContent {
-                            to: alive.particles.EuglenaInfo;
-                            impact: Impact;
-                        }
-                        class ThrowImpact extends euglena.being.Particle {
-                            constructor(content: {
-                                to: string;
-                                impact: ThrowImpactContent;
-                            }, of: string);
-                        }
-                    }
-                    namespace constants {
-                        namespace incomingparticles {
-                            const ConnectToEuglena: string;
-                            const ThrowImpact: string;
-                        }
-                    }
-                }
-                namespace web {
-                    namespace constants {
-                        namespace incomingparticles {
-                            const ReturnCurrentTime: string;
-                            const Serve: string;
-                            const ReturnIfConnectedToTheInternet: string;
-                        }
-                        namespace outgoingparticles {
-                            const Session: string;
-                        }
-                    }
-                    namespace outgoingparticles {
-                        interface SessionContent {
-                            token: string;
-                        }
-                        class Session extends euglena.being.Particle {
-                            constructor(content: SessionContent, of: string);
-                        }
-                    }
-                    namespace incomingparticles {
-                        import VoidParticle = euglena_template.being.particles.VoidParticle;
-                        class Serve extends VoidParticle {
-                            constructor(of: string);
-                        }
-                        class ReturnCurrentTime extends VoidParticle {
-                            constructor(of: string);
-                        }
-                        class ReturnIfConnectedToTheInternet extends VoidParticle {
-                            constructor(of: string);
-                        }
-                    }
-                }
-                namespace time {
-                    import Particle = euglena.being.Particle;
-                    namespace outgoingparticles {
-                    }
-                    namespace incomingparticles {
-                        class SetTime extends Particle {
-                            constructor(time: euglena.sys.type.Time, of: string);
-                        }
-                        class StartClock extends being.particles.VoidParticle {
-                            constructor(of: string);
-                        }
-                    }
-                    namespace constants {
-                        namespace outgoingparticles {
-                        }
-                        namespace incomingparticles {
-                            const SetTime: string;
-                            const StartClock: string;
-                        }
-                    }
-                }
-                namespace db {
-                    namespace outgoingparticles {
-                    }
-                    namespace incomingparticles {
-                        class StartDatabase extends being.particles.VoidParticle {
-                            constructor(of: string);
-                        }
-                    }
-                    namespace outgoingparticles {
-                        class DbIsOnline extends being.particles.VoidParticle {
-                            constructor(of: string);
-                        }
-                    }
-                    namespace constants {
-                        const StartDatabase: string;
-                        const DbIsOnline: string;
-                    }
-                }
-            }
-        }
     }
-    namespace reference {
-        namespace being {
-            namespace interaction {
-                const Impact: Impact;
-            }
-            const Particle: euglena.being.Particle;
+}
+export declare namespace reference {
+    namespace being {
+        namespace interaction {
+            const Impact: Impact;
         }
+        const Particle: euglena.being.Particle;
     }
 }

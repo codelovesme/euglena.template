@@ -12,7 +12,7 @@ import interaction = euglena.being.interaction;
 
 export module euglena_template {
     export namespace being {
-        export namespace particles {
+        export namespace particle {
             export class BooleanParticle extends euglena.being.Particle {
                 constructor(name: string, content: boolean, of: string) { super(name, content, of); }
             }
@@ -46,13 +46,26 @@ export module euglena_template {
                     export const DoesParticleExist = "DoesParticleExist";
                     export const DoesUniqueParticleExist = "DoesUniqueParticleExist";
                     export const Gene = "Gene";
+                    export const ThrowImpact = "ThrowImpact";
+                    export const Listen = "Listen";
+                    export const ConnectedToEuglena = "ConnectedToEuglena";
+                    export const DisconnectedFromEuglena = "DisconnectedFromEuglena";
+                    export const ConnectToEuglena = "ConnectToEuglena";
+                    export const ReturnCurrentTime = "ReturnCurrentTime";
+                    export const Serve = "Serve";
+                    export const ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
+                    export const Session = "Session";
+                    export const SetTime = "SetTime";
+                    export const StartClock = "StartClock";
+                    export const StartDatabase = "StartDatabase";
+                    export const DbIsOnline = "DbIsOnline";
+
                 }
                 export namespace organelles {
-                    export const Net = "ReceptionOrganelle";
+                    export const NetOrganelle = "NetOrganelle";
                     export const TimeOrganelle = "TimeOrganelle";
                     export const WebOrganelle = "WebOrganelle";
-                    export const Db = "DbOrganelle";
-                    export const Nucleus = "NucleusOrganelle";
+                    export const DbOrganelle = "DbOrganelle";
                 }
                 export namespace impacts {
                     export const AddGene = "AddGene";
@@ -65,25 +78,71 @@ export module euglena_template {
                     export const RemoveParticle = "RemoveParticle";
                 }
             }
-            export namespace organelles {
+            export namespace organelle {
                 import Organelle = euglena.being.alive.Organelle;
-                export abstract class Nucleus extends Organelle<{ applicationDir: string, chromosomeFile: string ,body:Body}>{
-                    constructor(className: string) { super(alive.constants.organelles.Nucleus, className) }
-                }
                 export abstract class TimeOrganelle extends Organelle<{}> {
                     constructor(className: string) { super(alive.constants.organelles.TimeOrganelle, className); }
                 }
-                export abstract class ReceptionOrganelle extends Organelle<{ port: string, euglenaInfo: particles.EuglenaInfo }> {
-                    constructor(className: string) { super(constants.organelles.Net, className); }
+                export abstract class NetOrganelle extends Organelle<{ port: string, euglenaInfo: particle.EuglenaInfo }> {
+                    constructor(className: string) { super(constants.organelles.NetOrganelle, className); }
                 }
                 export abstract class WebOrganelle extends Organelle<{ port: string }>{
                     constructor(className: string) { super(constants.organelles.WebOrganelle, className); }
                 }
                 export abstract class DbOrganelle extends Organelle<{ url: string, port: number, databaseName: string }>{
-                    constructor(className: string) { super(constants.organelles.Db, className); }
+                    constructor(className: string) { super(constants.organelles.DbOrganelle, className); }
                 }
             }
-            export namespace particles {
+            export namespace particle {
+                export class DbIsOnline extends being.particle.VoidParticle {
+                    constructor(of: string) { super(constants.particles.DbIsOnline, of); }
+                }
+                export class StartDatabase extends being.particle.VoidParticle {
+                    constructor(of: string) { super(constants.particles.StartDatabase, of); }
+                }
+                import VoidParticle = euglena_template.being.particle.VoidParticle;
+                export class Serve extends VoidParticle {
+                    constructor(of: string) { super(constants.particles.Serve, of); }
+                }
+                export class ReturnCurrentTime extends VoidParticle {
+                    constructor(of: string) { super(constants.particles.ReturnCurrentTime, of); }
+                }
+                export class ReturnIfConnectedToTheInternet extends VoidParticle {
+                    constructor(of: string) { super(constants.particles.ReturnIfConnectedToTheInternet, of); }
+                }
+                export interface SessionContent {
+                    token: string;
+                }
+                export class Session extends euglena.being.Particle {
+                    constructor(content: SessionContent, of: string) { super(constants.particles.Session, content, of); }
+                }
+                export class SetTime extends Particle {
+                    constructor(time: euglena.sys.type.Time, of: string) { super(constants.particles.SetTime, time, of); }
+                }
+                export class StartClock extends being.particle.VoidParticle {
+                    constructor(of: string) { super(constants.particles.StartClock, of); }
+                }
+                export class ConnectToEuglena extends euglena.being.Particle {
+                    constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string) {
+                        super(constants.particles.ConnectToEuglena, euglenaInfo, of);
+                    }
+                }
+                export class ConnectedToEuglena extends euglena.being.Particle {
+                    constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string) { super(constants.particles.ConnectedToEuglena, euglenaInfo, of); }
+                }
+                export class DisconnectedFromEuglena extends euglena.being.Particle {
+                    constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string) { super(constants.particles.ConnectedToEuglena, euglenaInfo, of); }
+                }
+                export class Listen extends being.particle.VoidParticle {
+                    constructor(of: string) { super(constants.particles.Listen, of); }
+                }
+                export interface ThrowImpactContent {
+                    to: alive.particle.EuglenaInfo,
+                    impact: Impact
+                }
+                export class ThrowImpact extends euglena.being.Particle {
+                    constructor(content: { to: alive.particle.EuglenaInfo, impact: Impact }, of: string) { super(constants.particles.ThrowImpact, content, of); }
+                }
                 export class EuglenaInfo implements euglena.sys.type.Named {
                     constructor(public name: string, public url: string, public port: string) { }
                 }
@@ -104,16 +163,16 @@ export module euglena_template {
                 export class Time extends euglena.being.Particle {
                     constructor(content: euglena.sys.type.Time, of: string) { super(constants.particles.Time, content, of); }
                 }
-                export class Acknowledge extends being.particles.VoidParticle {
+                export class Acknowledge extends being.particle.VoidParticle {
                     constructor(of: string) { super(constants.particles.Acknowledge, of); }
                 }
-                export class ConnectedToTheInternet extends being.particles.BooleanParticle {
+                export class ConnectedToTheInternet extends being.particle.BooleanParticle {
                     constructor(content: boolean, of: string) { super(constants.particles.ConnectedToTheInternet, content, of); }
                 }
-                export class EuglenaHasBeenBorn extends being.particles.BooleanParticle {
+                export class EuglenaHasBeenBorn extends being.particle.BooleanParticle {
                     constructor(of: string) { super(constants.particles.EuglenaHasBeenBorn, true, of); }
                 }
-                export class EuglenaHasBeenDivided extends being.particles.BooleanParticle {
+                export class EuglenaHasBeenDivided extends being.particle.BooleanParticle {
                     constructor(of: string) { super(constants.particles.EuglenaHasBeenDivided, true, of); }
                 }
                 export class SaveParticle extends Particle {
@@ -150,167 +209,14 @@ export module euglena_template {
                 }
             }
         }
-        export namespace ghost {
-            export namespace organelle {
-                export namespace impactthrower {
-                    export namespace incomingparticles {
-                        export interface ThrowImpactContent {
-                            to: alive.particles.EuglenaInfo,
-                            impact: Impact
-                        }
-                        export class ThrowImpact extends euglena.being.Particle {
-                            constructor(content: { to: alive.particles.EuglenaInfo, impact: Impact }, of: string) { super(constants.incomingparticles.ThrowImpact, content, of); }
-                        }
-                    }
-                    export namespace constants {
-                        export namespace incomingparticles {
-                            export const ThrowImpact = "ThrowImpact";
-                        }
-                    }
-                }
-                export namespace reception {
-                    export namespace incomingparticles {
-                        export class Listen extends being.particles.VoidParticle {
-                            constructor(of: string) { super(constants.incomingparticles.Listen, of); }
-                        }
-                        export interface ThrowImpactContent {
-                            to: alive.particles.EuglenaInfo,
-                            impact: Impact
-                        }
-                        export class ThrowImpact extends euglena.being.Particle {
-                            constructor(content: ThrowImpactContent, of: string) { super(constants.incomingparticles.ThrowImpact, content, of); }
-                        }
-                    }
-                    export namespace outgoingparticles {
-                        export class ImpactReceived extends euglena.being.Particle {
-                            constructor(impact: euglena.being.interaction.Impact, of: string) { super(constants.outgoingparticles.ImpactReceived, impact, of); }
-                        }
-                        export class ConnectedToEuglena extends euglena.being.Particle {
-                            constructor(euglenaInfo: alive.particles.EuglenaInfo, of: string) { super(constants.outgoingparticles.ConnectedToEuglena, euglenaInfo, of); }
-                        }
-                        export class DisconnectedFromEuglena extends euglena.being.Particle {
-                            constructor(euglenaInfo: alive.particles.EuglenaInfo, of: string) { super(constants.outgoingparticles.ConnectedToEuglena, euglenaInfo, of); }
-                        }
-                    }
-                    export namespace constants {
-                        export namespace incomingparticles {
-                            export const Listen = "Listen";
-                            export const ThrowImpact = "ThrowImpact";
-                        }
-                        export namespace outgoingparticles {
-                            export const ImpactReceived = "ImpactReceived";
-                            export const ConnectedToEuglena = "ConnectedToEuglena";
-                            export const DisconnectedFromEuglena = "DisconnectedFromEuglena";
-                        }
-                    }
-                }
-                export namespace impacttransmitter {
-                    export namespace incomingparticles {
-                        export class ConnectToEuglena extends euglena.being.Particle {
-                            constructor(euglenaInfo: alive.particles.EuglenaInfo, of: string) {
-                                super(constants.incomingparticles.ConnectToEuglena, euglenaInfo, of);
-                            }
-                        }
-                        export interface ThrowImpactContent {
-                            to: alive.particles.EuglenaInfo,
-                            impact: Impact
-                        }
-                        export class ThrowImpact extends euglena.being.Particle {
-                            constructor(content: { to: string, impact: ThrowImpactContent }, of: string) { super(constants.incomingparticles.ThrowImpact, content, of); }
-                        }
-                    }
-                    export namespace constants {
-                        export namespace incomingparticles {
-                            export const ConnectToEuglena = "ConnectToEuglena";
-                            export const ThrowImpact = "ThrowImpact";
-                        }
-                    }
-                }
-                export namespace web {
-                    export namespace constants {
-                        export namespace incomingparticles {
-                            export const ReturnCurrentTime: string = "ReturnCurrentTime";
-                            export const Serve: string = "Serve";
-                            export const ReturnIfConnectedToTheInternet: string = "ReturnIfConnectedToTheInternet";
-                        }
-                        export namespace outgoingparticles {
-                            export const Session: string = "Session";
-                        }
-                    }
-                    export namespace outgoingparticles{
-                        export interface SessionContent{
-                            token:string;
-                        }
-                        export class Session extends euglena.being.Particle {
-                            constructor(content:SessionContent,of:string){super(constants.outgoingparticles.Session,content,of);}
-                        }
-                    }
-                    export namespace incomingparticles {
-                        import VoidParticle = euglena_template.being.particles.VoidParticle;
-                        export class Serve extends VoidParticle {
-                            constructor(of: string) { super(constants.incomingparticles.Serve, of); }
-                        }
-                        export class ReturnCurrentTime extends VoidParticle {
-                            constructor(of: string) { super(constants.incomingparticles.ReturnCurrentTime, of); }
-                        }
-                        export class ReturnIfConnectedToTheInternet extends VoidParticle {
-                            constructor(of: string) { super(constants.incomingparticles.ReturnIfConnectedToTheInternet, of); }
-                        }
-                    }
-                }
-                export namespace time {
-                    import Particle = euglena.being.Particle;
-                    export namespace outgoingparticles {
-
-                    }
-                    export namespace incomingparticles {
-                        export class SetTime extends Particle {
-                            constructor(time: euglena.sys.type.Time, of: string) { super(constants.incomingparticles.SetTime, time, of); }
-                        }
-                        export class StartClock extends being.particles.VoidParticle {
-                            constructor(of: string) { super(constants.incomingparticles.StartClock, of); }
-                        }
-                    }
-                    export namespace constants {
-                        export namespace outgoingparticles {
-
-                        }
-                        export namespace incomingparticles {
-                            export const SetTime = "SetTime";
-                            export const StartClock = "StartClock";
-                        }
-                    }
-                }
-                export namespace db {
-                    import Particle = euglena.being.Particle;
-                    export namespace outgoingparticles {
-
-                    }
-                    export namespace incomingparticles {
-                        export class StartDatabase extends being.particles.VoidParticle {
-                            constructor(of: string) { super(constants.StartDatabase, of); }
-                        }
-                    }
-                    export namespace outgoingparticles {
-                        export class DbIsOnline extends being.particles.VoidParticle {
-                            constructor(of: string) { super(constants.DbIsOnline, of); }
-                        }
-                    }
-                    export namespace constants {
-                        export const StartDatabase = "StartDatabase";
-                        export const DbIsOnline = "DbIsOnline";
-                    }
-                }
-            }
-        }
     }
-    export namespace reference {
-        export namespace being {
-            export namespace interaction {
-                export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle("name","content","of"),"token");
-            }
-            export const Particle = new euglena.being.Particle("name","name","of");
+}
+export namespace reference {
+    export namespace being {
+        export namespace interaction {
+            export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle("name", "content", "of"), "token");
         }
+        export const Particle = new euglena.being.Particle("name", "name", "of");
     }
 }
 
