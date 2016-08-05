@@ -77,7 +77,6 @@ export declare module euglena_template {
                 }
                 abstract class NetOrganelle extends Organelle<{
                     euglenaName: string;
-                    port: string;
                     euglenaInfo: particle.EuglenaInfo;
                 }> {
                     constructor(className: string);
