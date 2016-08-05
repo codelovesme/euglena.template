@@ -86,7 +86,7 @@ export module euglena_template {
                 export abstract class NetOrganelle extends Organelle<{ euglenaName: string, euglenaInfo: particle.EuglenaInfo }> {
                     constructor(className: string) { super(constants.organelles.NetOrganelle, className); }
                 }
-                export abstract class WebOrganelle extends Organelle<{ euglenaName: string, port: string }>{
+                export abstract class WebOrganelle extends Organelle<{ euglenaName: string, euglenaInfo: particle.EuglenaInfo }>{
                     constructor(className: string) { super(constants.organelles.WebOrganelle, className); }
                 }
                 export abstract class DbOrganelle extends Organelle<{ euglenaName: string, url: string, port: number, databaseName: string }>{

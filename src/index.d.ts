@@ -83,7 +83,7 @@ export declare module euglena_template {
                 }
                 abstract class WebOrganelle extends Organelle<{
                     euglenaName: string;
-                    port: string;
+                    euglenaInfo: particle.EuglenaInfo;
                 }> {
                     constructor(className: string);
                 }
