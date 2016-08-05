@@ -52,12 +52,9 @@ export module euglena_template {
                     export const DisconnectedFromEuglena = "DisconnectedFromEuglena";
                     export const ConnectToEuglena = "ConnectToEuglena";
                     export const ReturnCurrentTime = "ReturnCurrentTime";
-                    export const Serve = "Serve";
                     export const ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
                     export const Session = "Session";
                     export const SetTime = "SetTime";
-                    export const StartClock = "StartClock";
-                    export const StartDatabase = "StartDatabase";
                     export const DbIsOnline = "DbIsOnline";
 
                 }
@@ -97,13 +94,7 @@ export module euglena_template {
                 export class DbIsOnline extends being.particle.VoidParticle {
                     constructor(of: string) { super(constants.particles.DbIsOnline, of); }
                 }
-                export class StartDatabase extends being.particle.VoidParticle {
-                    constructor(of: string) { super(constants.particles.StartDatabase, of); }
-                }
                 import VoidParticle = euglena_template.being.particle.VoidParticle;
-                export class Serve extends VoidParticle {
-                    constructor(of: string) { super(constants.particles.Serve, of); }
-                }
                 export class ReturnCurrentTime extends VoidParticle {
                     constructor(of: string) { super(constants.particles.ReturnCurrentTime, of); }
                 }
@@ -118,9 +109,6 @@ export module euglena_template {
                 }
                 export class SetTime extends Particle {
                     constructor(time: euglena.sys.type.Time, of: string) { super(constants.particles.SetTime, time, of); }
-                }
-                export class StartClock extends being.particle.VoidParticle {
-                    constructor(of: string) { super(constants.particles.StartClock, of); }
                 }
                 export class ConnectToEuglena extends euglena.being.Particle {
                     constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string) {

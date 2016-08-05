@@ -43,12 +43,9 @@ export declare module euglena_template {
                     const DisconnectedFromEuglena: string;
                     const ConnectToEuglena: string;
                     const ReturnCurrentTime: string;
-                    const Serve: string;
                     const ReturnIfConnectedToTheInternet: string;
                     const Session: string;
                     const SetTime: string;
-                    const StartClock: string;
-                    const StartDatabase: string;
                     const DbIsOnline: string;
                 }
                 namespace organelles {
@@ -100,13 +97,7 @@ export declare module euglena_template {
                 class DbIsOnline extends being.particle.VoidParticle {
                     constructor(of: string);
                 }
-                class StartDatabase extends being.particle.VoidParticle {
-                    constructor(of: string);
-                }
                 import VoidParticle = euglena_template.being.particle.VoidParticle;
-                class Serve extends VoidParticle {
-                    constructor(of: string);
-                }
                 class ReturnCurrentTime extends VoidParticle {
                     constructor(of: string);
                 }
@@ -121,9 +112,6 @@ export declare module euglena_template {
                 }
                 class SetTime extends Particle {
                     constructor(time: euglena.sys.type.Time, of: string);
-                }
-                class StartClock extends being.particle.VoidParticle {
-                    constructor(of: string);
                 }
                 class ConnectToEuglena extends euglena.being.Particle {
                     constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string);

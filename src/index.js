@@ -55,12 +55,9 @@ var euglena_template;
                     particles.DisconnectedFromEuglena = "DisconnectedFromEuglena";
                     particles.ConnectToEuglena = "ConnectToEuglena";
                     particles.ReturnCurrentTime = "ReturnCurrentTime";
-                    particles.Serve = "Serve";
                     particles.ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
                     particles.Session = "Session";
                     particles.SetTime = "SetTime";
-                    particles.StartClock = "StartClock";
-                    particles.StartDatabase = "StartDatabase";
                     particles.DbIsOnline = "DbIsOnline";
                 })(particles = constants.particles || (constants.particles = {}));
                 var organelles;
@@ -118,19 +115,7 @@ var euglena_template;
                     }
                 }
                 particle.DbIsOnline = DbIsOnline;
-                class StartDatabase extends being.particle.VoidParticle {
-                    constructor(of) {
-                        super(constants.particles.StartDatabase, of);
-                    }
-                }
-                particle.StartDatabase = StartDatabase;
                 var VoidParticle = euglena_template.being.particle.VoidParticle;
-                class Serve extends VoidParticle {
-                    constructor(of) {
-                        super(constants.particles.Serve, of);
-                    }
-                }
-                particle.Serve = Serve;
                 class ReturnCurrentTime extends VoidParticle {
                     constructor(of) {
                         super(constants.particles.ReturnCurrentTime, of);
@@ -155,12 +140,6 @@ var euglena_template;
                     }
                 }
                 particle.SetTime = SetTime;
-                class StartClock extends being.particle.VoidParticle {
-                    constructor(of) {
-                        super(constants.particles.StartClock, of);
-                    }
-                }
-                particle.StartClock = StartClock;
                 class ConnectToEuglena extends euglena_1.euglena.being.Particle {
                     constructor(euglenaInfo, of) {
                         super(constants.particles.ConnectToEuglena, euglenaInfo, of);
