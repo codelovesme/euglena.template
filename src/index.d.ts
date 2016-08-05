@@ -70,21 +70,26 @@ export declare module euglena_template {
             }
             namespace organelle {
                 import Organelle = euglena.being.alive.Organelle;
-                abstract class TimeOrganelle extends Organelle<{}> {
+                abstract class TimeOrganelle extends Organelle<{
+                    euglenaName: string;
+                }> {
                     constructor(className: string);
                 }
                 abstract class NetOrganelle extends Organelle<{
+                    euglenaName: string;
                     port: string;
                     euglenaInfo: particle.EuglenaInfo;
                 }> {
                     constructor(className: string);
                 }
                 abstract class WebOrganelle extends Organelle<{
+                    euglenaName: string;
                     port: string;
                 }> {
                     constructor(className: string);
                 }
                 abstract class DbOrganelle extends Organelle<{
+                    euglenaName: string;
                     url: string;
                     port: number;
                     databaseName: string;

@@ -80,16 +80,16 @@ export module euglena_template {
             }
             export namespace organelle {
                 import Organelle = euglena.being.alive.Organelle;
-                export abstract class TimeOrganelle extends Organelle<{}> {
+                export abstract class TimeOrganelle extends Organelle<{ euglenaName: string }> {
                     constructor(className: string) { super(alive.constants.organelles.TimeOrganelle, className); }
                 }
-                export abstract class NetOrganelle extends Organelle<{ port: string, euglenaInfo: particle.EuglenaInfo }> {
+                export abstract class NetOrganelle extends Organelle<{ euglenaName: string, port: string, euglenaInfo: particle.EuglenaInfo }> {
                     constructor(className: string) { super(constants.organelles.NetOrganelle, className); }
                 }
-                export abstract class WebOrganelle extends Organelle<{ port: string }>{
+                export abstract class WebOrganelle extends Organelle<{ euglenaName: string, port: string }>{
                     constructor(className: string) { super(constants.organelles.WebOrganelle, className); }
                 }
-                export abstract class DbOrganelle extends Organelle<{ url: string, port: number, databaseName: string }>{
+                export abstract class DbOrganelle extends Organelle<{ euglenaName: string, url: string, port: number, databaseName: string }>{
                     constructor(className: string) { super(constants.organelles.DbOrganelle, className); }
                 }
             }
@@ -211,13 +211,13 @@ export module euglena_template {
         }
     }
     export namespace reference {
-    export namespace being {
-        export namespace interaction {
-            export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle("name", "content", "of"), "token");
+        export namespace being {
+            export namespace interaction {
+                export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle("name", "content", "of"), "token");
+            }
+            export const Particle = new euglena.being.Particle("name", "name", "of");
         }
-        export const Particle = new euglena.being.Particle("name", "name", "of");
     }
-}
 }
 
 
