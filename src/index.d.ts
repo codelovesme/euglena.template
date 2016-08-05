@@ -27,7 +27,6 @@ export declare module euglena_template {
                     const EuglenaName: string;
                     const ImpactReceived: string;
                     const EuglenaHasBeenBorn: string;
-                    const EuglenaHasBeenDivided: string;
                     const Acknowledge: string;
                     const Time: string;
                     const Exception: string;
@@ -165,9 +164,6 @@ export declare module euglena_template {
                     constructor(content: boolean, of: string);
                 }
                 class EuglenaHasBeenBorn extends being.particle.BooleanParticle {
-                    constructor(of: string);
-                }
-                class EuglenaHasBeenDivided extends being.particle.BooleanParticle {
                     constructor(of: string);
                 }
                 class SaveParticle extends Particle {

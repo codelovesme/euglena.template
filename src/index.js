@@ -39,7 +39,6 @@ var euglena_template;
                     particles.EuglenaName = "EuglenaName";
                     particles.ImpactReceived = "ImpactReceived";
                     particles.EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
-                    particles.EuglenaHasBeenDivided = "EuglenaHasBeenDivided";
                     particles.Acknowledge = "Acknowledge";
                     particles.Time = "Time";
                     particles.Exception = "Exception";
@@ -220,12 +219,6 @@ var euglena_template;
                     }
                 }
                 particle.EuglenaHasBeenBorn = EuglenaHasBeenBorn;
-                class EuglenaHasBeenDivided extends being.particle.BooleanParticle {
-                    constructor(of) {
-                        super(constants.particles.EuglenaHasBeenDivided, true, of);
-                    }
-                }
-                particle.EuglenaHasBeenDivided = EuglenaHasBeenDivided;
                 class SaveParticle extends Particle {
                     constructor(content, of) {
                         super(constants.impacts.SaveParticle, content, of);
