@@ -58,6 +58,9 @@ var euglena_template;
                     particles.Session = "Session";
                     particles.SetTime = "SetTime";
                     particles.DbIsOnline = "DbIsOnline";
+                    particles.NetOrganelleSap = "NetOrganelleSap";
+                    particles.WebOrganelleSap = "WebOrganelleSap";
+                    particles.DbOrganelleSap = "DbOrganelleSap";
                 })(particles = constants.particles || (constants.particles = {}));
                 var organelles;
                 (function (organelles) {
@@ -108,6 +111,24 @@ var euglena_template;
             })(organelle = alive.organelle || (alive.organelle = {}));
             var particle;
             (function (particle) {
+                class WebOrganelleSap extends Particle {
+                    constructor(content, of) {
+                        super(constants.particles.WebOrganelleSap, content, of);
+                    }
+                }
+                particle.WebOrganelleSap = WebOrganelleSap;
+                class NetOrganelleSap extends Particle {
+                    constructor(content, of) {
+                        super(constants.particles.NetOrganelleSap, content, of);
+                    }
+                }
+                particle.NetOrganelleSap = NetOrganelleSap;
+                class DbOrganelleSap extends Particle {
+                    constructor(content, of) {
+                        super(constants.particles.DbOrganelleSap, content, of);
+                    }
+                }
+                particle.DbOrganelleSap = DbOrganelleSap;
                 class DbIsOnline extends being.particle.VoidParticle {
                     constructor(of) {
                         super(constants.particles.DbIsOnline, of);

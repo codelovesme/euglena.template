@@ -55,6 +55,9 @@ export module euglena_template {
                     export const Session = "Session";
                     export const SetTime = "SetTime";
                     export const DbIsOnline = "DbIsOnline";
+                    export const NetOrganelleSap = "NetOrganelleSap";
+                    export const WebOrganelleSap = "WebOrganelleSap";
+                    export const DbOrganelleSap = "DbOrganelleSap";
 
                 }
                 export namespace organelles {
@@ -76,20 +79,43 @@ export module euglena_template {
             }
             export namespace organelle {
                 import Organelle = euglena.being.alive.Organelle;
-                export abstract class TimeOrganelle extends Organelle<{ euglenaName: string }> {
+                export abstract class TimeOrganelle extends Organelle<euglena.being.alive.particles.SapContent> {
                     constructor(className: string) { super(alive.constants.organelles.TimeOrganelle, className); }
                 }
-                export abstract class NetOrganelle extends Organelle<{ euglenaName: string, euglenaInfo: particle.EuglenaInfo }> {
+                export abstract class NetOrganelle extends Organelle<particle.NetOrganelleSapContent> {
                     constructor(className: string) { super(constants.organelles.NetOrganelle, className); }
                 }
-                export abstract class WebOrganelle extends Organelle<{ euglenaName: string, euglenaInfo: particle.EuglenaInfo }>{
+                export abstract class WebOrganelle extends Organelle<particle.WebOrganelleSapContent>{
                     constructor(className: string) { super(constants.organelles.WebOrganelle, className); }
                 }
-                export abstract class DbOrganelle extends Organelle<{ euglenaName: string, url: string, port: number, databaseName: string }>{
+                export abstract class DbOrganelle extends Organelle<particle.DbOrganelleSapContent>{
                     constructor(className: string) { super(constants.organelles.DbOrganelle, className); }
                 }
             }
             export namespace particle {
+                export interface WebOrganelleSapContent {
+                    euglenaName: string,
+                    euglenaInfo: particle.EuglenaInfo
+                }
+                export class WebOrganelleSap extends Particle {
+                    constructor(content: WebOrganelleSapContent, of: string) { super(constants.particles.WebOrganelleSap, content, of); }
+                }
+                export interface NetOrganelleSapContent {
+                    euglenaName: string,
+                    euglenaInfo: particle.EuglenaInfo
+                }
+                export class NetOrganelleSap extends Particle {
+                    constructor(content: NetOrganelleSapContent, of: string) { super(constants.particles.NetOrganelleSap, content, of); }
+                }
+                export interface DbOrganelleSapContent {
+                    euglenaName: string,
+                    url: string,
+                    port: number,
+                    databaseName: string
+                }
+                export class DbOrganelleSap extends Particle {
+                    constructor(content: DbOrganelleSapContent, of: string) { super(constants.particles.DbOrganelleSap, content, of); }
+                }
                 export class DbIsOnline extends being.particle.VoidParticle {
                     constructor(of: string) { super(constants.particles.DbIsOnline, of); }
                 }
