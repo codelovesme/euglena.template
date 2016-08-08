@@ -22,7 +22,7 @@ export module euglena_template {
         }
         export namespace alive {
             import Particle = euglena.being.Particle;
-            import Body = euglena.being.alive.Body;
+            import Cytoplasm = euglena.being.alive.Cytoplasm;
             import Time = euglena.sys.type.Time;
             export namespace constants {
                 export namespace particles {
@@ -156,8 +156,8 @@ export module euglena_template {
                 export class ThrowImpact extends euglena.being.Particle {
                     constructor(content: { to: alive.particle.EuglenaInfo, impact: Impact }, of: string) { super(constants.particles.ThrowImpact, content, of); }
                 }
-                export class EuglenaInfo implements euglena.sys.type.Named {
-                    constructor(public name: string, public url: string, public port: string) { }
+                export class EuglenaInfo extends euglena.being.Particle {
+                    constructor(content: { name: string, url: string, port: string }, of: string) { super(constants.particles.EuglenaInfo, content, of); }
                 }
                 export class OrganelleList extends Particle {
                     constructor(content: Array<string>, of: string) { super(constants.particles.OrganelleList, content, of); }

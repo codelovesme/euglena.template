@@ -147,11 +147,12 @@ export declare module euglena_template {
                         impact: Impact;
                     }, of: string);
                 }
-                class EuglenaInfo implements euglena.sys.type.Named {
-                    name: string;
-                    url: string;
-                    port: string;
-                    constructor(name: string, url: string, port: string);
+                class EuglenaInfo extends euglena.being.Particle {
+                    constructor(content: {
+                        name: string;
+                        url: string;
+                        port: string;
+                    }, of: string);
                 }
                 class OrganelleList extends Particle {
                     constructor(content: Array<string>, of: string);

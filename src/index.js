@@ -190,11 +190,9 @@ var euglena_template;
                     }
                 }
                 particle.ThrowImpact = ThrowImpact;
-                class EuglenaInfo {
-                    constructor(name, url, port) {
-                        this.name = name;
-                        this.url = url;
-                        this.port = port;
+                class EuglenaInfo extends euglena_1.euglena.being.Particle {
+                    constructor(content, of) {
+                        super(constants.particles.EuglenaInfo, content, of);
                     }
                 }
                 particle.EuglenaInfo = EuglenaInfo;
