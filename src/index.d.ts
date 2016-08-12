@@ -6,11 +6,11 @@ import Impact = euglena.being.interaction.Impact;
 export declare module euglena_template {
     namespace being {
         namespace particle {
-            class BooleanParticle extends euglena.being.Particle {
-                constructor(name: string, content: boolean, of: string);
+            abstract class BooleanParticle extends euglena.being.Particle {
+                constructor(meta: any, data: Boolean);
             }
-            class VoidParticle extends euglena.being.Particle {
-                constructor(name: string, of: string);
+            abstract class VoidParticle extends euglena.being.Particle {
+                constructor(meta: any);
             }
         }
         namespace alive {
