@@ -68,6 +68,7 @@ var euglena_template;
                     organelles.TimeOrganelle = "TimeOrganelle";
                     organelles.WebOrganelle = "WebOrganelle";
                     organelles.DbOrganelle = "DbOrganelle";
+                    organelles.NetClientOrganelle = "NetClientOrganelle";
                 })(organelles = constants.organelles || (constants.organelles = {}));
                 var impacts;
                 (function (impacts) {
@@ -108,6 +109,12 @@ var euglena_template;
                     }
                 }
                 organelle.DbOrganelle = DbOrganelle;
+                class NetClientOrganelle extends Organelle {
+                    constructor(className) {
+                        super(constants.organelles.NetClientOrganelle, className);
+                    }
+                }
+                organelle.NetClientOrganelle = NetClientOrganelle;
             })(organelle = alive.organelle || (alive.organelle = {}));
             var particle;
             (function (particle) {

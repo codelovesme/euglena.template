@@ -65,6 +65,7 @@ export module euglena_template {
                     export const TimeOrganelle = "TimeOrganelle";
                     export const WebOrganelle = "WebOrganelle";
                     export const DbOrganelle = "DbOrganelle";
+                    export const NetClientOrganelle = "NetClientOrganelle";
                 }
                 export namespace impacts {
                     export const AddGene = "AddGene";
@@ -91,8 +92,14 @@ export module euglena_template {
                 export abstract class DbOrganelle extends Organelle<particle.DbOrganelleSapContent>{
                     constructor(className: string) { super(constants.organelles.DbOrganelle, className); }
                 }
+                export abstract class NetClientOrganelle extends Organelle<particle.NetClientOrganelleSapContent>{
+                    constructor(className: string) { super(constants.organelles.NetClientOrganelle, className); }
+                }
             }
             export namespace particle {
+                export interface NetClientOrganelleSapContent{
+                    euglenaName:string
+                }
                 export interface WebOrganelleSapContent {
                     euglenaName: string,
                     euglenaInfo: particle.EuglenaInfo
