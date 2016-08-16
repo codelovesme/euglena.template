@@ -59,6 +59,7 @@ var euglena_template;
                     particles.SetTime = "SetTime";
                     particles.DbIsOnline = "DbIsOnline";
                     particles.NetOrganelleSap = "NetOrganelleSap";
+                    particles.NetClientOrganelleSap = "NetClientOrganelleSap";
                     particles.WebOrganelleSap = "WebOrganelleSap";
                     particles.DbOrganelleSap = "DbOrganelleSap";
                 })(particles = constants.particles || (constants.particles = {}));
@@ -118,6 +119,12 @@ var euglena_template;
             })(organelle = alive.organelle || (alive.organelle = {}));
             var particle;
             (function (particle) {
+                class NetClientOrganelleSap extends Particle {
+                    constructor(content, of) {
+                        super({ name: constants.particles.NetClientOrganelleSap, of: of }, content);
+                    }
+                }
+                particle.NetClientOrganelleSap = NetClientOrganelleSap;
                 class WebOrganelleSap extends Particle {
                     constructor(content, of) {
                         super({ name: constants.particles.WebOrganelleSap, of: of }, content);

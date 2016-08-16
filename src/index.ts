@@ -56,6 +56,7 @@ export module euglena_template {
                     export const SetTime = "SetTime";
                     export const DbIsOnline = "DbIsOnline";
                     export const NetOrganelleSap = "NetOrganelleSap";
+                    export const NetClientOrganelleSap = "NetClientOrganelleSap";
                     export const WebOrganelleSap = "WebOrganelleSap";
                     export const DbOrganelleSap = "DbOrganelleSap";
 
@@ -97,8 +98,11 @@ export module euglena_template {
                 }
             }
             export namespace particle {
-                export interface NetClientOrganelleSapContent{
-                    euglenaName:string
+                export interface NetClientOrganelleSapContent {
+                    euglenaName: string
+                }
+                export class NetClientOrganelleSap extends Particle {
+                    constructor(content: NetClientOrganelleSapContent, of: string) { super({ name: constants.particles.NetClientOrganelleSap, of: of }, content); }
                 }
                 export interface WebOrganelleSapContent {
                     euglenaName: string,

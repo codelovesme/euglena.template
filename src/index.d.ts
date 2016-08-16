@@ -47,6 +47,7 @@ export declare module euglena_template {
                     const SetTime: string;
                     const DbIsOnline: string;
                     const NetOrganelleSap: string;
+                    const NetClientOrganelleSap: string;
                     const WebOrganelleSap: string;
                     const DbOrganelleSap: string;
                 }
@@ -89,6 +90,9 @@ export declare module euglena_template {
             namespace particle {
                 interface NetClientOrganelleSapContent {
                     euglenaName: string;
+                }
+                class NetClientOrganelleSap extends Particle {
+                    constructor(content: NetClientOrganelleSapContent, of: string);
                 }
                 interface WebOrganelleSapContent {
                     euglenaName: string;
