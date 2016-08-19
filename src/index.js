@@ -62,6 +62,7 @@ var euglena_template;
                     particles.NetClientOrganelleSap = "NetClientOrganelleSap";
                     particles.WebOrganelleSap = "WebOrganelleSap";
                     particles.DbOrganelleSap = "DbOrganelleSap";
+                    particles.CytoplasmInfo = "CytoplasmInfo";
                 })(particles = constants.particles || (constants.particles = {}));
                 var organelles;
                 (function (organelles) {
@@ -210,6 +211,12 @@ var euglena_template;
                     }
                 }
                 particle.EuglenaInfo = EuglenaInfo;
+                class CytoplasmInfo extends euglena_1.euglena.being.Particle {
+                    constructor(content, of) {
+                        super({ name: constants.particles.EuglenaInfo, of: of }, content);
+                    }
+                }
+                particle.CytoplasmInfo = CytoplasmInfo;
                 class OrganelleList extends Particle {
                     constructor(content, of) {
                         super({ name: constants.particles.OrganelleList, of: of }, content);

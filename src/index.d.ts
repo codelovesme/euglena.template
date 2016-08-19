@@ -50,6 +50,7 @@ export declare module euglena_template {
                     const NetClientOrganelleSap: string;
                     const WebOrganelleSap: string;
                     const DbOrganelleSap: string;
+                    const CytoplasmInfo: string;
                 }
                 namespace organelles {
                     const NetOrganelle: string;
@@ -163,6 +164,13 @@ export declare module euglena_template {
                         name: string;
                         url: string;
                         port: string;
+                    }, of: string);
+                }
+                class CytoplasmInfo extends euglena.being.Particle {
+                    constructor(content: {
+                        particles: Particle[];
+                        organelleList: string[];
+                        chromosome: euglena.being.alive.dna.Gene[];
                     }, of: string);
                 }
                 class OrganelleList extends Particle {
