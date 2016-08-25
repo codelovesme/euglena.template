@@ -172,7 +172,7 @@ export module euglena_template {
                     constructor(content: { name: string, url: string, port: string }, of: string) { super({ name: constants.particles.EuglenaInfo, of: of }, content); }
                 }
                 export class CytoplasmInfo extends euglena.being.Particle {
-                    constructor(content: { particles: Particle[], organelleList: string[], chromosome: euglena.being.alive.dna.Gene[] }, of: string) { super({ name: constants.particles.EuglenaInfo, of: of }, content); }
+                    constructor(content: { particles: Particle[], chromosome: euglena.being.alive.dna.Gene[] }, of: string) { super({ name: constants.particles.EuglenaInfo, of: of }, content); }
                 }
                 export class OrganelleList extends Particle {
                     constructor(content: Array<string>, of: string) { super({ name: constants.particles.OrganelleList, of }, content); }

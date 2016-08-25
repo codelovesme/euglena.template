@@ -169,7 +169,6 @@ export declare module euglena_template {
                 class CytoplasmInfo extends euglena.being.Particle {
                     constructor(content: {
                         particles: Particle[];
-                        organelleList: string[];
                         chromosome: euglena.being.alive.dna.Gene[];
                     }, of: string);
                 }
