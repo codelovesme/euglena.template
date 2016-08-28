@@ -63,6 +63,7 @@ export module euglena_template {
 
                 }
                 export namespace organelles {
+                    export const WebUIOrganelle = "WebUIOrganelle";
                     export const NetOrganelle = "NetOrganelle";
                     export const TimeOrganelle = "TimeOrganelle";
                     export const WebOrganelle = "WebOrganelle";
@@ -91,6 +92,9 @@ export module euglena_template {
                 export abstract class WebOrganelle extends Organelle<particle.WebOrganelleSapContent>{
                     constructor(className: string) { super(constants.organelles.WebOrganelle, className); }
                 }
+                export abstract class WebUIOrganelle extends Organelle<particle.WebUIOrganelleSapContent>{
+                    constructor(className: string) { super(constants.organelles.WebUIOrganelle, className); }
+                }
                 export abstract class DbOrganelle extends Organelle<particle.DbOrganelleSapContent>{
                     constructor(className: string) { super(constants.organelles.DbOrganelle, className); }
                 }
@@ -100,6 +104,9 @@ export module euglena_template {
             }
             export namespace particle {
                 export interface NetClientOrganelleSapContent {
+                    euglenaName: string
+                }
+                export interface WebUIOrganelleSapContent {
                     euglenaName: string
                 }
                 export class NetClientOrganelleSap extends Particle {

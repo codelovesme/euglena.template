@@ -53,6 +53,7 @@ export declare module euglena_template {
                     const CytoplasmInfo: string;
                 }
                 namespace organelles {
+                    const WebUIOrganelle: string;
                     const NetOrganelle: string;
                     const TimeOrganelle: string;
                     const WebOrganelle: string;
@@ -81,6 +82,9 @@ export declare module euglena_template {
                 abstract class WebOrganelle extends Organelle<particle.WebOrganelleSapContent> {
                     constructor(className: string);
                 }
+                abstract class WebUIOrganelle extends Organelle<particle.WebUIOrganelleSapContent> {
+                    constructor(className: string);
+                }
                 abstract class DbOrganelle extends Organelle<particle.DbOrganelleSapContent> {
                     constructor(className: string);
                 }
@@ -90,6 +94,9 @@ export declare module euglena_template {
             }
             namespace particle {
                 interface NetClientOrganelleSapContent {
+                    euglenaName: string;
+                }
+                interface WebUIOrganelleSapContent {
                     euglenaName: string;
                 }
                 class NetClientOrganelleSap extends Particle {
