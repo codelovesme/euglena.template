@@ -32,10 +32,6 @@ var euglena_template;
                     particles.ParticlesOf = "ParticlesOf";
                     particles.EuglenaInfo = "EuglenaInfo";
                     particles.OrganelleList = "OrganelleList";
-                    particles.DbOrganelleInitialProperties = "DbOrganelleInitialProperties";
-                    particles.WebOrganelleInitialProperties = "WebOrganelleInitialProperties";
-                    particles.NucleusOrganelleInitialProperties = "NucleusOrganelleInitialProperties";
-                    particles.ReceptionOrganelleInitialProperties = "ReceptionOrganelleInitialProperties";
                     particles.EuglenaName = "EuglenaName";
                     particles.ImpactReceived = "ImpactReceived";
                     particles.EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
@@ -61,6 +57,7 @@ var euglena_template;
                     particles.NetOrganelleSap = "NetOrganelleSap";
                     particles.NetClientOrganelleSap = "NetClientOrganelleSap";
                     particles.WebOrganelleSap = "WebOrganelleSap";
+                    particles.WebUIOrganelleSap = "WebUIOrganelleSap";
                     particles.DbOrganelleSap = "DbOrganelleSap";
                     particles.CytoplasmInfo = "CytoplasmInfo";
                 })(particles = constants.particles || (constants.particles = {}));
@@ -133,6 +130,12 @@ var euglena_template;
                     }
                 }
                 particle.NetClientOrganelleSap = NetClientOrganelleSap;
+                class WebUIOrganelleSap extends Particle {
+                    constructor(content, of) {
+                        super({ name: constants.particles.WebUIOrganelleSap, of: of }, content);
+                    }
+                }
+                particle.WebUIOrganelleSap = WebUIOrganelleSap;
                 class WebOrganelleSap extends Particle {
                     constructor(content, of) {
                         super({ name: constants.particles.WebOrganelleSap, of: of }, content);

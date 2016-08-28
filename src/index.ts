@@ -29,10 +29,6 @@ export module euglena_template {
                     export const ParticlesOf = "ParticlesOf";
                     export const EuglenaInfo = "EuglenaInfo";
                     export const OrganelleList = "OrganelleList";
-                    export const DbOrganelleInitialProperties = "DbOrganelleInitialProperties";
-                    export const WebOrganelleInitialProperties = "WebOrganelleInitialProperties";
-                    export const NucleusOrganelleInitialProperties = "NucleusOrganelleInitialProperties";
-                    export const ReceptionOrganelleInitialProperties = "ReceptionOrganelleInitialProperties";
                     export const EuglenaName = "EuglenaName";
                     export const ImpactReceived = "ImpactReceived";
                     export const EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
@@ -58,6 +54,7 @@ export module euglena_template {
                     export const NetOrganelleSap = "NetOrganelleSap";
                     export const NetClientOrganelleSap = "NetClientOrganelleSap";
                     export const WebOrganelleSap = "WebOrganelleSap";
+                    export const WebUIOrganelleSap = "WebUIOrganelleSap";
                     export const DbOrganelleSap = "DbOrganelleSap";
                     export const CytoplasmInfo = "CytoplasmInfo";
 
@@ -111,6 +108,9 @@ export module euglena_template {
                 }
                 export class NetClientOrganelleSap extends Particle {
                     constructor(content: NetClientOrganelleSapContent, of: string) { super({ name: constants.particles.NetClientOrganelleSap, of: of }, content); }
+                }
+                export class WebUIOrganelleSap extends Particle {
+                    constructor(content: WebUIOrganelleSapContent, of: string) { super({ name: constants.particles.WebUIOrganelleSap, of: of }, content); }
                 }
                 export interface WebOrganelleSapContent {
                     euglenaName: string,
