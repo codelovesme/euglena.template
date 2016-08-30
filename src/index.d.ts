@@ -105,6 +105,7 @@ export declare module euglena_template {
                 interface WebOrganelleSapContent {
                     euglenaName: string;
                     euglenaInfo: particle.EuglenaInfo;
+                    singlePageApp: boolean;
                 }
                 class WebOrganelleSap extends Particle {
                     constructor(content: WebOrganelleSapContent, of: string);
