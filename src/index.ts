@@ -66,6 +66,7 @@ export module euglena_template {
                     export const WebOrganelle = "WebOrganelle";
                     export const DbOrganelle = "DbOrganelle";
                     export const NetClientOrganelle = "NetClientOrganelle";
+                    export const Cytoplasm = "Cytoplasm";
                 }
                 export namespace impacts {
                     export const AddGene = "AddGene";

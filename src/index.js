@@ -69,6 +69,7 @@ var euglena_template;
                     organelles.WebOrganelle = "WebOrganelle";
                     organelles.DbOrganelle = "DbOrganelle";
                     organelles.NetClientOrganelle = "NetClientOrganelle";
+                    organelles.Cytoplasm = "Cytoplasm";
                 })(organelles = constants.organelles || (constants.organelles = {}));
                 var impacts;
                 (function (impacts) {

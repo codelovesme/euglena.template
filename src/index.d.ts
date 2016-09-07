@@ -56,6 +56,7 @@ export declare module euglena_template {
                     const WebOrganelle: string;
                     const DbOrganelle: string;
                     const NetClientOrganelle: string;
+                    const Cytoplasm: string;
                 }
                 namespace impacts {
                     const AddGene: string;
