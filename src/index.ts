@@ -20,6 +20,64 @@ export module euglena_template {
                 constructor(meta: any) { super(meta, null); }
             }
         }
+        export namespace subscribtion {
+            export class Record {
+
+            }
+            import Particle = euglena.being.Particle;
+            export interface SubscribtionRecord {
+                particle: Particle;
+                euglenas: string[]
+            }
+            export class StaticTools {
+
+                private static subscribtionDict: SubscribtionRecord[] = [];
+                public static addSubscribtion(particleMatch: Particle, euglenaName: string): void {
+                    let euglenas = StaticTools.getSubscribtions(particleMatch);
+                    if (euglenas) {
+                        if (!euglena.sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
+                            euglenas.push(euglenaName);
+                        }
+                    } else {
+                        StaticTools.subscribtionDict.push({ particle: particleMatch, euglenas: [euglenaName] });
+                    }
+                }
+                public static removeSubscribtions(particleMatch: Particle): string[] {
+                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
+                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
+                            return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict, i).euglenas;
+                        }
+                    }
+                    return null;
+                }
+                public static removeSubscribtion(particleMatch: Particle, euglenaName: string): boolean {
+                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
+                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
+                            let index = StaticTools.subscribtionDict[i].euglenas.indexOf(euglenaName);
+                            if(index >= 0){
+                                return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict[i].euglenas,index) ? true : false;
+                            }
+                        }
+                    }
+                    return false;
+                }
+                public static getSubscribtions(particleMatch: Particle): string[] {
+                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
+                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
+                            return StaticTools.subscribtionDict[i].euglenas;
+                        }
+                    }
+                    return null;
+                }
+                public static isSubscribed(particleMatch: Particle, euglenaName: string): boolean {
+                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
+                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
+                            return euglena.sys.type.StaticTools.Array.contains(StaticTools.subscribtionDict[i].euglenas,euglenaName);
+                        }
+                    }
+                }
+            }
+        }
         export namespace alive {
             import Particle = euglena.being.Particle;
             import Cytoplasm = euglena.being.alive.Cytoplasm;

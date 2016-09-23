@@ -2,7 +2,7 @@
   "name": "euglena.template",
   "domain": "codeloves.me",
   "version": "0.0.3",
-  "main":"src/index.js",
+  "main": "src/index.js",
   "private": false,
   "license": "GPL v2",
   "author": {
@@ -11,6 +11,7 @@
   },
   "typings": "./src/index.d.ts",
   "dependencies": {
-    "euglena":"https://github.com/codelovesme/euglena.git#develop"
+    "chai": "^3.5.0",
+    "euglena": "https://github.com/codelovesme/euglena.git#develop"
   }
 }

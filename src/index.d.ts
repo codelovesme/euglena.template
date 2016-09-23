@@ -13,6 +13,23 @@ export declare module euglena_template {
                 constructor(meta: any);
             }
         }
+        namespace subscribtion {
+            class Record {
+            }
+            import Particle = euglena.being.Particle;
+            interface SubscribtionRecord {
+                particle: Particle;
+                euglenas: string[];
+            }
+            class StaticTools {
+                private static subscribtionDict;
+                static addSubscribtion(particleMatch: Particle, euglenaName: string): void;
+                static removeSubscribtions(particleMatch: Particle): string[];
+                static removeSubscribtion(particleMatch: Particle, euglenaName: string): boolean;
+                static getSubscribtions(particleMatch: Particle): string[];
+                static isSubscribed(particleMatch: Particle, euglenaName: string): boolean;
+            }
+        }
         namespace alive {
             import Particle = euglena.being.Particle;
             namespace constants {

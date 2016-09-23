@@ -22,6 +22,61 @@ var euglena_template;
             }
             particle.VoidParticle = VoidParticle;
         })(particle = being.particle || (being.particle = {}));
+        var subscribtion;
+        (function (subscribtion) {
+            class Record {
+            }
+            subscribtion.Record = Record;
+            class StaticTools {
+                static addSubscribtion(particleMatch, euglenaName) {
+                    let euglenas = StaticTools.getSubscribtions(particleMatch);
+                    if (euglenas) {
+                        if (!euglena_1.euglena.sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
+                            euglenas.push(euglenaName);
+                        }
+                    }
+                    else {
+                        StaticTools.subscribtionDict.push({ particle: particleMatch, euglenas: [euglenaName] });
+                    }
+                }
+                static removeSubscribtions(particleMatch) {
+                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
+                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
+                            return euglena_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict, i).euglenas;
+                        }
+                    }
+                    return null;
+                }
+                static removeSubscribtion(particleMatch, euglenaName) {
+                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
+                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
+                            let index = StaticTools.subscribtionDict[i].euglenas.indexOf(euglenaName);
+                            if (index >= 0) {
+                                return euglena_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict[i].euglenas, index) ? true : false;
+                            }
+                        }
+                    }
+                    return false;
+                }
+                static getSubscribtions(particleMatch) {
+                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
+                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
+                            return StaticTools.subscribtionDict[i].euglenas;
+                        }
+                    }
+                    return null;
+                }
+                static isSubscribed(particleMatch, euglenaName) {
+                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
+                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
+                            return euglena_1.euglena.sys.type.StaticTools.Array.contains(StaticTools.subscribtionDict[i].euglenas, euglenaName);
+                        }
+                    }
+                }
+            }
+            StaticTools.subscribtionDict = [];
+            subscribtion.StaticTools = StaticTools;
+        })(subscribtion = being.subscribtion || (being.subscribtion = {}));
         var alive;
         (function (alive) {
             var Particle = euglena_1.euglena.being.Particle;
