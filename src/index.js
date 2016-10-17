@@ -285,7 +285,7 @@ var euglena_template;
                 particle.CytoplasmInfo = CytoplasmInfo;
                 class OrganelleList extends Particle {
                     constructor(content, of) {
-                        super({ name: constants.particles.OrganelleList, of: of }, content);
+                        super({ name: constants.particles.OrganelleList, of }, content);
                     }
                 }
                 particle.OrganelleList = OrganelleList;

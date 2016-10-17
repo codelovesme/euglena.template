@@ -162,8 +162,9 @@ export module euglena_template {
                 export interface NetClientOrganelleSapContent {
                     euglenaName: string
                 }
-                export interface WebUIOrganelleSapContent {
-                    euglenaName: string
+                export interface WebUIOrganelleSapControent {
+                    euglenaName: string,
+                    rootComponentUrl: string
                 }
                 export class NetClientOrganelleSap extends Particle {
                     constructor(content: NetClientOrganelleSapContent, of: string) { super({ name: constants.particles.NetClientOrganelleSap, of: of }, content); }

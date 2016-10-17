@@ -113,6 +113,7 @@ export declare module euglena_template {
                 }
                 interface WebUIOrganelleSapContent {
                     euglenaName: string;
+                    rootComponentUrl: string;
                 }
                 class NetClientOrganelleSap extends Particle {
                     constructor(content: NetClientOrganelleSapContent, of: string);
