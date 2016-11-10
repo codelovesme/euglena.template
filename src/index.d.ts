@@ -212,7 +212,7 @@ export declare module euglena_template {
                     constructor(content: string, of: string);
                 }
                 class TokenRequest extends Particle {
-                    constructor(euglenaName: string, password: string);
+                    constructor(euglenaName: string, password: string, of: string);
                 }
                 class Exception extends euglena.being.Particle {
                     constructor(content: euglena.sys.type.Exception, of: string);

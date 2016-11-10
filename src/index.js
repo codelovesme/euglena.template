@@ -297,8 +297,8 @@ var euglena_template;
                 }
                 particle.Token = Token;
                 class TokenRequest extends Particle {
-                    constructor(euglenaName, password) {
-                        super({ name: constants.particles.TokenRequest, of: euglenaName }, { euglenaName: euglenaName, password: password });
+                    constructor(euglenaName, password, of) {
+                        super({ name: constants.particles.TokenRequest, of: of }, { euglenaName: euglenaName, password: password });
                     }
                 }
                 particle.TokenRequest = TokenRequest;

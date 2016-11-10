@@ -255,7 +255,9 @@ export module euglena_template {
                     constructor(content: string, of: string) { super({ name: constants.particles.Token, of: of }, content); }
                 }
                 export class TokenRequest extends Particle {
-                    constructor(euglenaName: string, password: string) { super({ name: constants.particles.TokenRequest , of:euglenaName}, { euglenaName: euglenaName, password: password }); }
+                    constructor(euglenaName: string, password: string, of: string) {
+                        super({ name: constants.particles.TokenRequest, of: of }, { euglenaName: euglenaName, password: password });
+                    }
                 }
                 export class Exception extends euglena.being.Particle {
                     constructor(content: euglena.sys.type.Exception, of: string) { super({ name: constants.particles.Exception, of: of }, content); }
