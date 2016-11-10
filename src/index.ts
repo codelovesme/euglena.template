@@ -4,7 +4,7 @@
 /**
  * Created by codelovesme on 6/19/2015.
  */
-import {euglena} from "euglena";
+import { euglena } from "euglena";
 import Exception = euglena.sys.type.Exception;
 import ParticleReference = euglena.being.alive.dna.ParticleReference;
 import Impact = euglena.being.interaction.Impact;
@@ -54,8 +54,8 @@ export module euglena_template {
                     for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
                         if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
                             let index = StaticTools.subscribtionDict[i].euglenas.indexOf(euglenaName);
-                            if(index >= 0){
-                                return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict[i].euglenas,index) ? true : false;
+                            if (index >= 0) {
+                                return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict[i].euglenas, index) ? true : false;
                             }
                         }
                     }
@@ -72,7 +72,7 @@ export module euglena_template {
                 public static isSubscribed(particleMatch: Particle, euglenaName: string): boolean {
                     for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
                         if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
-                            return euglena.sys.type.StaticTools.Array.contains(StaticTools.subscribtionDict[i].euglenas,euglenaName);
+                            return euglena.sys.type.StaticTools.Array.contains(StaticTools.subscribtionDict[i].euglenas, euglenaName);
                         }
                     }
                 }
@@ -95,6 +95,7 @@ export module euglena_template {
                     export const Exception = "Exception";
                     export const ConnectedToTheInternet = "ConnectedToTheInternet";
                     export const Token = "Token";
+                    export const TokenRequest = "TokenRequest";
                     export const Impacts = "Impacts";
                     export const DoesParticleExist = "DoesParticleExist";
                     export const DoesUniqueParticleExist = "DoesUniqueParticleExist";
@@ -162,7 +163,7 @@ export module euglena_template {
                 export interface NetClientOrganelleSapContent {
                     euglenaName: string
                 }
-                export interface WebUIOrganelleSapControent {
+                export interface WebUIOrganelleSapContent {
                     euglenaName: string,
                     rootComponentUrl: string
                 }
@@ -252,6 +253,9 @@ export module euglena_template {
                 }
                 export class Token extends Particle {
                     constructor(content: string, of: string) { super({ name: constants.particles.Token, of: of }, content); }
+                }
+                export class TokenRequest extends Particle {
+                    constructor(euglenaName: string, password: string) { super({ name: constants.particles.TokenRequest , of:euglenaName}, { euglenaName: euglenaName, password: password }); }
                 }
                 export class Exception extends euglena.being.Particle {
                     constructor(content: euglena.sys.type.Exception, of: string) { super({ name: constants.particles.Exception, of: of }, content); }

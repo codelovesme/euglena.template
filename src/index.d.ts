@@ -45,6 +45,7 @@ export declare module euglena_template {
                     const Exception: string;
                     const ConnectedToTheInternet: string;
                     const Token: string;
+                    const TokenRequest: string;
                     const Impacts: string;
                     const DoesParticleExist: string;
                     const DoesUniqueParticleExist: string;
@@ -209,6 +210,9 @@ export declare module euglena_template {
                 }
                 class Token extends Particle {
                     constructor(content: string, of: string);
+                }
+                class TokenRequest extends Particle {
+                    constructor(euglenaName: string, password: string);
                 }
                 class Exception extends euglena.being.Particle {
                     constructor(content: euglena.sys.type.Exception, of: string);
