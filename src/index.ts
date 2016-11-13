@@ -252,7 +252,7 @@ export module euglena_template {
                     for: string;
                 }
                 export class Token extends Particle {
-                    constructor(content: string, of: string) { super({ name: constants.particles.Token, of: of }, content); }
+                    constructor(content: TokenContent, of: string) { super({ name: constants.particles.Token, of: of }, content); }
                 }
                 export class TokenRequest extends Particle {
                     constructor(euglenaName: string, password: string, of: string) {

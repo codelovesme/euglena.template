@@ -209,7 +209,7 @@ export declare module euglena_template {
                     for: string;
                 }
                 class Token extends Particle {
-                    constructor(content: string, of: string);
+                    constructor(content: TokenContent, of: string);
                 }
                 class TokenRequest extends Particle {
                     constructor(euglenaName: string, password: string, of: string);
