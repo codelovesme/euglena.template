@@ -304,7 +304,7 @@ export module euglena_template {
                     constructor(content: DoesParticleExistContent, of: string) { super({ name: alive.constants.particles.DoesParticleExist, of: of }, content); }
                 }
                 export class ImpactReceived extends euglena.being.Particle {
-                    constructor(public content: Impact, of: string) { super({ name: constants.particles.ImpactReceived, of: of }, content); }
+                    constructor(content: Impact, of: string) { super({ name: constants.particles.ImpactReceived, of: of }, content); }
                 }
             }
         }

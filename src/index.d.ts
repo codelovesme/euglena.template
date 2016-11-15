@@ -259,7 +259,6 @@ export declare module euglena_template {
                     constructor(content: DoesParticleExistContent, of: string);
                 }
                 class ImpactReceived extends euglena.being.Particle {
-                    content: Impact;
                     constructor(content: Impact, of: string);
                 }
             }

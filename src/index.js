@@ -377,7 +377,6 @@ var euglena_template;
                 class ImpactReceived extends euglena_1.euglena.being.Particle {
                     constructor(content, of) {
                         super({ name: constants.particles.ImpactReceived, of: of }, content);
-                        this.content = content;
                     }
                 }
                 particle.ImpactReceived = ImpactReceived;
