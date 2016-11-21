@@ -41,6 +41,7 @@ export declare module euglena_template {
                     const ImpactReceived: string;
                     const EuglenaHasBeenBorn: string;
                     const Acknowledge: string;
+                    const Authenticate: string;
                     const Time: string;
                     const Exception: string;
                     const ConnectedToTheInternet: string;
@@ -158,6 +159,9 @@ export declare module euglena_template {
                 }
                 interface SessionContent {
                     token: string;
+                }
+                class Authenticate extends euglena.being.Particle {
+                    constructor(token: Token);
                 }
                 class Session extends euglena.being.Particle {
                     constructor(content: SessionContent, of: string);

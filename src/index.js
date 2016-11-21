@@ -91,6 +91,7 @@ var euglena_template;
                     particles.ImpactReceived = "ImpactReceived";
                     particles.EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
                     particles.Acknowledge = "Acknowledge";
+                    particles.Authenticate = "Authenticate";
                     particles.Time = "Time";
                     particles.Exception = "Exception";
                     particles.ConnectedToTheInternet = "ConnectedToTheInternet";
@@ -230,6 +231,12 @@ var euglena_template;
                     }
                 }
                 particle.ReturnIfConnectedToTheInternet = ReturnIfConnectedToTheInternet;
+                class Authenticate extends euglena_1.euglena.being.Particle {
+                    constructor(token) {
+                        super({ name: constants.particles.Authenticate }, token);
+                    }
+                }
+                particle.Authenticate = Authenticate;
                 class Session extends euglena_1.euglena.being.Particle {
                     constructor(content, of) {
                         super({ name: constants.particles.Session, of: of }, content);

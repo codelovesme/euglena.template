@@ -91,6 +91,7 @@ export module euglena_template {
                     export const ImpactReceived = "ImpactReceived";
                     export const EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
                     export const Acknowledge = "Acknowledge";
+                    export const Authenticate = "Authenticate";
                     export const Time = "Time";
                     export const Exception = "Exception";
                     export const ConnectedToTheInternet = "ConnectedToTheInternet";
@@ -209,6 +210,9 @@ export module euglena_template {
                 }
                 export interface SessionContent {
                     token: string;
+                }
+                export class Authenticate extends euglena.being.Particle {
+                    constructor(token: Token) { super({ name: constants.particles.Authenticate }, token); }
                 }
                 export class Session extends euglena.being.Particle {
                     constructor(content: SessionContent, of: string) { super({ name: constants.particles.Session, of: of }, content); }
