@@ -96,8 +96,8 @@ var euglena_template;
                     particles.Time = "Time";
                     particles.Exception = "Exception";
                     particles.ConnectedToTheInternet = "ConnectedToTheInternet";
-                    particles.Token = "Token";
-                    particles.TokenRequest = "TokenRequest";
+                    particles.Proxy = "Proxy";
+                    particles.ProxyRequest = "ProxyRequest";
                     particles.Impacts = "Impacts";
                     particles.DoesParticleExist = "DoesParticleExist";
                     particles.DoesUniqueParticleExist = "DoesUniqueParticleExist";
@@ -312,18 +312,18 @@ var euglena_template;
                     }
                 }
                 particle.OrganelleList = OrganelleList;
-                class Token extends Particle {
+                class Proxy extends Particle {
                     constructor(content, of) {
-                        super({ name: constants.particles.Token, of: of }, content);
+                        super({ name: constants.particles.Proxy, of: of }, content);
                     }
                 }
-                particle.Token = Token;
-                class TokenRequest extends Particle {
+                particle.Proxy = Proxy;
+                class ProxyRequest extends Particle {
                     constructor(euglenaName, password, of) {
-                        super({ name: constants.particles.TokenRequest, of: of }, { euglenaName: euglenaName, password: password });
+                        super({ name: constants.particles.ProxyRequest, of: of }, { euglenaName: euglenaName, password: password });
                     }
                 }
-                particle.TokenRequest = TokenRequest;
+                particle.ProxyRequest = ProxyRequest;
                 class Exception extends euglena_1.euglena.being.Particle {
                     constructor(content, of) {
                         super({ name: constants.particles.Exception, of: of }, content);

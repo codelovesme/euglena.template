@@ -96,8 +96,8 @@ export module euglena_template {
                     export const Time = "Time";
                     export const Exception = "Exception";
                     export const ConnectedToTheInternet = "ConnectedToTheInternet";
-                    export const Token = "Token";
-                    export const TokenRequest = "TokenRequest";
+                    export const Proxy = "Proxy";
+                    export const ProxyRequest = "ProxyRequest";
                     export const Impacts = "Impacts";
                     export const DoesParticleExist = "DoesParticleExist";
                     export const DoesUniqueParticleExist = "DoesUniqueParticleExist";
@@ -226,7 +226,7 @@ export module euglena_template {
                 }
 
                 export class Authenticate extends euglena.being.Particle {
-                    constructor(token: Token) { super({ name: constants.particles.Authenticate }, token); }
+                    constructor(token: Proxy) { super({ name: constants.particles.Authenticate }, token); }
                 }
                 export class Session extends euglena.being.Particle {
                     constructor(content: SessionContent, of: string) { super({ name: constants.particles.Session, of: of }, content); }
@@ -264,17 +264,18 @@ export module euglena_template {
                 export class OrganelleList extends Particle {
                     constructor(content: Array<string>, of: string) { super({ name: constants.particles.OrganelleList, of }, content); }
                 }
-                export interface TokenContent {
-                    uuid: string;
+                export interface ProxyContent {
+                    serial: string;
                     expiretime: euglena.sys.type.Time;
                     for: string;
+                    from: string
                 }
-                export class Token extends Particle {
-                    constructor(content: TokenContent, of: string) { super({ name: constants.particles.Token, of: of }, content); }
+                export class Proxy extends Particle {
+                    constructor(content: ProxyContent, of: string) { super({ name: constants.particles.Proxy, of: of }, content); }
                 }
-                export class TokenRequest extends Particle {
+                export class ProxyRequest extends Particle {
                     constructor(euglenaName: string, password: string, of: string) {
-                        super({ name: constants.particles.TokenRequest, of: of }, { euglenaName: euglenaName, password: password });
+                        super({ name: constants.particles.ProxyRequest, of: of }, { euglenaName: euglenaName, password: password });
                     }
                 }
                 export class Exception extends euglena.being.Particle {
