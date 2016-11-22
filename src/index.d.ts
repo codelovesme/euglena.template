@@ -69,6 +69,7 @@ export declare module euglena_template {
                     const WebUIOrganelleSap: string;
                     const DbOrganelleSap: string;
                     const CytoplasmInfo: string;
+                    const ReadMatchedParticles: string;
                 }
                 namespace organelles {
                     const WebUIOrganelle: string;
@@ -252,6 +253,9 @@ export declare module euglena_template {
                 }
                 class ReadParticlesOf extends Particle {
                     constructor(whose: string, of: string);
+                }
+                class ReadMatchedParticles extends Particle {
+                    constructor(particleRef: Particle, of: string);
                 }
                 class ParticlesOf extends Particle {
                     constructor(particles: Particle[], of: string);

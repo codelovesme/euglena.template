@@ -119,6 +119,7 @@ var euglena_template;
                     particles.WebUIOrganelleSap = "WebUIOrganelleSap";
                     particles.DbOrganelleSap = "DbOrganelleSap";
                     particles.CytoplasmInfo = "CytoplasmInfo";
+                    particles.ReadMatchedParticles = "ReadMatchedParticles";
                 })(particles = constants.particles || (constants.particles = {}));
                 var organelles;
                 (function (organelles) {
@@ -377,6 +378,12 @@ var euglena_template;
                     }
                 }
                 particle.ReadParticlesOf = ReadParticlesOf;
+                class ReadMatchedParticles extends Particle {
+                    constructor(particleRef, of) {
+                        super({ name: constants.particles.ReadMatchedParticles, of: of }, particleRef);
+                    }
+                }
+                particle.ReadMatchedParticles = ReadMatchedParticles;
                 class ParticlesOf extends Particle {
                     constructor(particles, of) {
                         super({ name: constants.particles.ParticlesOf, of: of }, particles);

@@ -119,6 +119,7 @@ export module euglena_template {
                     export const WebUIOrganelleSap = "WebUIOrganelleSap";
                     export const DbOrganelleSap = "DbOrganelleSap";
                     export const CytoplasmInfo = "CytoplasmInfo";
+                    export const ReadMatchedParticles = "ReadMatchedParticles";
 
                 }
                 export namespace organelles {
@@ -223,6 +224,7 @@ export module euglena_template {
                 export interface SessionContent {
                     token: string;
                 }
+
                 export class Authenticate extends euglena.being.Particle {
                     constructor(token: Token) { super({ name: constants.particles.Authenticate }, token); }
                 }
@@ -301,6 +303,11 @@ export module euglena_template {
                 }
                 export class ReadParticlesOf extends Particle {
                     constructor(whose: string, of: string) { super({ name: constants.impacts.ReadParticlesOf, of: of }, whose); }
+                }
+                export class ReadMatchedParticles extends Particle {
+                    constructor(particleRef: Particle, of: string) {
+                        super({ name: constants.particles.ReadMatchedParticles, of: of }, particleRef);
+                    }
                 }
                 export class ParticlesOf extends Particle {
                     constructor(particles: Particle[], of: string) { super({ name: constants.particles.ParticlesOf, of: of }, particles); }
