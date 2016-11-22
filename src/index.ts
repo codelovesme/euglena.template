@@ -108,6 +108,7 @@ export module euglena_template {
                     export const ConnectToEuglena = "ConnectToEuglena";
                     export const ReturnCurrentTime = "ReturnCurrentTime";
                     export const ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
+                    export const OrganelleHasComeToLife = "OrganelleHasComeToLife";
                     export const Session = "Session";
                     export const SetTime = "SetTime";
                     export const DbIsOnline = "DbIsOnline";
@@ -207,6 +208,11 @@ export module euglena_template {
                 }
                 export class ReturnIfConnectedToTheInternet extends VoidParticle {
                     constructor(of: string) { super({ name: constants.particles.ReturnIfConnectedToTheInternet, of: of }); }
+                }
+                export class OrganelleHasComeToLife extends Particle {
+                    constructor(organelleName: string, of: string) {
+                        super({ name: constants.particles.OrganelleHasComeToLife, of: of }, { organelleName: organelleName });
+                    }
                 }
                 export interface SessionContent {
                     token: string;

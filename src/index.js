@@ -108,6 +108,7 @@ var euglena_template;
                     particles.ConnectToEuglena = "ConnectToEuglena";
                     particles.ReturnCurrentTime = "ReturnCurrentTime";
                     particles.ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
+                    particles.OrganelleHasComeToLife = "OrganelleHasComeToLife";
                     particles.Session = "Session";
                     particles.SetTime = "SetTime";
                     particles.DbIsOnline = "DbIsOnline";
@@ -231,6 +232,12 @@ var euglena_template;
                     }
                 }
                 particle.ReturnIfConnectedToTheInternet = ReturnIfConnectedToTheInternet;
+                class OrganelleHasComeToLife extends Particle {
+                    constructor(organelleName, of) {
+                        super({ name: constants.particles.OrganelleHasComeToLife, of: of }, { organelleName: organelleName });
+                    }
+                }
+                particle.OrganelleHasComeToLife = OrganelleHasComeToLife;
                 class Authenticate extends euglena_1.euglena.being.Particle {
                     constructor(token) {
                         super({ name: constants.particles.Authenticate }, token);

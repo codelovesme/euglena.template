@@ -58,6 +58,7 @@ export declare module euglena_template {
                     const ConnectToEuglena: string;
                     const ReturnCurrentTime: string;
                     const ReturnIfConnectedToTheInternet: string;
+                    const OrganelleHasComeToLife: string;
                     const Session: string;
                     const SetTime: string;
                     const DbIsOnline: string;
@@ -156,6 +157,9 @@ export declare module euglena_template {
                 }
                 class ReturnIfConnectedToTheInternet extends VoidParticle {
                     constructor(of: string);
+                }
+                class OrganelleHasComeToLife extends Particle {
+                    constructor(organelleName: string, of: string);
                 }
                 interface SessionContent {
                     token: string;
