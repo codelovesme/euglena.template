@@ -167,10 +167,10 @@ export declare module euglena_template {
                     constructor(domain: string, of: string);
                 }
                 interface SessionContent {
-                    token: string;
+                    proxy: string;
                 }
                 class Authenticate extends euglena.being.Particle {
-                    constructor(token: Proxy);
+                    constructor(proxy: Proxy);
                 }
                 class Session extends euglena.being.Particle {
                     constructor(content: SessionContent, of: string);

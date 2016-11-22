@@ -247,8 +247,8 @@ var euglena_template;
                 }
                 particle.Domain = Domain;
                 class Authenticate extends euglena_1.euglena.being.Particle {
-                    constructor(token) {
-                        super({ name: constants.particles.Authenticate }, token);
+                    constructor(proxy) {
+                        super({ name: constants.particles.Authenticate }, proxy);
                     }
                 }
                 particle.Authenticate = Authenticate;

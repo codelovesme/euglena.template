@@ -222,11 +222,11 @@ export module euglena_template {
                     }
                 }
                 export interface SessionContent {
-                    token: string;
+                    proxy: string;
                 }
 
                 export class Authenticate extends euglena.being.Particle {
-                    constructor(token: Proxy) { super({ name: constants.particles.Authenticate }, token); }
+                    constructor(proxy: Proxy) { super({ name: constants.particles.Authenticate }, proxy); }
                 }
                 export class Session extends euglena.being.Particle {
                     constructor(content: SessionContent, of: string) { super({ name: constants.particles.Session, of: of }, content); }
