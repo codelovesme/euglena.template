@@ -84,6 +84,7 @@ export module euglena_template {
             import Time = euglena.sys.type.Time;
             export namespace constants {
                 export namespace particles {
+                    export const Domain = "Domain"
                     export const ParticlesOf = "ParticlesOf";
                     export const EuglenaInfo = "EuglenaInfo";
                     export const OrganelleList = "OrganelleList";
@@ -212,6 +213,11 @@ export module euglena_template {
                 export class OrganelleHasComeToLife extends Particle {
                     constructor(organelleName: string, of: string) {
                         super({ name: constants.particles.OrganelleHasComeToLife, of: of }, { organelleName: organelleName });
+                    }
+                }
+                export class Domain extends Particle {
+                    constructor(domain: string, of: string) {
+                        super({ name: constants.particles.Domain, of: of }, domain);
                     }
                 }
                 export interface SessionContent {

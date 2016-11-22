@@ -84,6 +84,7 @@ var euglena_template;
             (function (constants) {
                 var particles;
                 (function (particles) {
+                    particles.Domain = "Domain";
                     particles.ParticlesOf = "ParticlesOf";
                     particles.EuglenaInfo = "EuglenaInfo";
                     particles.OrganelleList = "OrganelleList";
@@ -238,6 +239,12 @@ var euglena_template;
                     }
                 }
                 particle.OrganelleHasComeToLife = OrganelleHasComeToLife;
+                class Domain extends Particle {
+                    constructor(domain, of) {
+                        super({ name: constants.particles.Domain, of: of }, domain);
+                    }
+                }
+                particle.Domain = Domain;
                 class Authenticate extends euglena_1.euglena.being.Particle {
                     constructor(token) {
                         super({ name: constants.particles.Authenticate }, token);

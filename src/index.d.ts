@@ -34,6 +34,7 @@ export declare module euglena_template {
             import Particle = euglena.being.Particle;
             namespace constants {
                 namespace particles {
+                    const Domain: string;
                     const ParticlesOf: string;
                     const EuglenaInfo: string;
                     const OrganelleList: string;
@@ -160,6 +161,9 @@ export declare module euglena_template {
                 }
                 class OrganelleHasComeToLife extends Particle {
                     constructor(organelleName: string, of: string);
+                }
+                class Domain extends Particle {
+                    constructor(domain: string, of: string);
                 }
                 interface SessionContent {
                     token: string;
