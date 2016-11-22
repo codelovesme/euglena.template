@@ -216,14 +216,8 @@ export declare module euglena_template {
                 class OrganelleList extends Particle {
                     constructor(content: Array<string>, of: string);
                 }
-                interface ProxyContent {
-                    serial: string;
-                    expiretime: euglena.sys.type.Time;
-                    for: string;
-                    from: string;
-                }
                 class Proxy extends Particle {
-                    constructor(content: ProxyContent, of: string);
+                    constructor(content: string, of: string, for_: string);
                 }
                 class ProxyRequest extends Particle {
                     constructor(euglenaName: string, password: string, of: string);

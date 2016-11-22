@@ -313,8 +313,8 @@ var euglena_template;
                 }
                 particle.OrganelleList = OrganelleList;
                 class Proxy extends Particle {
-                    constructor(content, of) {
-                        super({ name: constants.particles.Proxy, of: of }, content);
+                    constructor(content, of, for_) {
+                        super({ name: constants.particles.Proxy, of: of, for: for_ }, content);
                     }
                 }
                 particle.Proxy = Proxy;
