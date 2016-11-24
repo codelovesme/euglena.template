@@ -85,6 +85,7 @@ var euglena_template;
                 var particles;
                 (function (particles) {
                     particles.Domain = "Domain";
+                    particles.WhoAmI = "WhoAmI";
                     particles.ParticlesOf = "ParticlesOf";
                     particles.EuglenaInfo = "EuglenaInfo";
                     particles.OrganelleList = "OrganelleList";
@@ -185,6 +186,12 @@ var euglena_template;
             })(organelle = alive.organelle || (alive.organelle = {}));
             var particle;
             (function (particle) {
+                class WhoAmI extends Particle {
+                    constructor() {
+                        super({ name: constants.particles.WhoAmI }, {});
+                    }
+                }
+                particle.WhoAmI = WhoAmI;
                 class NetClientOrganelleSap extends Particle {
                     constructor(content, of) {
                         super({ name: constants.particles.NetClientOrganelleSap, of: of }, content);

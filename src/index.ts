@@ -84,7 +84,8 @@ export module euglena_template {
             import Time = euglena.sys.type.Time;
             export namespace constants {
                 export namespace particles {
-                    export const Domain = "Domain"
+                    export const Domain = "Domain";
+                    export const WhoAmI = "WhoAmI";
                     export const ParticlesOf = "ParticlesOf";
                     export const EuglenaInfo = "EuglenaInfo";
                     export const OrganelleList = "OrganelleList";
@@ -164,6 +165,11 @@ export module euglena_template {
                 }
             }
             export namespace particle {
+                export class WhoAmI extends Particle {
+                    constructor() {
+                        super({ name: constants.particles.WhoAmI },{});
+                    }
+                }
                 export interface NetClientOrganelleSapContent {
                     euglenaName: string
                 }

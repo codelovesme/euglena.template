@@ -35,6 +35,7 @@ export declare module euglena_template {
             namespace constants {
                 namespace particles {
                     const Domain: string;
+                    const WhoAmI: string;
                     const ParticlesOf: string;
                     const EuglenaInfo: string;
                     const OrganelleList: string;
@@ -113,6 +114,9 @@ export declare module euglena_template {
                 }
             }
             namespace particle {
+                class WhoAmI extends Particle {
+                    constructor();
+                }
                 interface NetClientOrganelleSapContent {
                     euglenaName: string;
                 }
