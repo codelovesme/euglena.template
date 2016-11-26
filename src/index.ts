@@ -110,7 +110,7 @@ export module euglena_template {
                     export const ReturnCurrentTime = "ReturnCurrentTime";
                     export const ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
                     export const OrganelleHasComeToLife = "OrganelleHasComeToLife";
-                    export const Session = "Session";
+                    export const Proxy = "Proxy";
                     export const SetTime = "SetTime";
                     export const DbIsOnline = "DbIsOnline";
                     export const NetOrganelleSap = "NetOrganelleSap";
@@ -228,6 +228,9 @@ export module euglena_template {
                 }
                 export class Authenticate extends euglena.being.Particle {
                     constructor(euglenaName: string, password: string) { super({ name: constants.particles.Authenticate }, { euglenaName: euglenaName, password: password }); }
+                }
+                export class Proxy extends Particle {
+                    constructor(from: string, to: string, expireTime: euglena.sys.type.Time) { super({ name: constants.particles.Proxy, expireTime: expireTime }, { from: from, to: to }); }
                 }
                 export class SetTime extends Particle {
                     constructor(time: euglena.sys.type.Time, of: string) { super({ name: constants.particles.SetTime, of: of }, time); }

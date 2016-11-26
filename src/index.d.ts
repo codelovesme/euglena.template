@@ -60,7 +60,7 @@ export declare module euglena_template {
                     const ReturnCurrentTime: string;
                     const ReturnIfConnectedToTheInternet: string;
                     const OrganelleHasComeToLife: string;
-                    const Session: string;
+                    const Proxy: string;
                     const SetTime: string;
                     const DbIsOnline: string;
                     const NetOrganelleSap: string;
@@ -171,6 +171,9 @@ export declare module euglena_template {
                 }
                 class Authenticate extends euglena.being.Particle {
                     constructor(euglenaName: string, password: string);
+                }
+                class Proxy extends Particle {
+                    constructor(from: string, to: string, expireTime: euglena.sys.type.Time);
                 }
                 class SetTime extends Particle {
                     constructor(time: euglena.sys.type.Time, of: string);

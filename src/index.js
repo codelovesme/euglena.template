@@ -110,7 +110,7 @@ var euglena_template;
                     particles.ReturnCurrentTime = "ReturnCurrentTime";
                     particles.ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
                     particles.OrganelleHasComeToLife = "OrganelleHasComeToLife";
-                    particles.Session = "Session";
+                    particles.Proxy = "Proxy";
                     particles.SetTime = "SetTime";
                     particles.DbIsOnline = "DbIsOnline";
                     particles.NetOrganelleSap = "NetOrganelleSap";
@@ -258,6 +258,12 @@ var euglena_template;
                     }
                 }
                 particle.Authenticate = Authenticate;
+                class Proxy extends Particle {
+                    constructor(from, to, expireTime) {
+                        super({ name: constants.particles.Proxy, expireTime: expireTime }, { from: from, to: to });
+                    }
+                }
+                particle.Proxy = Proxy;
                 class SetTime extends Particle {
                     constructor(time, of) {
                         super({ name: constants.particles.SetTime, of: of }, time);
