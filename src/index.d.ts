@@ -47,8 +47,7 @@ export declare module euglena_template {
                     const Time: string;
                     const Exception: string;
                     const ConnectedToTheInternet: string;
-                    const Proxy: string;
-                    const ProxyRequest: string;
+                    const Token: string;
                     const Impacts: string;
                     const DoesParticleExist: string;
                     const DoesUniqueParticleExist: string;
@@ -170,14 +169,8 @@ export declare module euglena_template {
                 class Domain extends Particle {
                     constructor(domain: string, of: string);
                 }
-                interface SessionContent {
-                    proxy: string;
-                }
                 class Authenticate extends euglena.being.Particle {
-                    constructor(proxy: Proxy);
-                }
-                class Session extends euglena.being.Particle {
-                    constructor(content: SessionContent, of: string);
+                    constructor(euglenaName: string, password: string);
                 }
                 class SetTime extends Particle {
                     constructor(time: euglena.sys.type.Time, of: string);
@@ -220,11 +213,8 @@ export declare module euglena_template {
                 class OrganelleList extends Particle {
                     constructor(content: Array<string>, of: string);
                 }
-                class Proxy extends Particle {
+                class Token extends Particle {
                     constructor(content: string, of: string, for_: string);
-                }
-                class ProxyRequest extends Particle {
-                    constructor(euglenaName: string, password: string, of: string);
                 }
                 class Exception extends euglena.being.Particle {
                     constructor(content: euglena.sys.type.Exception, of: string);

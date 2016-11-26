@@ -97,8 +97,7 @@ export module euglena_template {
                     export const Time = "Time";
                     export const Exception = "Exception";
                     export const ConnectedToTheInternet = "ConnectedToTheInternet";
-                    export const Proxy = "Proxy";
-                    export const ProxyRequest = "ProxyRequest";
+                    export const Token = "Token";
                     export const Impacts = "Impacts";
                     export const DoesParticleExist = "DoesParticleExist";
                     export const DoesUniqueParticleExist = "DoesUniqueParticleExist";
@@ -167,7 +166,7 @@ export module euglena_template {
             export namespace particle {
                 export class WhoAmI extends Particle {
                     constructor() {
-                        super({ name: constants.particles.WhoAmI },{});
+                        super({ name: constants.particles.WhoAmI }, {});
                     }
                 }
                 export interface NetClientOrganelleSapContent {
@@ -227,15 +226,8 @@ export module euglena_template {
                         super({ name: constants.particles.Domain, of: of }, domain);
                     }
                 }
-                export interface SessionContent {
-                    proxy: string;
-                }
-
                 export class Authenticate extends euglena.being.Particle {
-                    constructor(proxy: Proxy) { super({ name: constants.particles.Authenticate }, proxy); }
-                }
-                export class Session extends euglena.being.Particle {
-                    constructor(content: SessionContent, of: string) { super({ name: constants.particles.Session, of: of }, content); }
+                    constructor(euglenaName: string, password: string) { super({ name: constants.particles.Authenticate }, { euglenaName: euglenaName, password: password }); }
                 }
                 export class SetTime extends Particle {
                     constructor(time: euglena.sys.type.Time, of: string) { super({ name: constants.particles.SetTime, of: of }, time); }
@@ -270,13 +262,8 @@ export module euglena_template {
                 export class OrganelleList extends Particle {
                     constructor(content: Array<string>, of: string) { super({ name: constants.particles.OrganelleList, of }, content); }
                 }
-                export class Proxy extends Particle {
-                    constructor(content: string, of: string, for_: string) { super({ name: constants.particles.Proxy, of: of, for: for_ }, content); }
-                }
-                export class ProxyRequest extends Particle {
-                    constructor(euglenaName: string, password: string, of: string) {
-                        super({ name: constants.particles.ProxyRequest, of: of }, { euglenaName: euglenaName, password: password });
-                    }
+                export class Token extends Particle {
+                    constructor(content: string, of: string, for_: string) { super({ name: constants.particles.Token, of: of, for: for_ }, content); }
                 }
                 export class Exception extends euglena.being.Particle {
                     constructor(content: euglena.sys.type.Exception, of: string) { super({ name: constants.particles.Exception, of: of }, content); }
