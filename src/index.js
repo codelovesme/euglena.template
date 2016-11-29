@@ -392,7 +392,7 @@ var euglena_template;
                 particle.ParticlesOf = ParticlesOf;
                 class RemoveParticle extends Particle {
                     constructor(ref, of) {
-                        super({ name: constants.impacts.RemoveParticle, of: of }, particle);
+                        super({ name: constants.impacts.RemoveParticle, of: of }, ref);
                     }
                 }
                 particle.RemoveParticle = RemoveParticle;
