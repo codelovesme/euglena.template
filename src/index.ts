@@ -308,7 +308,7 @@ export module euglena_template {
                     of: string
                 }
                 export class RemoveParticle extends Particle {
-                    constructor(content: RemoveParticleContent, of: string) { super({ name: constants.impacts.RemoveParticle, of: of }, content); }
+                    constructor(ref: Particle, of: string) { super({ name: constants.impacts.RemoveParticle, of: of }, particle); }
                 }
                 export interface DoesParticleExistContent {
                     name: string,
