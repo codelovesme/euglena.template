@@ -275,7 +275,7 @@ export declare module euglena_template {
     namespace reference {
         namespace being {
             namespace interaction {
-                const Impact: Impact;
+                const Impact: any;
             }
             const Particle: euglena.being.Particle;
         }
