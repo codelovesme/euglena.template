@@ -2,4 +2,3 @@ bin/
 node_modules/
 typings/
 .vscode/
-*.js.map

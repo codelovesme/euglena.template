@@ -116,6 +116,7 @@ export module euglena_template {
                     export const NetOrganelleSap = "NetOrganelleSap";
                     export const NetClientOrganelleSap = "NetClientOrganelleSap";
                     export const WebOrganelleSap = "WebOrganelleSap";
+                    export const GPSOrganelleSap = "GPSOrganelleSap";
                     export const WebUIOrganelleSap = "WebUIOrganelleSap";
                     export const DbOrganelleSap = "DbOrganelleSap";
                     export const CytoplasmInfo = "CytoplasmInfo";
@@ -124,6 +125,7 @@ export module euglena_template {
                 }
                 export namespace organelles {
                     export const WebUIOrganelle = "WebUIOrganelle";
+                    export const GPSOrganelle = "GPSOrganelle";
                     export const NetOrganelle = "NetOrganelle";
                     export const TimeOrganelle = "TimeOrganelle";
                     export const WebOrganelle = "WebOrganelle";
@@ -162,6 +164,9 @@ export module euglena_template {
                 export abstract class NetClientOrganelle extends Organelle<particle.NetClientOrganelleSapContent>{
                     constructor(className: string) { super(constants.organelles.NetClientOrganelle, className); }
                 }
+                export abstract class GPSOrganelle extends Organelle<particle.GPSOrganelleSapContent>{
+                    constructor(className: string) { super(constants.organelles.GPSOrganelle, className); }
+                }
             }
             export namespace particle {
                 export class WhoAmI extends Particle {
@@ -189,6 +194,12 @@ export module euglena_template {
                 }
                 export class WebOrganelleSap extends Particle {
                     constructor(content: WebOrganelleSapContent, of: string) { super({ name: constants.particles.WebOrganelleSap, of: of }, content); }
+                }
+                export interface GPSOrganelleSapContent {
+                    euglenaName: string,
+                }
+                export class GPSOrganelleSap extends Particle {
+                    constructor(content: GPSOrganelleSapContent, of: string) { super({ name: constants.particles.GPSOrganelleSap, of: of }, content); }
                 }
                 export interface NetOrganelleSapContent {
                     euglenaName: string,
@@ -326,7 +337,7 @@ export module euglena_template {
     export namespace reference {
         export namespace being {
             export namespace interaction {
-                export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle({ name: "name", of: "of" }, "content"), "token");
+                export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle({ name: "name", of: "of" }, "content"), "token","from");
             }
             export const Particle = new euglena.being.Particle({ name: "name", of: "of" }, "content");
         }

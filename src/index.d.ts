@@ -34,61 +34,63 @@ export declare module euglena_template {
             import Particle = euglena.being.Particle;
             namespace constants {
                 namespace particles {
-                    const Domain: string;
-                    const WhoAmI: string;
-                    const ParticlesOf: string;
-                    const EuglenaInfo: string;
-                    const OrganelleList: string;
-                    const EuglenaName: string;
-                    const ImpactReceived: string;
-                    const EuglenaHasBeenBorn: string;
-                    const Acknowledge: string;
-                    const Authenticate: string;
-                    const Time: string;
-                    const Exception: string;
-                    const ConnectedToTheInternet: string;
-                    const Token: string;
-                    const Impacts: string;
-                    const DoesParticleExist: string;
-                    const DoesUniqueParticleExist: string;
-                    const Gene: string;
-                    const ThrowImpact: string;
-                    const Listen: string;
-                    const ConnectedToEuglena: string;
-                    const DisconnectedFromEuglena: string;
-                    const ConnectToEuglena: string;
-                    const ReturnCurrentTime: string;
-                    const ReturnIfConnectedToTheInternet: string;
-                    const OrganelleHasComeToLife: string;
-                    const Proxy: string;
-                    const SetTime: string;
-                    const DbIsOnline: string;
-                    const NetOrganelleSap: string;
-                    const NetClientOrganelleSap: string;
-                    const WebOrganelleSap: string;
-                    const WebUIOrganelleSap: string;
-                    const DbOrganelleSap: string;
-                    const CytoplasmInfo: string;
-                    const ReadMatchedParticles: string;
+                    const Domain = "Domain";
+                    const WhoAmI = "WhoAmI";
+                    const ParticlesOf = "ParticlesOf";
+                    const EuglenaInfo = "EuglenaInfo";
+                    const OrganelleList = "OrganelleList";
+                    const EuglenaName = "EuglenaName";
+                    const ImpactReceived = "ImpactReceived";
+                    const EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
+                    const Acknowledge = "Acknowledge";
+                    const Authenticate = "Authenticate";
+                    const Time = "Time";
+                    const Exception = "Exception";
+                    const ConnectedToTheInternet = "ConnectedToTheInternet";
+                    const Token = "Token";
+                    const Impacts = "Impacts";
+                    const DoesParticleExist = "DoesParticleExist";
+                    const DoesUniqueParticleExist = "DoesUniqueParticleExist";
+                    const Gene = "Gene";
+                    const ThrowImpact = "ThrowImpact";
+                    const Listen = "Listen";
+                    const ConnectedToEuglena = "ConnectedToEuglena";
+                    const DisconnectedFromEuglena = "DisconnectedFromEuglena";
+                    const ConnectToEuglena = "ConnectToEuglena";
+                    const ReturnCurrentTime = "ReturnCurrentTime";
+                    const ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
+                    const OrganelleHasComeToLife = "OrganelleHasComeToLife";
+                    const Proxy = "Proxy";
+                    const SetTime = "SetTime";
+                    const DbIsOnline = "DbIsOnline";
+                    const NetOrganelleSap = "NetOrganelleSap";
+                    const NetClientOrganelleSap = "NetClientOrganelleSap";
+                    const WebOrganelleSap = "WebOrganelleSap";
+                    const GPSOrganelleSap = "GPSOrganelleSap";
+                    const WebUIOrganelleSap = "WebUIOrganelleSap";
+                    const DbOrganelleSap = "DbOrganelleSap";
+                    const CytoplasmInfo = "CytoplasmInfo";
+                    const ReadMatchedParticles = "ReadMatchedParticles";
                 }
                 namespace organelles {
-                    const WebUIOrganelle: string;
-                    const NetOrganelle: string;
-                    const TimeOrganelle: string;
-                    const WebOrganelle: string;
-                    const DbOrganelle: string;
-                    const NetClientOrganelle: string;
-                    const Cytoplasm: string;
+                    const WebUIOrganelle = "WebUIOrganelle";
+                    const GPSOrganelle = "GPSOrganelle";
+                    const NetOrganelle = "NetOrganelle";
+                    const TimeOrganelle = "TimeOrganelle";
+                    const WebOrganelle = "WebOrganelle";
+                    const DbOrganelle = "DbOrganelle";
+                    const NetClientOrganelle = "NetClientOrganelle";
+                    const Cytoplasm = "Cytoplasm";
                 }
                 namespace impacts {
-                    const AddGene: string;
-                    const TimeChanged: string;
-                    const ExceptionOccurred: string;
-                    const SaveParticle: string;
-                    const ReadParticle: string;
-                    const ReadParticles: string;
-                    const ReadParticlesOf: string;
-                    const RemoveParticle: string;
+                    const AddGene = "AddGene";
+                    const TimeChanged = "TimeChanged";
+                    const ExceptionOccurred = "ExceptionOccurred";
+                    const SaveParticle = "SaveParticle";
+                    const ReadParticle = "ReadParticle";
+                    const ReadParticles = "ReadParticles";
+                    const ReadParticlesOf = "ReadParticlesOf";
+                    const RemoveParticle = "RemoveParticle";
                 }
             }
             namespace organelle {
@@ -109,6 +111,9 @@ export declare module euglena_template {
                     constructor(className: string);
                 }
                 abstract class NetClientOrganelle extends Organelle<particle.NetClientOrganelleSapContent> {
+                    constructor(className: string);
+                }
+                abstract class GPSOrganelle extends Organelle<particle.GPSOrganelleSapContent> {
                     constructor(className: string);
                 }
             }
@@ -136,6 +141,12 @@ export declare module euglena_template {
                 }
                 class WebOrganelleSap extends Particle {
                     constructor(content: WebOrganelleSapContent, of: string);
+                }
+                interface GPSOrganelleSapContent {
+                    euglenaName: string;
+                }
+                class GPSOrganelleSap extends Particle {
+                    constructor(content: GPSOrganelleSapContent, of: string);
                 }
                 interface NetOrganelleSapContent {
                     euglenaName: string;
@@ -275,7 +286,7 @@ export declare module euglena_template {
     namespace reference {
         namespace being {
             namespace interaction {
-                const Impact: any;
+                const Impact: Impact;
             }
             const Particle: euglena.being.Particle;
         }
