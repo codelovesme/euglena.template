@@ -111,6 +111,7 @@ export module euglena_template {
                     export const ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
                     export const OrganelleHasComeToLife = "OrganelleHasComeToLife";
                     export const Proxy = "Proxy";
+                    export const Coordinate = "Coordinate";
                     export const SetTime = "SetTime";
                     export const DbIsOnline = "DbIsOnline";
                     export const NetOrganelleSap = "NetOrganelleSap";
@@ -169,6 +170,11 @@ export module euglena_template {
                 }
             }
             export namespace particle {
+                export class Coordinate extends Particle {
+                    constructor(lat: string, lon: string, of: string) {
+                        super({ name: constants.particles.Coordinate, of: of }, { lat: lat, lon: lon });
+                    }
+                }
                 export class WhoAmI extends Particle {
                     constructor() {
                         super({ name: constants.particles.WhoAmI }, {});
@@ -337,7 +343,7 @@ export module euglena_template {
     export namespace reference {
         export namespace being {
             export namespace interaction {
-                export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle({ name: "name", of: "of" }, "content"), "token","from");
+                export const Impact = new euglena.being.interaction.Impact(new euglena.being.Particle({ name: "name", of: "of" }, "content"), "token", "from");
             }
             export const Particle = new euglena.being.Particle({ name: "name", of: "of" }, "content");
         }

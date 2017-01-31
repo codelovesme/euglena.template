@@ -61,6 +61,7 @@ export declare module euglena_template {
                     const ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
                     const OrganelleHasComeToLife = "OrganelleHasComeToLife";
                     const Proxy = "Proxy";
+                    const Coordinate = "Coordinate";
                     const SetTime = "SetTime";
                     const DbIsOnline = "DbIsOnline";
                     const NetOrganelleSap = "NetOrganelleSap";
@@ -118,6 +119,9 @@ export declare module euglena_template {
                 }
             }
             namespace particle {
+                class Coordinate extends Particle {
+                    constructor(lat: string, lon: string, of: string);
+                }
                 class WhoAmI extends Particle {
                     constructor();
                 }

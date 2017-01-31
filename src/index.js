@@ -126,6 +126,7 @@ var euglena_template;
                     particles.ReturnIfConnectedToTheInternet = "ReturnIfConnectedToTheInternet";
                     particles.OrganelleHasComeToLife = "OrganelleHasComeToLife";
                     particles.Proxy = "Proxy";
+                    particles.Coordinate = "Coordinate";
                     particles.SetTime = "SetTime";
                     particles.DbIsOnline = "DbIsOnline";
                     particles.NetOrganelleSap = "NetOrganelleSap";
@@ -222,6 +223,14 @@ var euglena_template;
             })(organelle = alive.organelle || (alive.organelle = {}));
             var particle;
             (function (particle) {
+                var Coordinate = (function (_super) {
+                    __extends(Coordinate, _super);
+                    function Coordinate(lat, lon, of) {
+                        return _super.call(this, { name: constants.particles.Coordinate, of: of }, { lat: lat, lon: lon }) || this;
+                    }
+                    return Coordinate;
+                }(Particle));
+                particle.Coordinate = Coordinate;
                 var WhoAmI = (function (_super) {
                     __extends(WhoAmI, _super);
                     function WhoAmI() {
