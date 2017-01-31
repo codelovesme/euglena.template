@@ -203,6 +203,7 @@ export module euglena_template {
                 }
                 export interface GPSOrganelleSapContent {
                     euglenaName: string,
+                    port:string
                 }
                 export class GPSOrganelleSap extends Particle {
                     constructor(content: GPSOrganelleSapContent, of: string) { super({ name: constants.particles.GPSOrganelleSap, of: of }, content); }
