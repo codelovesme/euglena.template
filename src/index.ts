@@ -122,6 +122,7 @@ export module euglena_template {
                     export const DbOrganelleSap = "DbOrganelleSap";
                     export const CytoplasmInfo = "CytoplasmInfo";
                     export const ReadMatchedParticles = "ReadMatchedParticles";
+                    export const Subscribe = "Subscribe";
 
                 }
                 export namespace organelles {
@@ -170,6 +171,11 @@ export module euglena_template {
                 }
             }
             export namespace particle {
+                export class Subscribe extends Particle{
+                    constructor(particleReference:Particle){
+                        super({name:constants.particles.Subscribe},particleReference);
+                    }
+                }
                 export class Coordinate extends Particle {
                     constructor(lat: string, lon: string, of: string, timestamp: Date) {
                         super({ name: constants.particles.Coordinate, of: of, timestamp: timestamp }, { lat: lat, lon: lon });

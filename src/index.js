@@ -137,6 +137,7 @@ var euglena_template;
                     particles.DbOrganelleSap = "DbOrganelleSap";
                     particles.CytoplasmInfo = "CytoplasmInfo";
                     particles.ReadMatchedParticles = "ReadMatchedParticles";
+                    particles.Subscribe = "Subscribe";
                 })(particles = constants.particles || (constants.particles = {}));
                 var organelles;
                 (function (organelles) {
@@ -223,6 +224,14 @@ var euglena_template;
             })(organelle = alive.organelle || (alive.organelle = {}));
             var particle;
             (function (particle) {
+                var Subscribe = (function (_super) {
+                    __extends(Subscribe, _super);
+                    function Subscribe(particleReference) {
+                        return _super.call(this, { name: constants.particles.Subscribe }, particleReference) || this;
+                    }
+                    return Subscribe;
+                }(Particle));
+                particle.Subscribe = Subscribe;
                 var Coordinate = (function (_super) {
                     __extends(Coordinate, _super);
                     function Coordinate(lat, lon, of, timestamp) {
