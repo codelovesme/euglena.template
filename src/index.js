@@ -228,7 +228,9 @@ var euglena_template;
                 var SubscribtionDict = (function (_super) {
                     __extends(SubscribtionDict, _super);
                     function SubscribtionDict() {
-                        return _super.call(this, { name: constants.particles.SubscribtionDict }, new euglena_1.euglena.sys.type.Map()) || this;
+                        return _super.call(this, { name: constants.particles.SubscribtionDict }, new euglena_1.euglena.sys.type.Map(function (key1, key2) {
+                            return euglena_1.euglena.js.Class.doesCover(key1, key2);
+                        })) || this;
                     }
                     return SubscribtionDict;
                 }(Particle));

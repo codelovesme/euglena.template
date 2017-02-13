@@ -174,7 +174,9 @@ export module euglena_template {
             export namespace particle {
                 export class SubscribtionDict extends Particle {
                     constructor(){
-                        super({name:constants.particles.SubscribtionDict},new euglena.sys.type.Map<Particle,string[]>());
+                        super({name:constants.particles.SubscribtionDict},new euglena.sys.type.Map<any,string[]>((key1,key2)=>{
+                            return euglena.js.Class.doesCover(key1,key2);
+                        }));
                     }
                 }
                 export class Subscribe extends Particle{
