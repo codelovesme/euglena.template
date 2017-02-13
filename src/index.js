@@ -138,6 +138,7 @@ var euglena_template;
                     particles.CytoplasmInfo = "CytoplasmInfo";
                     particles.ReadMatchedParticles = "ReadMatchedParticles";
                     particles.Subscribe = "Subscribe";
+                    particles.SubscribtionDict = "SubscribtionDict";
                 })(particles = constants.particles || (constants.particles = {}));
                 var organelles;
                 (function (organelles) {
@@ -224,6 +225,14 @@ var euglena_template;
             })(organelle = alive.organelle || (alive.organelle = {}));
             var particle;
             (function (particle) {
+                var SubscribtionDict = (function (_super) {
+                    __extends(SubscribtionDict, _super);
+                    function SubscribtionDict() {
+                        return _super.call(this, { name: constants.particles.SubscribtionDict }, new euglena_1.euglena.sys.type.Map()) || this;
+                    }
+                    return SubscribtionDict;
+                }(Particle));
+                particle.SubscribtionDict = SubscribtionDict;
                 var Subscribe = (function (_super) {
                     __extends(Subscribe, _super);
                     function Subscribe(particleReference) {

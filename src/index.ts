@@ -123,6 +123,7 @@ export module euglena_template {
                     export const CytoplasmInfo = "CytoplasmInfo";
                     export const ReadMatchedParticles = "ReadMatchedParticles";
                     export const Subscribe = "Subscribe";
+                    export const SubscribtionDict = "SubscribtionDict";
 
                 }
                 export namespace organelles {
@@ -171,6 +172,11 @@ export module euglena_template {
                 }
             }
             export namespace particle {
+                export class SubscribtionDict extends Particle {
+                    constructor(){
+                        super({name:constants.particles.SubscribtionDict},new euglena.sys.type.Map<Particle,string[]>());
+                    }
+                }
                 export class Subscribe extends Particle{
                     constructor(particleReference:Particle){
                         super({name:constants.particles.Subscribe},particleReference);
