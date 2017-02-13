@@ -120,7 +120,7 @@ export declare module euglena_template {
             }
             namespace particle {
                 class Coordinate extends Particle {
-                    constructor(lat: string, lon: string, of: string);
+                    constructor(lat: string, lon: string, of: string, timestamp: Date);
                 }
                 class WhoAmI extends Particle {
                     constructor();

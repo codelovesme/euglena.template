@@ -171,8 +171,8 @@ export module euglena_template {
             }
             export namespace particle {
                 export class Coordinate extends Particle {
-                    constructor(lat: string, lon: string, of: string) {
-                        super({ name: constants.particles.Coordinate, of: of }, { lat: lat, lon: lon });
+                    constructor(lat: string, lon: string, of: string, timestamp: Date) {
+                        super({ name: constants.particles.Coordinate, of: of, timestamp: timestamp }, { lat: lat, lon: lon });
                     }
                 }
                 export class WhoAmI extends Particle {
@@ -203,7 +203,7 @@ export module euglena_template {
                 }
                 export interface GPSOrganelleSapContent {
                     euglenaName: string,
-                    port:string
+                    port: string
                 }
                 export class GPSOrganelleSap extends Particle {
                     constructor(content: GPSOrganelleSapContent, of: string) { super({ name: constants.particles.GPSOrganelleSap, of: of }, content); }

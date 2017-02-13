@@ -225,8 +225,8 @@ var euglena_template;
             (function (particle) {
                 var Coordinate = (function (_super) {
                     __extends(Coordinate, _super);
-                    function Coordinate(lat, lon, of) {
-                        return _super.call(this, { name: constants.particles.Coordinate, of: of }, { lat: lat, lon: lon }) || this;
+                    function Coordinate(lat, lon, of, timestamp) {
+                        return _super.call(this, { name: constants.particles.Coordinate, of: of, timestamp: timestamp }, { lat: lat, lon: lon }) || this;
                     }
                     return Coordinate;
                 }(Particle));
