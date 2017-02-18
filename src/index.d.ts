@@ -74,6 +74,7 @@ export declare module euglena_template {
                     const ReadMatchedParticles = "ReadMatchedParticles";
                     const Subscribe = "Subscribe";
                     const SubscribtionDict = "SubscribtionDict";
+                    const Password = "Password";
                 }
                 namespace organelles {
                     const WebUIOrganelle = "WebUIOrganelle";
@@ -121,6 +122,9 @@ export declare module euglena_template {
                 }
             }
             namespace particle {
+                class Password extends Particle {
+                    constructor(euglenaName: string, value: string);
+                }
                 class SubscribtionDict extends Particle {
                     constructor();
                 }

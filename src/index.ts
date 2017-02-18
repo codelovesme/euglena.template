@@ -124,6 +124,7 @@ export module euglena_template {
                     export const ReadMatchedParticles = "ReadMatchedParticles";
                     export const Subscribe = "Subscribe";
                     export const SubscribtionDict = "SubscribtionDict";
+                    export const Password = "Password";
 
                 }
                 export namespace organelles {
@@ -172,16 +173,19 @@ export module euglena_template {
                 }
             }
             export namespace particle {
+                export class Password extends Particle {
+                    constructor(euglenaName: string, value: string) { super({ name: constants.particles.Password, of: euglenaName }, value); }
+                }
                 export class SubscribtionDict extends Particle {
-                    constructor(){
-                        super({name:constants.particles.SubscribtionDict},new euglena.sys.type.Map<any,string[]>((key1,key2)=>{
-                            return euglena.js.Class.doesCover(key1,key2);
+                    constructor() {
+                        super({ name: constants.particles.SubscribtionDict }, new euglena.sys.type.Map<any, string[]>((key1, key2) => {
+                            return euglena.js.Class.doesCover(key1, key2);
                         }));
                     }
                 }
-                export class Subscribe extends Particle{
-                    constructor(particleReference:Particle){
-                        super({name:constants.particles.Subscribe},particleReference);
+                export class Subscribe extends Particle {
+                    constructor(particleReference: Particle) {
+                        super({ name: constants.particles.Subscribe }, particleReference);
                     }
                 }
                 export class Coordinate extends Particle {
