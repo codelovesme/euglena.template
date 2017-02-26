@@ -125,6 +125,7 @@ export module euglena_template {
                     export const Subscribe = "Subscribe";
                     export const SubscribtionDict = "SubscribtionDict";
                     export const Password = "Password";
+                    export const MatchedParticles = "MatchedParticles";
 
                 }
                 export namespace organelles {
@@ -173,6 +174,15 @@ export module euglena_template {
                 }
             }
             export namespace particle {
+                export interface MatchedParticlesContent {
+                    particleRef: Particle;
+                    result: Particle[];
+                }
+                export class MatchedParticles extends Particle {
+                    constructor(content: MatchedParticlesContent, of: string) {
+                        super({ name: constants.particles.MatchedParticles, of: of }, content);
+                    }
+                }
                 export class Password extends Particle {
                     constructor(euglenaName: string, value: string) { super({ name: constants.particles.Password, of: euglenaName }, value); }
                 }
