@@ -140,7 +140,7 @@ export declare module euglena_template {
                     constructor(particleReference: Particle);
                 }
                 class Coordinate extends Particle {
-                    constructor(lat: string, lon: string, of: string, timestamp: Date);
+                    constructor(lat: string, lon: string, of: string, timestamp: string);
                 }
                 class WhoAmI extends Particle {
                     constructor();

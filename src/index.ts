@@ -199,7 +199,7 @@ export module euglena_template {
                     }
                 }
                 export class Coordinate extends Particle {
-                    constructor(lat: string, lon: string, of: string, timestamp: Date) {
+                    constructor(lat: string, lon: string, of: string, timestamp: string) {
                         super({ name: constants.particles.Coordinate, of: of, timestamp: timestamp }, { lat: lat, lon: lon });
                     }
                 }
