@@ -19,59 +19,59 @@ export module euglena_template {
                 constructor(meta: euglena.being.MetaV2) { super(meta); }
             }
         }
-        export namespace subscribtion {
+        export namespace subscription {
             export class Record {
 
             }
             import Particle = euglena.being.Particle;
-            export interface SubscribtionRecord {
+            export interface SubscriptionRecord {
                 particle: Particle;
                 euglenas: string[]
             }
             export class StaticTools {
 
-                private static subscribtionDict: SubscribtionRecord[] = [];
-                public static addSubscribtion(particleMatch: Particle, euglenaName: string): void {
-                    let euglenas = StaticTools.getSubscribtions(particleMatch);
+                private static subscriptionDict: SubscriptionRecord[] = [];
+                public static addSubscription(particleMatch: Particle, euglenaName: string): void {
+                    let euglenas = StaticTools.getSubscriptions(particleMatch);
                     if (euglenas) {
                         if (!euglena.sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
                             euglenas.push(euglenaName);
                         }
                     } else {
-                        StaticTools.subscribtionDict.push({ particle: particleMatch, euglenas: [euglenaName] });
+                        StaticTools.subscriptionDict.push({ particle: particleMatch, euglenas: [euglenaName] });
                     }
                 }
-                public static removeSubscribtions(particleMatch: Particle): string[] {
-                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
-                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
-                            return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict, i).euglenas;
+                public static removeSubscriptions(particleMatch: Particle): string[] {
+                    for (let i = 0; i < StaticTools.subscriptionDict.length; i++) {
+                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict, i).euglenas;
                         }
                     }
                     return null;
                 }
-                public static removeSubscribtion(particleMatch: Particle, euglenaName: string): boolean {
-                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
-                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
-                            let index = StaticTools.subscribtionDict[i].euglenas.indexOf(euglenaName);
+                public static removeSubscription(particleMatch: Particle, euglenaName: string): boolean {
+                    for (let i = 0; i < StaticTools.subscriptionDict.length; i++) {
+                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            let index = StaticTools.subscriptionDict[i].euglenas.indexOf(euglenaName);
                             if (index >= 0) {
-                                return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict[i].euglenas, index) ? true : false;
+                                return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict[i].euglenas, index) ? true : false;
                             }
                         }
                     }
                     return false;
                 }
-                public static getSubscribtions(particleMatch: Particle): string[] {
-                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
-                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
-                            return StaticTools.subscribtionDict[i].euglenas;
+                public static getSubscriptions(particleMatch: Particle): string[] {
+                    for (let i = 0; i < StaticTools.subscriptionDict.length; i++) {
+                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return StaticTools.subscriptionDict[i].euglenas;
                         }
                     }
                     return null;
                 }
                 public static isSubscribed(particleMatch: Particle, euglenaName: string): boolean {
-                    for (let i = 0; i < StaticTools.subscribtionDict.length; i++) {
-                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
-                            return euglena.sys.type.StaticTools.Array.contains(StaticTools.subscribtionDict[i].euglenas, euglenaName);
+                    for (let i = 0; i < StaticTools.subscriptionDict.length; i++) {
+                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return euglena.sys.type.StaticTools.Array.contains(StaticTools.subscriptionDict[i].euglenas, euglenaName);
                         }
                     }
                 }
@@ -123,7 +123,7 @@ export module euglena_template {
                     export const CytoplasmInfo = "CytoplasmInfo";
                     export const ReadParticles = "ReadParticles";
                     export const Subscribe = "Subscribe";
-                    export const SubscribtionDict = "SubscribtionDict";
+                    export const subscriptionDict = "subscriptionDict";
                     export const Password = "Password";
                     export const AddGene = "AddGene";
                     export const TimeChanged = "TimeChanged";
@@ -176,9 +176,9 @@ export module euglena_template {
                 export class Password extends ParticleV2<string> {
                     constructor(euglenaName: string, value: string) { super(new MetaV2(constants.particles.Password, euglenaName), value); }
                 }
-                export class SubscribtionDict extends ParticleV2<euglena.sys.type.Map<any, string[]>> {
+                export class subscriptionDict extends ParticleV2<euglena.sys.type.Map<any, string[]>> {
                     constructor(of: string) {
-                        super(new MetaV2(constants.particles.SubscribtionDict, of), new euglena.sys.type.Map<any, string[]>((key1, key2) => {
+                        super(new MetaV2(constants.particles.subscriptionDict, of), new euglena.sys.type.Map<any, string[]>((key1, key2) => {
                             return euglena.js.Class.doesCover(key1, key2);
                         }));
                     }

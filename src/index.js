@@ -31,67 +31,67 @@ var euglena_template;
             }(euglena_1.euglena.being.ParticleV2));
             particle.VoidParticle = VoidParticle;
         })(particle = being.particle || (being.particle = {}));
-        var subscribtion;
-        (function (subscribtion) {
+        var subscription;
+        (function (subscription) {
             var Record = (function () {
                 function Record() {
                 }
                 return Record;
             }());
-            subscribtion.Record = Record;
+            subscription.Record = Record;
             var StaticTools = (function () {
                 function StaticTools() {
                 }
-                StaticTools.addSubscribtion = function (particleMatch, euglenaName) {
-                    var euglenas = StaticTools.getSubscribtions(particleMatch);
+                StaticTools.addSubscription = function (particleMatch, euglenaName) {
+                    var euglenas = StaticTools.getSubscriptions(particleMatch);
                     if (euglenas) {
                         if (!euglena_1.euglena.sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
                             euglenas.push(euglenaName);
                         }
                     }
                     else {
-                        StaticTools.subscribtionDict.push({ particle: particleMatch, euglenas: [euglenaName] });
+                        StaticTools.subscriptionDict.push({ particle: particleMatch, euglenas: [euglenaName] });
                     }
                 };
-                StaticTools.removeSubscribtions = function (particleMatch) {
-                    for (var i = 0; i < StaticTools.subscribtionDict.length; i++) {
-                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
-                            return euglena_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict, i).euglenas;
+                StaticTools.removeSubscriptions = function (particleMatch) {
+                    for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
+                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return euglena_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict, i).euglenas;
                         }
                     }
                     return null;
                 };
-                StaticTools.removeSubscribtion = function (particleMatch, euglenaName) {
-                    for (var i = 0; i < StaticTools.subscribtionDict.length; i++) {
-                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
-                            var index = StaticTools.subscribtionDict[i].euglenas.indexOf(euglenaName);
+                StaticTools.removeSubscription = function (particleMatch, euglenaName) {
+                    for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
+                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            var index = StaticTools.subscriptionDict[i].euglenas.indexOf(euglenaName);
                             if (index >= 0) {
-                                return euglena_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscribtionDict[i].euglenas, index) ? true : false;
+                                return euglena_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict[i].euglenas, index) ? true : false;
                             }
                         }
                     }
                     return false;
                 };
-                StaticTools.getSubscribtions = function (particleMatch) {
-                    for (var i = 0; i < StaticTools.subscribtionDict.length; i++) {
-                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
-                            return StaticTools.subscribtionDict[i].euglenas;
+                StaticTools.getSubscriptions = function (particleMatch) {
+                    for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
+                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return StaticTools.subscriptionDict[i].euglenas;
                         }
                     }
                     return null;
                 };
                 StaticTools.isSubscribed = function (particleMatch, euglenaName) {
-                    for (var i = 0; i < StaticTools.subscribtionDict.length; i++) {
-                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscribtionDict[i].particle)) {
-                            return euglena_1.euglena.sys.type.StaticTools.Array.contains(StaticTools.subscribtionDict[i].euglenas, euglenaName);
+                    for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
+                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return euglena_1.euglena.sys.type.StaticTools.Array.contains(StaticTools.subscriptionDict[i].euglenas, euglenaName);
                         }
                     }
                 };
                 return StaticTools;
             }());
-            StaticTools.subscribtionDict = [];
-            subscribtion.StaticTools = StaticTools;
-        })(subscribtion = being.subscribtion || (being.subscribtion = {}));
+            StaticTools.subscriptionDict = [];
+            subscription.StaticTools = StaticTools;
+        })(subscription = being.subscription || (being.subscription = {}));
         var alive;
         (function (alive) {
             var ParticleV2 = euglena_1.euglena.being.ParticleV2;
@@ -139,7 +139,7 @@ var euglena_template;
                     particles.CytoplasmInfo = "CytoplasmInfo";
                     particles.ReadParticles = "ReadParticles";
                     particles.Subscribe = "Subscribe";
-                    particles.SubscribtionDict = "SubscribtionDict";
+                    particles.subscriptionDict = "subscriptionDict";
                     particles.Password = "Password";
                     particles.AddGene = "AddGene";
                     particles.TimeChanged = "TimeChanged";
@@ -231,16 +231,16 @@ var euglena_template;
                     return Password;
                 }(ParticleV2));
                 particle.Password = Password;
-                var SubscribtionDict = (function (_super) {
-                    __extends(SubscribtionDict, _super);
-                    function SubscribtionDict(of) {
-                        return _super.call(this, new MetaV2(constants.particles.SubscribtionDict, of), new euglena_1.euglena.sys.type.Map(function (key1, key2) {
+                var subscriptionDict = (function (_super) {
+                    __extends(subscriptionDict, _super);
+                    function subscriptionDict(of) {
+                        return _super.call(this, new MetaV2(constants.particles.subscriptionDict, of), new euglena_1.euglena.sys.type.Map(function (key1, key2) {
                             return euglena_1.euglena.js.Class.doesCover(key1, key2);
                         })) || this;
                     }
-                    return SubscribtionDict;
+                    return subscriptionDict;
                 }(ParticleV2));
-                particle.SubscribtionDict = SubscribtionDict;
+                particle.subscriptionDict = subscriptionDict;
                 var Subscribe = (function (_super) {
                     __extends(Subscribe, _super);
                     function Subscribe(particleReference, of) {

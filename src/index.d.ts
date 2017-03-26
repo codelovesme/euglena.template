@@ -13,20 +13,20 @@ export declare module euglena_template {
                 constructor(meta: euglena.being.MetaV2);
             }
         }
-        namespace subscribtion {
+        namespace subscription {
             class Record {
             }
             import Particle = euglena.being.Particle;
-            interface SubscribtionRecord {
+            interface SubscriptionRecord {
                 particle: Particle;
                 euglenas: string[];
             }
             class StaticTools {
-                private static subscribtionDict;
-                static addSubscribtion(particleMatch: Particle, euglenaName: string): void;
-                static removeSubscribtions(particleMatch: Particle): string[];
-                static removeSubscribtion(particleMatch: Particle, euglenaName: string): boolean;
-                static getSubscribtions(particleMatch: Particle): string[];
+                private static subscriptionDict;
+                static addSubscription(particleMatch: Particle, euglenaName: string): void;
+                static removeSubscriptions(particleMatch: Particle): string[];
+                static removeSubscription(particleMatch: Particle, euglenaName: string): boolean;
+                static getSubscriptions(particleMatch: Particle): string[];
                 static isSubscribed(particleMatch: Particle, euglenaName: string): boolean;
             }
         }
@@ -74,7 +74,7 @@ export declare module euglena_template {
                     const CytoplasmInfo = "CytoplasmInfo";
                     const ReadParticles = "ReadParticles";
                     const Subscribe = "Subscribe";
-                    const SubscribtionDict = "SubscribtionDict";
+                    const subscriptionDict = "subscriptionDict";
                     const Password = "Password";
                     const AddGene = "AddGene";
                     const TimeChanged = "TimeChanged";
@@ -127,7 +127,7 @@ export declare module euglena_template {
                 class Password extends ParticleV2<string> {
                     constructor(euglenaName: string, value: string);
                 }
-                class SubscribtionDict extends ParticleV2<euglena.sys.type.Map<any, string[]>> {
+                class subscriptionDict extends ParticleV2<euglena.sys.type.Map<any, string[]>> {
                     constructor(of: string);
                 }
                 class Subscribe extends ParticleV2<Particle> {

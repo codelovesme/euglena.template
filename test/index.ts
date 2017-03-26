@@ -10,43 +10,45 @@ import * as chai from "chai";
 import Particle = euglena.being.Particle;
 
 import Class = euglena.js.Class;
-import StaticTools = euglena_template.being.subscribtion.StaticTools;
+import tools = euglena_template.being.subscription.StaticTools;
 
 describe("euglena.template", () => {
     describe("being", () => {
-        describe("subscribtion", () => {
+        describe("subscription", () => {
             describe("StaticTools", () => {
-                it("addSubscribtion", () => {
+                it("addSubscription", () => {
                     //given
                     let particle = { meta: { name: "Token" } };
                     let euglenaName = "idcore";
                     //when
-                    let result = StaticTools.addSubscribtion(particle as euglena.being.Particle, euglenaName);
+                    let result = tools.addSubscription(particle as euglena.being.Particle, euglenaName);
                     //then
-                    let tools :any = StaticTools;
-                    chai.expect(tools["subscribtionDict"]).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]).property('particle',particle);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.contains(euglenaName);
+                    chai.expect(tools["subscriptionDict"]).to.has.length(1);
+                    chai.expect(tools["subscriptionDict"][0]).property('particle',particle);
+                    chai.expect(tools["subscriptionDict"][0]['euglenas']).to.has.length(1);
+                    chai.expect(tools["subscriptionDict"][0]['euglenas']).to.contains(euglenaName);
                 });
-                it("removeSubscribtions", () => {
+                it("removeSubscription", () => {
                     //given
                     let particle = { meta: { name: "Token" } };
                     let euglenaName = "idcore";
-                    let result = StaticTools.addSubscribtion(particle as euglena.being.Particle, euglenaName);
-                    //then
-                    let tools :any = StaticTools;
-                    chai.expect(tools["subscribtionDict"]).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]).property('particle',particle);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.contains(euglenaName);
+                    let result = tools.addSubscription(particle as euglena.being.Particle, euglenaName);
                     //when
-                    StaticTools.removeSubscribtions(particle as Particle);
+                    tools.removeSubscription(particle as Particle,euglenaName);
                     //after then
-                    chai.expect(tools["subscribtionDict"]).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]).property('particle',particle);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.has.length(0);
-
+                    chai.expect(tools["subscriptionDict"]).to.has.length(1);
+                    chai.expect(tools["subscriptionDict"][0]).property('particle');
+                    chai.expect(tools["subscriptionDict"][0]['euglenas']).to.has.length(0);
+                });
+                it("removeSubscriptions", () => {
+                    //given
+                    let particle = { meta: { name: "Token" } };
+                    let euglenaName = "idcore";
+                    let result = tools.addSubscription(particle as euglena.being.Particle, euglenaName);
+                    //when
+                    tools.removeSubscriptions(particle as Particle);
+                    //after then
+                    chai.expect(tools["subscriptionDict"]).to.has.length(0);
                 });
             });
         });

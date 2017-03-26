@@ -2,41 +2,44 @@
 "use strict";
 var index_1 = require("../src/index");
 var chai = require("chai");
-var StaticTools = index_1.euglena_template.being.subscribtion.StaticTools;
+var tools = index_1.euglena_template.being.subscription.StaticTools;
 describe("euglena.template", function () {
     describe("being", function () {
-        describe("subscribtion", function () {
+        describe("subscription", function () {
             describe("StaticTools", function () {
-                it("addSubscribtion", function () {
+                it("addSubscription", function () {
                     //given
                     var particle = { meta: { name: "Token" } };
                     var euglenaName = "idcore";
                     //when
-                    var result = StaticTools.addSubscribtion(particle, euglenaName);
+                    var result = tools.addSubscription(particle, euglenaName);
                     //then
-                    var tools = StaticTools;
-                    chai.expect(tools["subscribtionDict"]).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]).property('particle', particle);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.contains(euglenaName);
+                    chai.expect(tools["subscriptionDict"]).to.has.length(1);
+                    chai.expect(tools["subscriptionDict"][0]).property('particle', particle);
+                    chai.expect(tools["subscriptionDict"][0]['euglenas']).to.has.length(1);
+                    chai.expect(tools["subscriptionDict"][0]['euglenas']).to.contains(euglenaName);
                 });
-                it("removeSubscribtions", function () {
+                it("removeSubscription", function () {
                     //given
                     var particle = { meta: { name: "Token" } };
                     var euglenaName = "idcore";
-                    var result = StaticTools.addSubscribtion(particle, euglenaName);
-                    //then
-                    var tools = StaticTools;
-                    chai.expect(tools["subscribtionDict"]).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]).property('particle', particle);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.contains(euglenaName);
+                    var result = tools.addSubscription(particle, euglenaName);
                     //when
-                    StaticTools.removeSubscribtions(particle);
+                    tools.removeSubscription(particle, euglenaName);
                     //after then
-                    chai.expect(tools["subscribtionDict"]).to.has.length(1);
-                    chai.expect(tools["subscribtionDict"][0]).property('particle', particle);
-                    chai.expect(tools["subscribtionDict"][0]['euglenas']).to.has.length(0);
+                    chai.expect(tools["subscriptionDict"]).to.has.length(1);
+                    chai.expect(tools["subscriptionDict"][0]).property('particle');
+                    chai.expect(tools["subscriptionDict"][0]['euglenas']).to.has.length(0);
+                });
+                it("removeSubscriptions", function () {
+                    //given
+                    var particle = { meta: { name: "Token" } };
+                    var euglenaName = "idcore";
+                    var result = tools.addSubscription(particle, euglenaName);
+                    //when
+                    tools.removeSubscriptions(particle);
+                    //after then
+                    chai.expect(tools["subscriptionDict"]).to.has.length(0);
                 });
             });
         });
