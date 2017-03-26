@@ -247,6 +247,7 @@ export declare module euglena_template {
                 class EuglenaInfo extends euglena.being.ParticleV2<{
                     name: string;
                     url: string;
+                    port: string;
                 }> {
                     constructor(content: {
                         name: string;
@@ -314,6 +315,14 @@ export declare module euglena_template {
                     constructor(content: Impact, of: string);
                 }
             }
+        }
+    }
+    namespace reference {
+        namespace being {
+            namespace interaction {
+                const Impact: Impact;
+            }
+            const Particle: any;
         }
     }
 }

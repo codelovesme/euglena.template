@@ -292,7 +292,7 @@ export module euglena_template {
                 export class ThrowImpact extends euglena.being.ParticleV2<{ to: alive.particle.EuglenaInfo, impact: Impact }> {
                     constructor(content: { to: alive.particle.EuglenaInfo, impact: Impact }, of: string) { super(new MetaV2(constants.particles.ThrowImpact, of), content); }
                 }
-                export class EuglenaInfo extends euglena.being.ParticleV2<{ name: string, url: string }> {
+                export class EuglenaInfo extends euglena.being.ParticleV2<{ name: string, url: string, port: string }> {
                     constructor(content: { name: string, url: string, port: string }, of: string) { super(new MetaV2(constants.particles.EuglenaInfo, of), content); }
                 }
                 export class CytoplasmInfo extends euglena.being.ParticleV2<{ particles: Particle[], chromosome: euglena.being.alive.dna.Gene[] }> {
@@ -353,6 +353,14 @@ export module euglena_template {
                     constructor(content: Impact, of: string) { super(new MetaV2(constants.particles.ImpactReceived, of), content); }
                 }
             }
+        }
+    }
+    export namespace reference {
+        export namespace being {
+            export namespace interaction {
+                export const Impact = new euglena.being.interaction.Impact(new euglena.being.ParticleV2<>({ name: "name", of: "of" }, "content"), "token", "from");
+            }
+            export const Particle = new euglena.being.Particle({ name: "name", of: "of" }, "content");
         }
     }
 }

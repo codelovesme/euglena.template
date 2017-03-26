@@ -549,5 +549,16 @@ var euglena_template;
             })(particle = alive.particle || (alive.particle = {}));
         })(alive = being.alive || (being.alive = {}));
     })(being = euglena_template.being || (euglena_template.being = {}));
+    var reference;
+    (function (reference) {
+        var being;
+        (function (being) {
+            var interaction;
+            (function (interaction) {
+                interaction.Impact = new euglena_1.euglena.being.interaction.Impact(new euglena_1.euglena.being.ParticleV2({ name: "name", of: "of" }, "content"), "token", "from");
+            })(interaction = being.interaction || (being.interaction = {}));
+            being.Particle = new euglena_1.euglena.being.Particle({ name: "name", of: "of" }, "content");
+        })(being = reference.being || (reference.being = {}));
+    })(reference = euglena_template.reference || (euglena_template.reference = {}));
 })(euglena_template = exports.euglena_template || (exports.euglena_template = {}));
 //# sourceMappingURL=index.js.map
