@@ -317,12 +317,4 @@ export declare module euglena_template {
             }
         }
     }
-    namespace reference {
-        namespace being {
-            namespace interaction {
-                const Impact: Impact;
-            }
-            const Particle: any;
-        }
-    }
 }
