@@ -9,8 +9,8 @@ export declare module euglena_template {
             abstract class BooleanParticle extends euglena.being.ParticleV2<Boolean> {
                 constructor(meta: euglena.being.MetaV2, data: Boolean);
             }
-            abstract class VoidParticle extends euglena.being.ParticleV1 {
-                constructor(meta: any);
+            abstract class VoidParticle extends euglena.being.ParticleV2<void> {
+                constructor(meta: euglena.being.MetaV2);
             }
         }
         namespace subscribtion {

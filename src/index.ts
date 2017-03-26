@@ -15,8 +15,8 @@ export module euglena_template {
             export abstract class BooleanParticle extends euglena.being.ParticleV2<Boolean> {
                 constructor(meta: euglena.being.MetaV2, data: Boolean) { super(meta, data); }
             }
-            export abstract class VoidParticle extends euglena.being.ParticleV1 {
-                constructor(meta: any) { super(meta, null); }
+            export abstract class VoidParticle extends euglena.being.ParticleV2<void> {
+                constructor(meta: euglena.being.MetaV2) { super(meta); }
             }
         }
         export namespace subscribtion {
@@ -243,14 +243,14 @@ export module euglena_template {
                     constructor(content: DbOrganelleSapContent, of: string) { super(new MetaV2(constants.particles.DbOrganelleSap, of), content); }
                 }
                 export class DbIsOnline extends being.particle.VoidParticle {
-                    constructor(of: string) { super({ name: constants.particles.DbIsOnline, of: of }); }
+                    constructor(of: string) { super(new MetaV2(constants.particles.DbIsOnline, of)); }
                 }
                 import VoidParticle = euglena_template.being.particle.VoidParticle;
                 export class ReturnCurrentTime extends VoidParticle {
-                    constructor(of: string) { super({ name: constants.particles.ReturnCurrentTime, of: of }); }
+                    constructor(of: string) { super(new MetaV2(constants.particles.ReturnCurrentTime, of)); }
                 }
                 export class ReturnIfConnectedToTheInternet extends VoidParticle {
-                    constructor(of: string) { super({ name: constants.particles.ReturnIfConnectedToTheInternet, of: of }); }
+                    constructor(of: string) { super(new MetaV2(constants.particles.ReturnIfConnectedToTheInternet, of)); }
                 }
                 export class OrganelleHasComeToLife extends ParticleV2<{ organelleName: string }> {
                     constructor(organelleName: string, of: string) {
@@ -283,7 +283,7 @@ export module euglena_template {
                     constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string) { super(new MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo); }
                 }
                 export class Listen extends being.particle.VoidParticle {
-                    constructor(of: string) { super({ name: constants.particles.Listen, of: of }); }
+                    constructor(of: string) { super(new MetaV2(constants.particles.Listen, of)); }
                 }
                 export interface ThrowImpactContent {
                     to: alive.particle.EuglenaInfo,
@@ -308,7 +308,7 @@ export module euglena_template {
                     constructor(content: euglena.sys.type.Time, of: string) { super(new MetaV2(constants.particles.Time, of), content); }
                 }
                 export class Acknowledge extends being.particle.VoidParticle {
-                    constructor(of: string) { super({ name: constants.particles.Acknowledge, of: of }); }
+                    constructor(of: string) { super(new MetaV2(constants.particles.Acknowledge, of)); }
                 }
                 export class ConnectedToTheInternet extends being.particle.BooleanParticle {
                     constructor(content: boolean, of: string) { super(new MetaV2(constants.particles.ConnectedToTheInternet, of), content); }

@@ -25,10 +25,10 @@ var euglena_template;
             var VoidParticle = (function (_super) {
                 __extends(VoidParticle, _super);
                 function VoidParticle(meta) {
-                    return _super.call(this, meta, null) || this;
+                    return _super.call(this, meta) || this;
                 }
                 return VoidParticle;
-            }(euglena_1.euglena.being.ParticleV1));
+            }(euglena_1.euglena.being.ParticleV2));
             particle.VoidParticle = VoidParticle;
         })(particle = being.particle || (being.particle = {}));
         var subscribtion;
@@ -316,7 +316,7 @@ var euglena_template;
                 var DbIsOnline = (function (_super) {
                     __extends(DbIsOnline, _super);
                     function DbIsOnline(of) {
-                        return _super.call(this, { name: constants.particles.DbIsOnline, of: of }) || this;
+                        return _super.call(this, new MetaV2(constants.particles.DbIsOnline, of)) || this;
                     }
                     return DbIsOnline;
                 }(being.particle.VoidParticle));
@@ -325,7 +325,7 @@ var euglena_template;
                 var ReturnCurrentTime = (function (_super) {
                     __extends(ReturnCurrentTime, _super);
                     function ReturnCurrentTime(of) {
-                        return _super.call(this, { name: constants.particles.ReturnCurrentTime, of: of }) || this;
+                        return _super.call(this, new MetaV2(constants.particles.ReturnCurrentTime, of)) || this;
                     }
                     return ReturnCurrentTime;
                 }(VoidParticle));
@@ -333,7 +333,7 @@ var euglena_template;
                 var ReturnIfConnectedToTheInternet = (function (_super) {
                     __extends(ReturnIfConnectedToTheInternet, _super);
                     function ReturnIfConnectedToTheInternet(of) {
-                        return _super.call(this, { name: constants.particles.ReturnIfConnectedToTheInternet, of: of }) || this;
+                        return _super.call(this, new MetaV2(constants.particles.ReturnIfConnectedToTheInternet, of)) || this;
                     }
                     return ReturnIfConnectedToTheInternet;
                 }(VoidParticle));
@@ -405,7 +405,7 @@ var euglena_template;
                 var Listen = (function (_super) {
                     __extends(Listen, _super);
                     function Listen(of) {
-                        return _super.call(this, { name: constants.particles.Listen, of: of }) || this;
+                        return _super.call(this, new MetaV2(constants.particles.Listen, of)) || this;
                     }
                     return Listen;
                 }(being.particle.VoidParticle));
@@ -461,7 +461,7 @@ var euglena_template;
                 var Acknowledge = (function (_super) {
                     __extends(Acknowledge, _super);
                     function Acknowledge(of) {
-                        return _super.call(this, { name: constants.particles.Acknowledge, of: of }) || this;
+                        return _super.call(this, new MetaV2(constants.particles.Acknowledge, of)) || this;
                     }
                     return Acknowledge;
                 }(being.particle.VoidParticle));
