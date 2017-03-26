@@ -12,6 +12,6 @@
   "typings": "./src/index.d.ts",
   "dependencies": {
     "chai": "^3.5.0",
-    "euglena": "0.0.6"
+    "euglena": "codelovesme/euglena#develop"
   }
 }
