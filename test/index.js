@@ -1,5 +1,6 @@
 /// <reference path="../typings/index.d.ts" />
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../src/index");
 var chai = require("chai");
 var tools = index_1.euglena_template.being.subscription.StaticTools;

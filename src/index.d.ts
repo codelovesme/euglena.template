@@ -72,7 +72,7 @@ export declare module euglena_template {
                     const WebUIOrganelleSap = "WebUIOrganelleSap";
                     const DbOrganelleSap = "DbOrganelleSap";
                     const CytoplasmInfo = "CytoplasmInfo";
-                    const ReadParticles = "ReadParticles";
+                    const ReadMatchedParticles = "ReadMatchedParticles";
                     const Subscribe = "Subscribe";
                     const subscriptionDict = "subscriptionDict";
                     const Password = "Password";
@@ -80,9 +80,10 @@ export declare module euglena_template {
                     const TimeChanged = "TimeChanged";
                     const ExceptionOccurred = "ExceptionOccurred";
                     const SaveParticle = "SaveParticle";
+                    const SaveMatchedParticle = "SaveMatchedParticle";
                     const ReadParticle = "ReadParticle";
                     const RemoveParticle = "RemoveParticle";
-                    const RemoveParticles = "RemoveParticles";
+                    const RemoveMatchedParticles = "RemoveMatchedParticles";
                 }
                 namespace organelles {
                     const WebUIOrganelle = "WebUIOrganelle";
@@ -285,11 +286,14 @@ export declare module euglena_template {
                 class SaveParticle extends ParticleV2<Particle> {
                     constructor(content: Particle, of: string);
                 }
+                class SaveMatchedParticle extends ParticleV2<Particle> {
+                    constructor(content: Particle, of: string);
+                }
                 class ReadParticle extends ParticleV2<Particle> {
                     constructor(content: Particle, of: string);
                 }
-                class ReadParticles extends ParticleV2<Particle> {
-                    constructor(particleRef: Particle, of: string);
+                class ReadMatchedParticles extends ParticleV2<Particle> {
+                    constructor(query: any, of: string);
                 }
                 class Particles extends ParticleV2<Particle[]> {
                     constructor(particles: Particle[], of: string);
@@ -301,8 +305,8 @@ export declare module euglena_template {
                 class RemoveParticle extends ParticleV2<Particle> {
                     constructor(ref: Particle, of: string);
                 }
-                class RemoveParticles extends ParticleV2<Particle> {
-                    constructor(ref: Particle, of: string);
+                class RemoveMatchedParticles extends ParticleV2<Particle> {
+                    constructor(query: any, of: string);
                 }
                 interface DoesParticleExistContent {
                     name: string;

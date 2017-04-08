@@ -1,9 +1,15 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Created by codelovesme on 6/19/2015.
  */
@@ -137,7 +143,7 @@ var euglena_template;
                     particles.WebUIOrganelleSap = "WebUIOrganelleSap";
                     particles.DbOrganelleSap = "DbOrganelleSap";
                     particles.CytoplasmInfo = "CytoplasmInfo";
-                    particles.ReadParticles = "ReadParticles";
+                    particles.ReadMatchedParticles = "ReadMatchedParticles";
                     particles.Subscribe = "Subscribe";
                     particles.subscriptionDict = "subscriptionDict";
                     particles.Password = "Password";
@@ -145,9 +151,10 @@ var euglena_template;
                     particles.TimeChanged = "TimeChanged";
                     particles.ExceptionOccurred = "ExceptionOccurred";
                     particles.SaveParticle = "SaveParticle";
+                    particles.SaveMatchedParticle = "SaveMatchedParticle";
                     particles.ReadParticle = "ReadParticle";
                     particles.RemoveParticle = "RemoveParticle";
-                    particles.RemoveParticles = "RemoveParticles";
+                    particles.RemoveMatchedParticles = "RemoveMatchedParticles";
                 })(particles = constants.particles || (constants.particles = {}));
                 var organelles;
                 (function (organelles) {
@@ -490,6 +497,14 @@ var euglena_template;
                     return SaveParticle;
                 }(ParticleV2));
                 particle.SaveParticle = SaveParticle;
+                var SaveMatchedParticle = (function (_super) {
+                    __extends(SaveMatchedParticle, _super);
+                    function SaveMatchedParticle(content, of) {
+                        return _super.call(this, new MetaV2(constants.particles.SaveMatchedParticle, of), content) || this;
+                    }
+                    return SaveMatchedParticle;
+                }(ParticleV2));
+                particle.SaveMatchedParticle = SaveMatchedParticle;
                 var ReadParticle = (function (_super) {
                     __extends(ReadParticle, _super);
                     function ReadParticle(content, of) {
@@ -498,14 +513,14 @@ var euglena_template;
                     return ReadParticle;
                 }(ParticleV2));
                 particle.ReadParticle = ReadParticle;
-                var ReadParticles = (function (_super) {
-                    __extends(ReadParticles, _super);
-                    function ReadParticles(particleRef, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ReadParticles, of), particleRef) || this;
+                var ReadMatchedParticles = (function (_super) {
+                    __extends(ReadMatchedParticles, _super);
+                    function ReadMatchedParticles(query, of) {
+                        return _super.call(this, new MetaV2(constants.particles.ReadMatchedParticles, of), query) || this;
                     }
-                    return ReadParticles;
+                    return ReadMatchedParticles;
                 }(ParticleV2));
-                particle.ReadParticles = ReadParticles;
+                particle.ReadMatchedParticles = ReadMatchedParticles;
                 var Particles = (function (_super) {
                     __extends(Particles, _super);
                     function Particles(particles, of) {
@@ -522,14 +537,14 @@ var euglena_template;
                     return RemoveParticle;
                 }(ParticleV2));
                 particle.RemoveParticle = RemoveParticle;
-                var RemoveParticles = (function (_super) {
-                    __extends(RemoveParticles, _super);
-                    function RemoveParticles(ref, of) {
-                        return _super.call(this, new MetaV2(constants.particles.RemoveParticles, of), ref) || this;
+                var RemoveMatchedParticles = (function (_super) {
+                    __extends(RemoveMatchedParticles, _super);
+                    function RemoveMatchedParticles(query, of) {
+                        return _super.call(this, new MetaV2(constants.particles.RemoveMatchedParticles, of), query) || this;
                     }
-                    return RemoveParticles;
+                    return RemoveMatchedParticles;
                 }(ParticleV2));
-                particle.RemoveParticles = RemoveParticles;
+                particle.RemoveMatchedParticles = RemoveMatchedParticles;
                 var DoesParticleExist = (function (_super) {
                     __extends(DoesParticleExist, _super);
                     function DoesParticleExist(content, of) {

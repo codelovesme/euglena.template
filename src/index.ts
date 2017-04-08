@@ -121,7 +121,7 @@ export module euglena_template {
                     export const WebUIOrganelleSap = "WebUIOrganelleSap";
                     export const DbOrganelleSap = "DbOrganelleSap";
                     export const CytoplasmInfo = "CytoplasmInfo";
-                    export const ReadParticles = "ReadParticles";
+                    export const ReadMatchedParticles = "ReadMatchedParticles";
                     export const Subscribe = "Subscribe";
                     export const subscriptionDict = "subscriptionDict";
                     export const Password = "Password";
@@ -129,9 +129,10 @@ export module euglena_template {
                     export const TimeChanged = "TimeChanged";
                     export const ExceptionOccurred = "ExceptionOccurred";
                     export const SaveParticle = "SaveParticle";
+                    export const SaveMatchedParticle = "SaveMatchedParticle";
                     export const ReadParticle = "ReadParticle";
                     export const RemoveParticle = "RemoveParticle";
-                    export const RemoveParticles = "RemoveParticles";
+                    export const RemoveMatchedParticles = "RemoveMatchedParticles";
                 }
                 export namespace organelles {
                     export const WebUIOrganelle = "WebUIOrganelle";
@@ -319,12 +320,15 @@ export module euglena_template {
                 export class SaveParticle extends ParticleV2<Particle> {
                     constructor(content: Particle, of: string) { super(new MetaV2(constants.particles.SaveParticle, of), content); }
                 }
+                export class SaveMatchedParticle extends ParticleV2<Particle> {
+                    constructor(content: Particle, of: string) { super(new MetaV2(constants.particles.SaveMatchedParticle, of), content); }
+                }
                 export class ReadParticle extends ParticleV2<Particle> {
                     constructor(content: Particle, of: string) { super(new MetaV2(constants.particles.ReadParticle, of), content); }
                 }
-                export class ReadParticles extends ParticleV2<Particle> {
-                    constructor(particleRef: Particle, of: string) {
-                        super(new MetaV2(constants.particles.ReadParticles, of), particleRef);
+                export class ReadMatchedParticles extends ParticleV2<Particle> {
+                    constructor(query: any, of: string) {
+                        super(new MetaV2(constants.particles.ReadMatchedParticles, of), query);
                     }
                 }
                 export class Particles extends ParticleV2<Particle[]> {
@@ -337,9 +341,9 @@ export module euglena_template {
                 export class RemoveParticle extends ParticleV2<Particle> {
                     constructor(ref: Particle, of: string) { super(new MetaV2(constants.particles.RemoveParticle, of), ref); }
                 }
-                export class RemoveParticles extends ParticleV2<Particle> {
-                    constructor(ref: Particle, of: string) {
-                        super(new MetaV2(constants.particles.RemoveParticles, of), ref);
+                export class RemoveMatchedParticles extends ParticleV2<Particle> {
+                    constructor(query:any, of: string) {
+                        super(new MetaV2(constants.particles.RemoveMatchedParticles, of), query);
                     }
                 }
                 export interface DoesParticleExistContent {
