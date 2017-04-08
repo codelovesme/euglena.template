@@ -144,6 +144,7 @@ var euglena_template;
                     particles.DbOrganelleSap = "DbOrganelleSap";
                     particles.CytoplasmInfo = "CytoplasmInfo";
                     particles.ReadMatchedParticles = "ReadMatchedParticles";
+                    particles.ReadMatchedParticle = "ReadMatchedParticle";
                     particles.Subscribe = "Subscribe";
                     particles.subscriptionDict = "subscriptionDict";
                     particles.Password = "Password";
@@ -521,6 +522,14 @@ var euglena_template;
                     return ReadMatchedParticles;
                 }(ParticleV2));
                 particle.ReadMatchedParticles = ReadMatchedParticles;
+                var ReadMatchedParticle = (function (_super) {
+                    __extends(ReadMatchedParticle, _super);
+                    function ReadMatchedParticle(query, of) {
+                        return _super.call(this, new MetaV2(constants.particles.ReadMatchedParticle, of), query) || this;
+                    }
+                    return ReadMatchedParticle;
+                }(ParticleV2));
+                particle.ReadMatchedParticle = ReadMatchedParticle;
                 var Particles = (function (_super) {
                     __extends(Particles, _super);
                     function Particles(particles, of) {

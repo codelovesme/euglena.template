@@ -122,6 +122,7 @@ export module euglena_template {
                     export const DbOrganelleSap = "DbOrganelleSap";
                     export const CytoplasmInfo = "CytoplasmInfo";
                     export const ReadMatchedParticles = "ReadMatchedParticles";
+                    export const ReadMatchedParticle = "ReadMatchedParticle";
                     export const Subscribe = "Subscribe";
                     export const subscriptionDict = "subscriptionDict";
                     export const Password = "Password";
@@ -329,6 +330,11 @@ export module euglena_template {
                 export class ReadMatchedParticles extends ParticleV2<Particle> {
                     constructor(query: any, of: string) {
                         super(new MetaV2(constants.particles.ReadMatchedParticles, of), query);
+                    }
+                }
+                export class ReadMatchedParticle extends ParticleV2<Particle> {
+                    constructor(query: any, of: string) {
+                        super(new MetaV2(constants.particles.ReadMatchedParticle, of), query);
                     }
                 }
                 export class Particles extends ParticleV2<Particle[]> {

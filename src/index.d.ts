@@ -73,6 +73,7 @@ export declare module euglena_template {
                     const DbOrganelleSap = "DbOrganelleSap";
                     const CytoplasmInfo = "CytoplasmInfo";
                     const ReadMatchedParticles = "ReadMatchedParticles";
+                    const ReadMatchedParticle = "ReadMatchedParticle";
                     const Subscribe = "Subscribe";
                     const subscriptionDict = "subscriptionDict";
                     const Password = "Password";
@@ -293,6 +294,9 @@ export declare module euglena_template {
                     constructor(content: Particle, of: string);
                 }
                 class ReadMatchedParticles extends ParticleV2<Particle> {
+                    constructor(query: any, of: string);
+                }
+                class ReadMatchedParticle extends ParticleV2<Particle> {
                     constructor(query: any, of: string);
                 }
                 class Particles extends ParticleV2<Particle[]> {
