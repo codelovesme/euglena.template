@@ -1,7 +1,4 @@
 ﻿
-/// <reference path="../typings/index.d.ts" />
-
-
 import {euglena} from "euglena";
 import {euglena_template} from "../src/index";
 
