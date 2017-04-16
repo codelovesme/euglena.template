@@ -41,7 +41,6 @@ export declare module euglena_template {
                     const EuglenaInfo = "EuglenaInfo";
                     const OrganelleList = "OrganelleList";
                     const EuglenaName = "EuglenaName";
-                    const ImpactReceived = "ImpactReceived";
                     const EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
                     const Acknowledge = "Acknowledge";
                     const Authenticate = "Authenticate";
@@ -318,9 +317,6 @@ export declare module euglena_template {
                 }
                 class DoesParticleExist extends ParticleV2<DoesParticleExistContent> {
                     constructor(content: DoesParticleExistContent, of: string);
-                }
-                class ImpactReceived extends euglena.being.ParticleV2<Impact> {
-                    constructor(content: Impact, of: string);
                 }
             }
         }

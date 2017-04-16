@@ -112,7 +112,6 @@ var euglena_template;
                     particles.EuglenaInfo = "EuglenaInfo";
                     particles.OrganelleList = "OrganelleList";
                     particles.EuglenaName = "EuglenaName";
-                    particles.ImpactReceived = "ImpactReceived";
                     particles.EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
                     particles.Acknowledge = "Acknowledge";
                     particles.Authenticate = "Authenticate";
@@ -562,14 +561,6 @@ var euglena_template;
                     return DoesParticleExist;
                 }(ParticleV2));
                 particle.DoesParticleExist = DoesParticleExist;
-                var ImpactReceived = (function (_super) {
-                    __extends(ImpactReceived, _super);
-                    function ImpactReceived(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ImpactReceived, of), content) || this;
-                    }
-                    return ImpactReceived;
-                }(euglena_1.euglena.being.ParticleV2));
-                particle.ImpactReceived = ImpactReceived;
             })(particle = alive.particle || (alive.particle = {}));
         })(alive = being.alive || (being.alive = {}));
     })(being = euglena_template.being || (euglena_template.being = {}));
