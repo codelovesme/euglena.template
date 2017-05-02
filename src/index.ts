@@ -4,7 +4,7 @@
 /**
  * Created by codelovesme on 6/19/2015.
  */
-import { euglena } from "euglena";
+import { euglena } from "@euglena/core";
 import Exception = euglena.sys.type.Exception;
 import Impact = euglena.being.interaction.Impact;
 import interaction = euglena.being.interaction;
