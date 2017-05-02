@@ -1,7 +1,7 @@
 /**
  * Created by codelovesme on 6/19/2015.
  */
-import { euglena } from "euglena";
+import { euglena } from "@euglena/core";
 import Impact = euglena.being.interaction.Impact;
 export declare module euglena_template {
     namespace being {
@@ -66,6 +66,7 @@ export declare module euglena_template {
                     const DbIsOnline = "DbIsOnline";
                     const NetOrganelleSap = "NetOrganelleSap";
                     const NetClientOrganelleSap = "NetClientOrganelleSap";
+                    const TimeOrganelleSap = "TimeOrganelleSap";
                     const WebOrganelleSap = "WebOrganelleSap";
                     const GPSOrganelleSap = "GPSOrganelleSap";
                     const WebUIOrganelleSap = "WebUIOrganelleSap";
@@ -186,6 +187,13 @@ export declare module euglena_template {
                 }
                 class DbOrganelleSap extends ParticleV2<DbOrganelleSapContent> {
                     constructor(content: DbOrganelleSapContent, of: string);
+                }
+                class TimeOrganelleSap extends ParticleV2<{
+                    euglenaName: string;
+                }> {
+                    constructor(content: {
+                        euglenaName: string;
+                    }, of: string);
                 }
                 class DbIsOnline extends being.particle.VoidParticle {
                     constructor(of: string);

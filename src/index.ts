@@ -115,6 +115,7 @@ export module euglena_template {
                     export const DbIsOnline = "DbIsOnline";
                     export const NetOrganelleSap = "NetOrganelleSap";
                     export const NetClientOrganelleSap = "NetClientOrganelleSap";
+                    export const TimeOrganelleSap = "TimeOrganelleSap";
                     export const WebOrganelleSap = "WebOrganelleSap";
                     export const GPSOrganelleSap = "GPSOrganelleSap";
                     export const WebUIOrganelleSap = "WebUIOrganelleSap";
@@ -243,6 +244,9 @@ export module euglena_template {
                 export class DbOrganelleSap extends ParticleV2<DbOrganelleSapContent> {
                     constructor(content: DbOrganelleSapContent, of: string) { super(new MetaV2(constants.particles.DbOrganelleSap, of), content); }
                 }
+                export class TimeOrganelleSap extends ParticleV2<{ euglenaName: string }>{
+                    constructor(content: { euglenaName: string }, of: string) { super(new MetaV2(constants.particles.TimeOrganelleSap, of), content); }
+                }
                 export class DbIsOnline extends being.particle.VoidParticle {
                     constructor(of: string) { super(new MetaV2(constants.particles.DbIsOnline, of)); }
                 }
@@ -347,7 +351,7 @@ export module euglena_template {
                     constructor(ref: Particle, of: string) { super(new MetaV2(constants.particles.RemoveParticle, of), ref); }
                 }
                 export class RemoveMatchedParticles extends ParticleV2<Particle> {
-                    constructor(query:any, of: string) {
+                    constructor(query: any, of: string) {
                         super(new MetaV2(constants.particles.RemoveMatchedParticles, of), query);
                     }
                 }

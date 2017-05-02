@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Created by codelovesme on 6/19/2015.
  */
-var euglena_1 = require("euglena");
+var core_1 = require("@euglena/core");
 var euglena_template;
 (function (euglena_template) {
     var being;
@@ -26,7 +26,7 @@ var euglena_template;
                     return _super.call(this, meta, data) || this;
                 }
                 return BooleanParticle;
-            }(euglena_1.euglena.being.ParticleV2));
+            }(core_1.euglena.being.ParticleV2));
             particle.BooleanParticle = BooleanParticle;
             var VoidParticle = (function (_super) {
                 __extends(VoidParticle, _super);
@@ -34,7 +34,7 @@ var euglena_template;
                     return _super.call(this, meta) || this;
                 }
                 return VoidParticle;
-            }(euglena_1.euglena.being.ParticleV2));
+            }(core_1.euglena.being.ParticleV2));
             particle.VoidParticle = VoidParticle;
         })(particle = being.particle || (being.particle = {}));
         var subscription;
@@ -51,7 +51,7 @@ var euglena_template;
                 StaticTools.addSubscription = function (particleMatch, euglenaName) {
                     var euglenas = StaticTools.getSubscriptions(particleMatch);
                     if (euglenas) {
-                        if (!euglena_1.euglena.sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
+                        if (!core_1.euglena.sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
                             euglenas.push(euglenaName);
                         }
                     }
@@ -61,18 +61,18 @@ var euglena_template;
                 };
                 StaticTools.removeSubscriptions = function (particleMatch) {
                     for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
-                            return euglena_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict, i).euglenas;
+                        if (core_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return core_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict, i).euglenas;
                         }
                     }
                     return null;
                 };
                 StaticTools.removeSubscription = function (particleMatch, euglenaName) {
                     for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                        if (core_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
                             var index = StaticTools.subscriptionDict[i].euglenas.indexOf(euglenaName);
                             if (index >= 0) {
-                                return euglena_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict[i].euglenas, index) ? true : false;
+                                return core_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict[i].euglenas, index) ? true : false;
                             }
                         }
                     }
@@ -80,7 +80,7 @@ var euglena_template;
                 };
                 StaticTools.getSubscriptions = function (particleMatch) {
                     for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                        if (core_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
                             return StaticTools.subscriptionDict[i].euglenas;
                         }
                     }
@@ -88,8 +88,8 @@ var euglena_template;
                 };
                 StaticTools.isSubscribed = function (particleMatch, euglenaName) {
                     for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (euglena_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
-                            return euglena_1.euglena.sys.type.StaticTools.Array.contains(StaticTools.subscriptionDict[i].euglenas, euglenaName);
+                        if (core_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return core_1.euglena.sys.type.StaticTools.Array.contains(StaticTools.subscriptionDict[i].euglenas, euglenaName);
                         }
                     }
                 };
@@ -100,8 +100,8 @@ var euglena_template;
         })(subscription = being.subscription || (being.subscription = {}));
         var alive;
         (function (alive) {
-            var ParticleV2 = euglena_1.euglena.being.ParticleV2;
-            var MetaV2 = euglena_1.euglena.being.MetaV2;
+            var ParticleV2 = core_1.euglena.being.ParticleV2;
+            var MetaV2 = core_1.euglena.being.MetaV2;
             var constants;
             (function (constants) {
                 var particles;
@@ -137,6 +137,7 @@ var euglena_template;
                     particles.DbIsOnline = "DbIsOnline";
                     particles.NetOrganelleSap = "NetOrganelleSap";
                     particles.NetClientOrganelleSap = "NetClientOrganelleSap";
+                    particles.TimeOrganelleSap = "TimeOrganelleSap";
                     particles.WebOrganelleSap = "WebOrganelleSap";
                     particles.GPSOrganelleSap = "GPSOrganelleSap";
                     particles.WebUIOrganelleSap = "WebUIOrganelleSap";
@@ -170,7 +171,7 @@ var euglena_template;
             })(constants = alive.constants || (alive.constants = {}));
             var organelle;
             (function (organelle) {
-                var Organelle = euglena_1.euglena.being.alive.Organelle;
+                var Organelle = core_1.euglena.being.alive.Organelle;
                 var TimeOrganelle = (function (_super) {
                     __extends(TimeOrganelle, _super);
                     function TimeOrganelle(className) {
@@ -241,8 +242,8 @@ var euglena_template;
                 var subscriptionDict = (function (_super) {
                     __extends(subscriptionDict, _super);
                     function subscriptionDict(of) {
-                        return _super.call(this, new MetaV2(constants.particles.subscriptionDict, of), new euglena_1.euglena.sys.type.Map(function (key1, key2) {
-                            return euglena_1.euglena.js.Class.doesCover(key1, key2);
+                        return _super.call(this, new MetaV2(constants.particles.subscriptionDict, of), new core_1.euglena.sys.type.Map(function (key1, key2) {
+                            return core_1.euglena.js.Class.doesCover(key1, key2);
                         })) || this;
                     }
                     return subscriptionDict;
@@ -320,6 +321,14 @@ var euglena_template;
                     return DbOrganelleSap;
                 }(ParticleV2));
                 particle.DbOrganelleSap = DbOrganelleSap;
+                var TimeOrganelleSap = (function (_super) {
+                    __extends(TimeOrganelleSap, _super);
+                    function TimeOrganelleSap(content, of) {
+                        return _super.call(this, new MetaV2(constants.particles.TimeOrganelleSap, of), content) || this;
+                    }
+                    return TimeOrganelleSap;
+                }(ParticleV2));
+                particle.TimeOrganelleSap = TimeOrganelleSap;
                 var DbIsOnline = (function (_super) {
                     __extends(DbIsOnline, _super);
                     function DbIsOnline(of) {
@@ -367,7 +376,7 @@ var euglena_template;
                         return _super.call(this, new MetaV2(constants.particles.Authenticate, of), { euglenaName: euglenaName, password: password }) || this;
                     }
                     return Authenticate;
-                }(euglena_1.euglena.being.ParticleV2));
+                }(core_1.euglena.being.ParticleV2));
                 particle.Authenticate = Authenticate;
                 var Proxy = (function (_super) {
                     __extends(Proxy, _super);
@@ -391,7 +400,7 @@ var euglena_template;
                         return _super.call(this, new MetaV2(constants.particles.ConnectToEuglena, of), euglenaInfo) || this;
                     }
                     return ConnectToEuglena;
-                }(euglena_1.euglena.being.ParticleV2));
+                }(core_1.euglena.being.ParticleV2));
                 particle.ConnectToEuglena = ConnectToEuglena;
                 var ConnectedToEuglena = (function (_super) {
                     __extends(ConnectedToEuglena, _super);
@@ -399,7 +408,7 @@ var euglena_template;
                         return _super.call(this, new MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo) || this;
                     }
                     return ConnectedToEuglena;
-                }(euglena_1.euglena.being.ParticleV2));
+                }(core_1.euglena.being.ParticleV2));
                 particle.ConnectedToEuglena = ConnectedToEuglena;
                 var DisconnectedFromEuglena = (function (_super) {
                     __extends(DisconnectedFromEuglena, _super);
@@ -407,7 +416,7 @@ var euglena_template;
                         return _super.call(this, new MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo) || this;
                     }
                     return DisconnectedFromEuglena;
-                }(euglena_1.euglena.being.ParticleV2));
+                }(core_1.euglena.being.ParticleV2));
                 particle.DisconnectedFromEuglena = DisconnectedFromEuglena;
                 var Listen = (function (_super) {
                     __extends(Listen, _super);
@@ -423,7 +432,7 @@ var euglena_template;
                         return _super.call(this, new MetaV2(constants.particles.ThrowImpact, of), content) || this;
                     }
                     return ThrowImpact;
-                }(euglena_1.euglena.being.ParticleV2));
+                }(core_1.euglena.being.ParticleV2));
                 particle.ThrowImpact = ThrowImpact;
                 var EuglenaInfo = (function (_super) {
                     __extends(EuglenaInfo, _super);
@@ -431,7 +440,7 @@ var euglena_template;
                         return _super.call(this, new MetaV2(constants.particles.EuglenaInfo, of), content) || this;
                     }
                     return EuglenaInfo;
-                }(euglena_1.euglena.being.ParticleV2));
+                }(core_1.euglena.being.ParticleV2));
                 particle.EuglenaInfo = EuglenaInfo;
                 var CytoplasmInfo = (function (_super) {
                     __extends(CytoplasmInfo, _super);
@@ -439,7 +448,7 @@ var euglena_template;
                         return _super.call(this, new MetaV2(constants.particles.EuglenaInfo, of), content) || this;
                     }
                     return CytoplasmInfo;
-                }(euglena_1.euglena.being.ParticleV2));
+                }(core_1.euglena.being.ParticleV2));
                 particle.CytoplasmInfo = CytoplasmInfo;
                 var OrganelleList = (function (_super) {
                     __extends(OrganelleList, _super);
@@ -455,7 +464,7 @@ var euglena_template;
                         return _super.call(this, new MetaV2(constants.particles.Exception, of), content) || this;
                     }
                     return Exception;
-                }(euglena_1.euglena.being.ParticleV2));
+                }(core_1.euglena.being.ParticleV2));
                 particle.Exception = Exception;
                 var Time = (function (_super) {
                     __extends(Time, _super);
@@ -463,7 +472,7 @@ var euglena_template;
                         return _super.call(this, new MetaV2(constants.particles.Time, of), content) || this;
                     }
                     return Time;
-                }(euglena_1.euglena.being.ParticleV2));
+                }(core_1.euglena.being.ParticleV2));
                 particle.Time = Time;
                 var Acknowledge = (function (_super) {
                     __extends(Acknowledge, _super);
