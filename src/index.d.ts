@@ -1,38 +1,36 @@
 /**
  * Created by codelovesme on 6/19/2015.
  */
-import { euglena } from "@euglena/core";
-import Impact = euglena.being.interaction.Impact;
+import { interaction, ParticleV2, MetaV2, AnyParticle, alive as core_alive } from "@euglena/core";
+import { sys } from "cessnalib";
+import Impact = interaction.Impact;
 export declare module euglena_template {
     namespace being {
         namespace particle {
-            abstract class BooleanParticle extends euglena.being.ParticleV2<Boolean> {
-                constructor(meta: euglena.being.MetaV2, data: Boolean);
+            abstract class BooleanParticle extends ParticleV2<Boolean> {
+                constructor(meta: MetaV2, data: Boolean);
             }
-            abstract class VoidParticle extends euglena.being.ParticleV2<void> {
-                constructor(meta: euglena.being.MetaV2);
+            abstract class VoidParticle extends ParticleV2<void> {
+                constructor(meta: MetaV2);
             }
         }
         namespace subscription {
             class Record {
             }
-            import Particle = euglena.being.Particle;
             interface SubscriptionRecord {
-                particle: Particle;
+                particle: AnyParticle;
                 euglenas: string[];
             }
             class StaticTools {
                 private static subscriptionDict;
-                static addSubscription(particleMatch: Particle, euglenaName: string): void;
-                static removeSubscriptions(particleMatch: Particle): string[];
-                static removeSubscription(particleMatch: Particle, euglenaName: string): boolean;
-                static getSubscriptions(particleMatch: Particle): string[];
-                static isSubscribed(particleMatch: Particle, euglenaName: string): boolean;
+                static addSubscription(particleMatch: AnyParticle, euglenaName: string): void;
+                static removeSubscriptions(particleMatch: AnyParticle): string[];
+                static removeSubscription(particleMatch: AnyParticle, euglenaName: string): boolean;
+                static getSubscriptions(particleMatch: AnyParticle): string[];
+                static isSubscribed(particleMatch: AnyParticle, euglenaName: string): boolean;
             }
         }
         namespace alive {
-            import Particle = euglena.being.Particle;
-            import ParticleV2 = euglena.being.ParticleV2;
             namespace constants {
                 namespace particles {
                     const Domain = "Domain";
@@ -98,8 +96,8 @@ export declare module euglena_template {
                 }
             }
             namespace organelle {
-                import Organelle = euglena.being.alive.Organelle;
-                abstract class TimeOrganelle extends Organelle<euglena.being.alive.particles.SapContent> {
+                import Organelle = core_alive.Organelle;
+                abstract class TimeOrganelle extends Organelle<core_alive.particles.SapContent> {
                     constructor(className: string);
                 }
                 abstract class NetOrganelle extends Organelle<particle.NetOrganelleSapContent> {
@@ -123,17 +121,17 @@ export declare module euglena_template {
             }
             namespace particle {
                 interface MatchedParticlesContent {
-                    particleRef: Particle;
-                    result: Particle[];
+                    particleRef: AnyParticle;
+                    result: AnyParticle[];
                 }
                 class Password extends ParticleV2<string> {
                     constructor(euglenaName: string, value: string);
                 }
-                class subscriptionDict extends ParticleV2<euglena.sys.type.Map<any, string[]>> {
+                class subscriptionDict extends ParticleV2<sys.type.Map<any, string[]>> {
                     constructor(of: string);
                 }
-                class Subscribe extends ParticleV2<Particle> {
-                    constructor(particleReference: Particle, of: string);
+                class Subscribe extends ParticleV2<AnyParticle> {
+                    constructor(particleReference: AnyParticle, of: string);
                 }
                 class Coordinate extends ParticleV2<{
                     lat: number;
@@ -198,11 +196,10 @@ export declare module euglena_template {
                 class DbIsOnline extends being.particle.VoidParticle {
                     constructor(of: string);
                 }
-                import VoidParticle = euglena_template.being.particle.VoidParticle;
-                class ReturnCurrentTime extends VoidParticle {
+                class ReturnCurrentTime extends being.particle.VoidParticle {
                     constructor(of: string);
                 }
-                class ReturnIfConnectedToTheInternet extends VoidParticle {
+                class ReturnIfConnectedToTheInternet extends being.particle.VoidParticle {
                     constructor(of: string);
                 }
                 class OrganelleHasComeToLife extends ParticleV2<{
@@ -213,7 +210,7 @@ export declare module euglena_template {
                 class Domain extends ParticleV2<string> {
                     constructor(domain: string, of: string);
                 }
-                class Authenticate extends euglena.being.ParticleV2<{
+                class Authenticate extends ParticleV2<{
                     euglenaName: string;
                     password: string;
                 }> {
@@ -225,16 +222,16 @@ export declare module euglena_template {
                 }> {
                     constructor(from: string, to: string, expireTime: number, of: string);
                 }
-                class SetTime extends ParticleV2<euglena.sys.type.Time> {
-                    constructor(time: euglena.sys.type.Time, of: string);
+                class SetTime extends ParticleV2<sys.type.Time> {
+                    constructor(time: sys.type.Time, of: string);
                 }
-                class ConnectToEuglena extends euglena.being.ParticleV2<alive.particle.EuglenaInfo> {
+                class ConnectToEuglena extends ParticleV2<alive.particle.EuglenaInfo> {
                     constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string);
                 }
-                class ConnectedToEuglena extends euglena.being.ParticleV2<alive.particle.EuglenaInfo> {
+                class ConnectedToEuglena extends ParticleV2<alive.particle.EuglenaInfo> {
                     constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string);
                 }
-                class DisconnectedFromEuglena extends euglena.being.ParticleV2<alive.particle.EuglenaInfo> {
+                class DisconnectedFromEuglena extends ParticleV2<alive.particle.EuglenaInfo> {
                     constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string);
                 }
                 class Listen extends being.particle.VoidParticle {
@@ -244,7 +241,7 @@ export declare module euglena_template {
                     to: alive.particle.EuglenaInfo;
                     impact: Impact;
                 }
-                class ThrowImpact extends euglena.being.ParticleV2<{
+                class ThrowImpact extends ParticleV2<{
                     to: alive.particle.EuglenaInfo;
                     impact: Impact;
                 }> {
@@ -253,7 +250,7 @@ export declare module euglena_template {
                         impact: Impact;
                     }, of: string);
                 }
-                class EuglenaInfo extends euglena.being.ParticleV2<{
+                class EuglenaInfo extends ParticleV2<{
                     name: string;
                     url: string;
                     port: string;
@@ -264,23 +261,23 @@ export declare module euglena_template {
                         port: string;
                     }, of: string);
                 }
-                class CytoplasmInfo extends euglena.being.ParticleV2<{
-                    particles: Particle[];
-                    chromosome: euglena.being.alive.dna.Gene[];
+                class CytoplasmInfo extends ParticleV2<{
+                    particles: AnyParticle[];
+                    chromosome: core_alive.dna.AnyGene[];
                 }> {
                     constructor(content: {
-                        particles: Particle[];
-                        chromosome: euglena.being.alive.dna.Gene[];
+                        particles: AnyParticle[];
+                        chromosome: core_alive.dna.AnyGene[];
                     }, of: string);
                 }
                 class OrganelleList extends ParticleV2<Array<string>> {
                     constructor(content: Array<string>, of: string);
                 }
-                class Exception extends euglena.being.ParticleV2<euglena.sys.type.Exception> {
-                    constructor(content: euglena.sys.type.Exception, of: string);
+                class Exception extends ParticleV2<sys.type.Exception> {
+                    constructor(content: sys.type.Exception, of: string);
                 }
-                class Time extends euglena.being.ParticleV2<euglena.sys.type.Time> {
-                    constructor(content: euglena.sys.type.Time, of: string);
+                class Time extends ParticleV2<sys.type.Time> {
+                    constructor(content: sys.type.Time, of: string);
                 }
                 class Acknowledge extends being.particle.VoidParticle {
                     constructor(of: string);
@@ -291,32 +288,32 @@ export declare module euglena_template {
                 class EuglenaHasBeenBorn extends being.particle.BooleanParticle {
                     constructor(of: string);
                 }
-                class SaveParticle extends ParticleV2<Particle> {
-                    constructor(content: Particle, of: string);
+                class SaveParticle extends ParticleV2<AnyParticle> {
+                    constructor(content: AnyParticle, of: string);
                 }
-                class SaveMatchedParticle extends ParticleV2<Particle> {
-                    constructor(content: Particle, of: string);
+                class SaveMatchedParticle extends ParticleV2<AnyParticle> {
+                    constructor(content: AnyParticle, of: string);
                 }
-                class ReadParticle extends ParticleV2<Particle> {
-                    constructor(content: Particle, of: string);
+                class ReadParticle extends ParticleV2<AnyParticle> {
+                    constructor(content: AnyParticle, of: string);
                 }
-                class ReadMatchedParticles extends ParticleV2<Particle> {
+                class ReadMatchedParticles extends ParticleV2<AnyParticle> {
                     constructor(query: any, of: string);
                 }
-                class ReadMatchedParticle extends ParticleV2<Particle> {
+                class ReadMatchedParticle extends ParticleV2<AnyParticle> {
                     constructor(query: any, of: string);
                 }
-                class Particles extends ParticleV2<Particle[]> {
-                    constructor(particles: Particle[], of: string);
+                class Particles extends ParticleV2<AnyParticle[]> {
+                    constructor(particles: AnyParticle[], of: string);
                 }
                 interface RemoveParticleContent {
                     name: string;
                     of: string;
                 }
-                class RemoveParticle extends ParticleV2<Particle> {
-                    constructor(ref: Particle, of: string);
+                class RemoveParticle extends ParticleV2<AnyParticle> {
+                    constructor(ref: AnyParticle, of: string);
                 }
-                class RemoveMatchedParticles extends ParticleV2<Particle> {
+                class RemoveMatchedParticles extends ParticleV2<AnyParticle> {
                     constructor(query: any, of: string);
                 }
                 interface DoesParticleExistContent {

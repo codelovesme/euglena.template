@@ -4,84 +4,80 @@
 /**
  * Created by codelovesme on 6/19/2015.
  */
-import { euglena } from "@euglena/core";
-import Exception = euglena.sys.type.Exception;
-import Impact = euglena.being.interaction.Impact;
-import interaction = euglena.being.interaction;
+import { interaction,ParticleV2,MetaV2,AnyParticle,alive as core_alive } from "@euglena/core";
+import { sys, js } from "cessnalib";
+import Exception = sys.type.Exception;
+import Impact = interaction.Impact;
 
 export module euglena_template {
     export namespace being {
         export namespace particle {
-            export abstract class BooleanParticle extends euglena.being.ParticleV2<Boolean> {
-                constructor(meta: euglena.being.MetaV2, data: Boolean) { super(meta, data); }
+            export abstract class BooleanParticle extends ParticleV2<Boolean> {
+                constructor(meta: MetaV2, data: Boolean) { super(meta, data); }
             }
-            export abstract class VoidParticle extends euglena.being.ParticleV2<void> {
-                constructor(meta: euglena.being.MetaV2) { super(meta); }
+            export abstract class VoidParticle extends ParticleV2<void> {
+                constructor(meta: MetaV2) { super(meta); }
             }
         }
         export namespace subscription {
             export class Record {
 
             }
-            import Particle = euglena.being.Particle;
             export interface SubscriptionRecord {
-                particle: Particle;
+                particle: AnyParticle;
                 euglenas: string[]
             }
             export class StaticTools {
 
                 private static subscriptionDict: SubscriptionRecord[] = [];
-                public static addSubscription(particleMatch: Particle, euglenaName: string): void {
+                public static addSubscription(particleMatch: AnyParticle, euglenaName: string): void {
                     let euglenas = StaticTools.getSubscriptions(particleMatch);
                     if (euglenas) {
-                        if (!euglena.sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
+                        if (!sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
                             euglenas.push(euglenaName);
                         }
                     } else {
                         StaticTools.subscriptionDict.push({ particle: particleMatch, euglenas: [euglenaName] });
                     }
                 }
-                public static removeSubscriptions(particleMatch: Particle): string[] {
+                public static removeSubscriptions(particleMatch: AnyParticle): string[] {
                     for (let i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
-                            return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict, i).euglenas;
+                        if (js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict, i).euglenas;
                         }
                     }
                     return null;
                 }
-                public static removeSubscription(particleMatch: Particle, euglenaName: string): boolean {
+                public static removeSubscription(particleMatch: AnyParticle, euglenaName: string): boolean {
                     for (let i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                        if (js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
                             let index = StaticTools.subscriptionDict[i].euglenas.indexOf(euglenaName);
                             if (index >= 0) {
-                                return euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict[i].euglenas, index) ? true : false;
+                                return sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict[i].euglenas, index) ? true : false;
                             }
                         }
                     }
                     return false;
                 }
-                public static getSubscriptions(particleMatch: Particle): string[] {
+                public static getSubscriptions(particleMatch: AnyParticle): string[] {
                     for (let i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                        if (js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
                             return StaticTools.subscriptionDict[i].euglenas;
                         }
                     }
                     return null;
                 }
-                public static isSubscribed(particleMatch: Particle, euglenaName: string): boolean {
+                public static isSubscribed(particleMatch: AnyParticle, euglenaName: string): boolean {
                     for (let i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
-                            return euglena.sys.type.StaticTools.Array.contains(StaticTools.subscriptionDict[i].euglenas, euglenaName);
+                        if (js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return sys.type.StaticTools.Array.contains(StaticTools.subscriptionDict[i].euglenas, euglenaName);
                         }
                     }
                 }
             }
         }
         export namespace alive {
-            import Particle = euglena.being.Particle;
-            import ParticleV2 = euglena.being.ParticleV2;
-            import MetaV2 = euglena.being.MetaV2;
-            import Cytoplasm = euglena.being.alive.Cytoplasm;
+            import Cytoplasm = core_alive.Cytoplasm;
             export namespace constants {
                 export namespace particles {
                     export const Domain = "Domain";
@@ -147,8 +143,8 @@ export module euglena_template {
                 }
             }
             export namespace organelle {
-                import Organelle = euglena.being.alive.Organelle;
-                export abstract class TimeOrganelle extends Organelle<euglena.being.alive.particles.SapContent> {
+                import Organelle = core_alive.Organelle;
+                export abstract class TimeOrganelle extends Organelle<core_alive.particles.SapContent> {
                     constructor(className: string) { super(alive.constants.organelles.TimeOrganelle, className); }
                 }
                 export abstract class NetOrganelle extends Organelle<particle.NetOrganelleSapContent> {
@@ -172,21 +168,21 @@ export module euglena_template {
             }
             export namespace particle {
                 export interface MatchedParticlesContent {
-                    particleRef: Particle;
-                    result: Particle[];
+                    particleRef: AnyParticle;
+                    result: AnyParticle[];
                 }
                 export class Password extends ParticleV2<string> {
                     constructor(euglenaName: string, value: string) { super(new MetaV2(constants.particles.Password, euglenaName), value); }
                 }
-                export class subscriptionDict extends ParticleV2<euglena.sys.type.Map<any, string[]>> {
+                export class subscriptionDict extends ParticleV2<sys.type.Map<any, string[]>> {
                     constructor(of: string) {
-                        super(new MetaV2(constants.particles.subscriptionDict, of), new euglena.sys.type.Map<any, string[]>((key1, key2) => {
-                            return euglena.js.Class.doesCover(key1, key2);
+                        super(new MetaV2(constants.particles.subscriptionDict, of), new sys.type.Map<any, string[]>((key1, key2) => {
+                            return js.Class.doesCover(key1, key2);
                         }));
                     }
                 }
-                export class Subscribe extends ParticleV2<Particle> {
-                    constructor(particleReference: Particle, of: string) {
+                export class Subscribe extends ParticleV2<AnyParticle> {
+                    constructor(particleReference: AnyParticle, of: string) {
                         super(new MetaV2(constants.particles.Subscribe, of), particleReference);
                     }
                 }
@@ -250,11 +246,10 @@ export module euglena_template {
                 export class DbIsOnline extends being.particle.VoidParticle {
                     constructor(of: string) { super(new MetaV2(constants.particles.DbIsOnline, of)); }
                 }
-                import VoidParticle = euglena_template.being.particle.VoidParticle;
-                export class ReturnCurrentTime extends VoidParticle {
+                export class ReturnCurrentTime extends being.particle.VoidParticle {
                     constructor(of: string) { super(new MetaV2(constants.particles.ReturnCurrentTime, of)); }
                 }
-                export class ReturnIfConnectedToTheInternet extends VoidParticle {
+                export class ReturnIfConnectedToTheInternet extends being.particle.VoidParticle {
                     constructor(of: string) { super(new MetaV2(constants.particles.ReturnIfConnectedToTheInternet, of)); }
                 }
                 export class OrganelleHasComeToLife extends ParticleV2<{ organelleName: string }> {
@@ -267,24 +262,24 @@ export module euglena_template {
                         super(new MetaV2(constants.particles.Domain, of), domain);
                     }
                 }
-                export class Authenticate extends euglena.being.ParticleV2<{ euglenaName: string, password: string }> {
+                export class Authenticate extends ParticleV2<{ euglenaName: string, password: string }> {
                     constructor(euglenaName: string, password: string, of: string) { super(new MetaV2(constants.particles.Authenticate, of), { euglenaName: euglenaName, password: password }); }
                 }
                 export class Proxy extends ParticleV2<{ from: string, to: string }> {
                     constructor(from: string, to: string, expireTime: number, of: string) { super(new MetaV2(constants.particles.Proxy, of, expireTime), { from, to }); }
                 }
-                export class SetTime extends ParticleV2<euglena.sys.type.Time> {
-                    constructor(time: euglena.sys.type.Time, of: string) { super(new MetaV2(constants.particles.SetTime, of), time); }
+                export class SetTime extends ParticleV2<sys.type.Time> {
+                    constructor(time: sys.type.Time, of: string) { super(new MetaV2(constants.particles.SetTime, of), time); }
                 }
-                export class ConnectToEuglena extends euglena.being.ParticleV2<alive.particle.EuglenaInfo> {
+                export class ConnectToEuglena extends ParticleV2<alive.particle.EuglenaInfo> {
                     constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string) {
                         super(new MetaV2(constants.particles.ConnectToEuglena, of), euglenaInfo);
                     }
                 }
-                export class ConnectedToEuglena extends euglena.being.ParticleV2<alive.particle.EuglenaInfo> {
+                export class ConnectedToEuglena extends ParticleV2<alive.particle.EuglenaInfo> {
                     constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string) { super(new MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo); }
                 }
-                export class DisconnectedFromEuglena extends euglena.being.ParticleV2<alive.particle.EuglenaInfo> {
+                export class DisconnectedFromEuglena extends ParticleV2<alive.particle.EuglenaInfo> {
                     constructor(euglenaInfo: alive.particle.EuglenaInfo, of: string) { super(new MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo); }
                 }
                 export class Listen extends being.particle.VoidParticle {
@@ -294,23 +289,23 @@ export module euglena_template {
                     to: alive.particle.EuglenaInfo,
                     impact: Impact
                 }
-                export class ThrowImpact extends euglena.being.ParticleV2<{ to: alive.particle.EuglenaInfo, impact: Impact }> {
+                export class ThrowImpact extends ParticleV2<{ to: alive.particle.EuglenaInfo, impact: Impact }> {
                     constructor(content: { to: alive.particle.EuglenaInfo, impact: Impact }, of: string) { super(new MetaV2(constants.particles.ThrowImpact, of), content); }
                 }
-                export class EuglenaInfo extends euglena.being.ParticleV2<{ name: string, url: string, port: string }> {
+                export class EuglenaInfo extends ParticleV2<{ name: string, url: string, port: string }> {
                     constructor(content: { name: string, url: string, port: string }, of: string) { super(new MetaV2(constants.particles.EuglenaInfo, of), content); }
                 }
-                export class CytoplasmInfo extends euglena.being.ParticleV2<{ particles: Particle[], chromosome: euglena.being.alive.dna.Gene[] }> {
-                    constructor(content: { particles: Particle[], chromosome: euglena.being.alive.dna.Gene[] }, of: string) { super(new MetaV2(constants.particles.EuglenaInfo, of), content); }
+                export class CytoplasmInfo extends ParticleV2<{ particles: AnyParticle[], chromosome: core_alive.dna.AnyGene[] }> {
+                    constructor(content: { particles: AnyParticle[], chromosome: core_alive.dna.AnyGene[] }, of: string) { super(new MetaV2(constants.particles.EuglenaInfo, of), content); }
                 }
                 export class OrganelleList extends ParticleV2<Array<string>> {
                     constructor(content: Array<string>, of: string) { super(new MetaV2(constants.particles.OrganelleList, of), content); }
                 }
-                export class Exception extends euglena.being.ParticleV2<euglena.sys.type.Exception> {
-                    constructor(content: euglena.sys.type.Exception, of: string) { super(new MetaV2(constants.particles.Exception, of), content); }
+                export class Exception extends ParticleV2<sys.type.Exception> {
+                    constructor(content: sys.type.Exception, of: string) { super(new MetaV2(constants.particles.Exception, of), content); }
                 }
-                export class Time extends euglena.being.ParticleV2<euglena.sys.type.Time> {
-                    constructor(content: euglena.sys.type.Time, of: string) { super(new MetaV2(constants.particles.Time, of), content); }
+                export class Time extends ParticleV2<sys.type.Time> {
+                    constructor(content: sys.type.Time, of: string) { super(new MetaV2(constants.particles.Time, of), content); }
                 }
                 export class Acknowledge extends being.particle.VoidParticle {
                     constructor(of: string) { super(new MetaV2(constants.particles.Acknowledge, of)); }
@@ -321,36 +316,36 @@ export module euglena_template {
                 export class EuglenaHasBeenBorn extends being.particle.BooleanParticle {
                     constructor(of: string) { super(new MetaV2(constants.particles.EuglenaHasBeenBorn, of), true); }
                 }
-                export class SaveParticle extends ParticleV2<Particle> {
-                    constructor(content: Particle, of: string) { super(new MetaV2(constants.particles.SaveParticle, of), content); }
+                export class SaveParticle extends ParticleV2<AnyParticle> {
+                    constructor(content: AnyParticle, of: string) { super(new MetaV2(constants.particles.SaveParticle, of), content); }
                 }
-                export class SaveMatchedParticle extends ParticleV2<Particle> {
-                    constructor(content: Particle, of: string) { super(new MetaV2(constants.particles.SaveMatchedParticle, of), content); }
+                export class SaveMatchedParticle extends ParticleV2<AnyParticle> {
+                    constructor(content: AnyParticle, of: string) { super(new MetaV2(constants.particles.SaveMatchedParticle, of), content); }
                 }
-                export class ReadParticle extends ParticleV2<Particle> {
-                    constructor(content: Particle, of: string) { super(new MetaV2(constants.particles.ReadParticle, of), content); }
+                export class ReadParticle extends ParticleV2<AnyParticle> {
+                    constructor(content: AnyParticle, of: string) { super(new MetaV2(constants.particles.ReadParticle, of), content); }
                 }
-                export class ReadMatchedParticles extends ParticleV2<Particle> {
+                export class ReadMatchedParticles extends ParticleV2<AnyParticle> {
                     constructor(query: any, of: string) {
                         super(new MetaV2(constants.particles.ReadMatchedParticles, of), query);
                     }
                 }
-                export class ReadMatchedParticle extends ParticleV2<Particle> {
+                export class ReadMatchedParticle extends ParticleV2<AnyParticle> {
                     constructor(query: any, of: string) {
                         super(new MetaV2(constants.particles.ReadMatchedParticle, of), query);
                     }
                 }
-                export class Particles extends ParticleV2<Particle[]> {
-                    constructor(particles: Particle[], of: string) { super(new MetaV2(constants.particles.Particles, of), particles); }
+                export class Particles extends ParticleV2<AnyParticle[]> {
+                    constructor(particles: AnyParticle[], of: string) { super(new MetaV2(constants.particles.Particles, of), particles); }
                 }
                 export interface RemoveParticleContent {
                     name: string,
                     of: string
                 }
-                export class RemoveParticle extends ParticleV2<Particle> {
-                    constructor(ref: Particle, of: string) { super(new MetaV2(constants.particles.RemoveParticle, of), ref); }
+                export class RemoveParticle extends ParticleV2<AnyParticle> {
+                    constructor(ref: AnyParticle, of: string) { super(new MetaV2(constants.particles.RemoveParticle, of), ref); }
                 }
-                export class RemoveMatchedParticles extends ParticleV2<Particle> {
+                export class RemoveMatchedParticles extends ParticleV2<AnyParticle> {
                     constructor(query: any, of: string) {
                         super(new MetaV2(constants.particles.RemoveMatchedParticles, of), query);
                     }

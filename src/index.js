@@ -14,6 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Created by codelovesme on 6/19/2015.
  */
 var core_1 = require("@euglena/core");
+var cessnalib_1 = require("cessnalib");
 var euglena_template;
 (function (euglena_template) {
     var being;
@@ -26,7 +27,7 @@ var euglena_template;
                     return _super.call(this, meta, data) || this;
                 }
                 return BooleanParticle;
-            }(core_1.euglena.being.ParticleV2));
+            }(core_1.ParticleV2));
             particle.BooleanParticle = BooleanParticle;
             var VoidParticle = (function (_super) {
                 __extends(VoidParticle, _super);
@@ -34,7 +35,7 @@ var euglena_template;
                     return _super.call(this, meta) || this;
                 }
                 return VoidParticle;
-            }(core_1.euglena.being.ParticleV2));
+            }(core_1.ParticleV2));
             particle.VoidParticle = VoidParticle;
         })(particle = being.particle || (being.particle = {}));
         var subscription;
@@ -51,7 +52,7 @@ var euglena_template;
                 StaticTools.addSubscription = function (particleMatch, euglenaName) {
                     var euglenas = StaticTools.getSubscriptions(particleMatch);
                     if (euglenas) {
-                        if (!core_1.euglena.sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
+                        if (!cessnalib_1.sys.type.StaticTools.Array.contains(euglenas, euglenaName)) {
                             euglenas.push(euglenaName);
                         }
                     }
@@ -61,18 +62,18 @@ var euglena_template;
                 };
                 StaticTools.removeSubscriptions = function (particleMatch) {
                     for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (core_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
-                            return core_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict, i).euglenas;
+                        if (cessnalib_1.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return cessnalib_1.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict, i).euglenas;
                         }
                     }
                     return null;
                 };
                 StaticTools.removeSubscription = function (particleMatch, euglenaName) {
                     for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (core_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                        if (cessnalib_1.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
                             var index = StaticTools.subscriptionDict[i].euglenas.indexOf(euglenaName);
                             if (index >= 0) {
-                                return core_1.euglena.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict[i].euglenas, index) ? true : false;
+                                return cessnalib_1.sys.type.StaticTools.Array.removeAt(StaticTools.subscriptionDict[i].euglenas, index) ? true : false;
                             }
                         }
                     }
@@ -80,7 +81,7 @@ var euglena_template;
                 };
                 StaticTools.getSubscriptions = function (particleMatch) {
                     for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (core_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                        if (cessnalib_1.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
                             return StaticTools.subscriptionDict[i].euglenas;
                         }
                     }
@@ -88,8 +89,8 @@ var euglena_template;
                 };
                 StaticTools.isSubscribed = function (particleMatch, euglenaName) {
                     for (var i = 0; i < StaticTools.subscriptionDict.length; i++) {
-                        if (core_1.euglena.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
-                            return core_1.euglena.sys.type.StaticTools.Array.contains(StaticTools.subscriptionDict[i].euglenas, euglenaName);
+                        if (cessnalib_1.js.Class.doesCover(particleMatch, StaticTools.subscriptionDict[i].particle)) {
+                            return cessnalib_1.sys.type.StaticTools.Array.contains(StaticTools.subscriptionDict[i].euglenas, euglenaName);
                         }
                     }
                 };
@@ -100,8 +101,6 @@ var euglena_template;
         })(subscription = being.subscription || (being.subscription = {}));
         var alive;
         (function (alive) {
-            var ParticleV2 = core_1.euglena.being.ParticleV2;
-            var MetaV2 = core_1.euglena.being.MetaV2;
             var constants;
             (function (constants) {
                 var particles;
@@ -171,7 +170,7 @@ var euglena_template;
             })(constants = alive.constants || (alive.constants = {}));
             var organelle;
             (function (organelle) {
-                var Organelle = core_1.euglena.being.alive.Organelle;
+                var Organelle = core_1.alive.Organelle;
                 var TimeOrganelle = (function (_super) {
                     __extends(TimeOrganelle, _super);
                     function TimeOrganelle(className) {
@@ -234,194 +233,193 @@ var euglena_template;
                 var Password = (function (_super) {
                     __extends(Password, _super);
                     function Password(euglenaName, value) {
-                        return _super.call(this, new MetaV2(constants.particles.Password, euglenaName), value) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Password, euglenaName), value) || this;
                     }
                     return Password;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.Password = Password;
                 var subscriptionDict = (function (_super) {
                     __extends(subscriptionDict, _super);
                     function subscriptionDict(of) {
-                        return _super.call(this, new MetaV2(constants.particles.subscriptionDict, of), new core_1.euglena.sys.type.Map(function (key1, key2) {
-                            return core_1.euglena.js.Class.doesCover(key1, key2);
+                        return _super.call(this, new core_1.MetaV2(constants.particles.subscriptionDict, of), new cessnalib_1.sys.type.Map(function (key1, key2) {
+                            return cessnalib_1.js.Class.doesCover(key1, key2);
                         })) || this;
                     }
                     return subscriptionDict;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.subscriptionDict = subscriptionDict;
                 var Subscribe = (function (_super) {
                     __extends(Subscribe, _super);
                     function Subscribe(particleReference, of) {
-                        return _super.call(this, new MetaV2(constants.particles.Subscribe, of), particleReference) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Subscribe, of), particleReference) || this;
                     }
                     return Subscribe;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.Subscribe = Subscribe;
                 var Coordinate = (function (_super) {
                     __extends(Coordinate, _super);
                     function Coordinate(lat, lon, of) {
-                        return _super.call(this, new MetaV2(constants.particles.Coordinate, of), { lat: lat, lon: lon }) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Coordinate, of), { lat: lat, lon: lon }) || this;
                     }
                     return Coordinate;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.Coordinate = Coordinate;
                 var WhoAmI = (function (_super) {
                     __extends(WhoAmI, _super);
                     function WhoAmI(of) {
-                        return _super.call(this, new MetaV2(constants.particles.WhoAmI, of)) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.WhoAmI, of)) || this;
                     }
                     return WhoAmI;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.WhoAmI = WhoAmI;
                 var NetClientOrganelleSap = (function (_super) {
                     __extends(NetClientOrganelleSap, _super);
                     function NetClientOrganelleSap(of) {
-                        return _super.call(this, new MetaV2(constants.particles.NetClientOrganelleSap, of), { euglenaName: of }) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.NetClientOrganelleSap, of), { euglenaName: of }) || this;
                     }
                     return NetClientOrganelleSap;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.NetClientOrganelleSap = NetClientOrganelleSap;
                 var WebUIOrganelleSap = (function (_super) {
                     __extends(WebUIOrganelleSap, _super);
                     function WebUIOrganelleSap(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.WebUIOrganelleSap, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.WebUIOrganelleSap, of), content) || this;
                     }
                     return WebUIOrganelleSap;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.WebUIOrganelleSap = WebUIOrganelleSap;
                 var WebOrganelleSap = (function (_super) {
                     __extends(WebOrganelleSap, _super);
                     function WebOrganelleSap(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.WebOrganelleSap, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.WebOrganelleSap, of), content) || this;
                     }
                     return WebOrganelleSap;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.WebOrganelleSap = WebOrganelleSap;
                 var GPSOrganelleSap = (function (_super) {
                     __extends(GPSOrganelleSap, _super);
                     function GPSOrganelleSap(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.GPSOrganelleSap, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.GPSOrganelleSap, of), content) || this;
                     }
                     return GPSOrganelleSap;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.GPSOrganelleSap = GPSOrganelleSap;
                 var NetOrganelleSap = (function (_super) {
                     __extends(NetOrganelleSap, _super);
                     function NetOrganelleSap(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.NetOrganelleSap, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.NetOrganelleSap, of), content) || this;
                     }
                     return NetOrganelleSap;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.NetOrganelleSap = NetOrganelleSap;
                 var DbOrganelleSap = (function (_super) {
                     __extends(DbOrganelleSap, _super);
                     function DbOrganelleSap(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.DbOrganelleSap, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.DbOrganelleSap, of), content) || this;
                     }
                     return DbOrganelleSap;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.DbOrganelleSap = DbOrganelleSap;
                 var TimeOrganelleSap = (function (_super) {
                     __extends(TimeOrganelleSap, _super);
                     function TimeOrganelleSap(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.TimeOrganelleSap, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.TimeOrganelleSap, of), content) || this;
                     }
                     return TimeOrganelleSap;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.TimeOrganelleSap = TimeOrganelleSap;
                 var DbIsOnline = (function (_super) {
                     __extends(DbIsOnline, _super);
                     function DbIsOnline(of) {
-                        return _super.call(this, new MetaV2(constants.particles.DbIsOnline, of)) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.DbIsOnline, of)) || this;
                     }
                     return DbIsOnline;
                 }(being.particle.VoidParticle));
                 particle.DbIsOnline = DbIsOnline;
-                var VoidParticle = euglena_template.being.particle.VoidParticle;
                 var ReturnCurrentTime = (function (_super) {
                     __extends(ReturnCurrentTime, _super);
                     function ReturnCurrentTime(of) {
-                        return _super.call(this, new MetaV2(constants.particles.ReturnCurrentTime, of)) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ReturnCurrentTime, of)) || this;
                     }
                     return ReturnCurrentTime;
-                }(VoidParticle));
+                }(being.particle.VoidParticle));
                 particle.ReturnCurrentTime = ReturnCurrentTime;
                 var ReturnIfConnectedToTheInternet = (function (_super) {
                     __extends(ReturnIfConnectedToTheInternet, _super);
                     function ReturnIfConnectedToTheInternet(of) {
-                        return _super.call(this, new MetaV2(constants.particles.ReturnIfConnectedToTheInternet, of)) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ReturnIfConnectedToTheInternet, of)) || this;
                     }
                     return ReturnIfConnectedToTheInternet;
-                }(VoidParticle));
+                }(being.particle.VoidParticle));
                 particle.ReturnIfConnectedToTheInternet = ReturnIfConnectedToTheInternet;
                 var OrganelleHasComeToLife = (function (_super) {
                     __extends(OrganelleHasComeToLife, _super);
                     function OrganelleHasComeToLife(organelleName, of) {
-                        return _super.call(this, new MetaV2(constants.particles.OrganelleHasComeToLife, of), { organelleName: organelleName }) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.OrganelleHasComeToLife, of), { organelleName: organelleName }) || this;
                     }
                     return OrganelleHasComeToLife;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.OrganelleHasComeToLife = OrganelleHasComeToLife;
                 var Domain = (function (_super) {
                     __extends(Domain, _super);
                     function Domain(domain, of) {
-                        return _super.call(this, new MetaV2(constants.particles.Domain, of), domain) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Domain, of), domain) || this;
                     }
                     return Domain;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.Domain = Domain;
                 var Authenticate = (function (_super) {
                     __extends(Authenticate, _super);
                     function Authenticate(euglenaName, password, of) {
-                        return _super.call(this, new MetaV2(constants.particles.Authenticate, of), { euglenaName: euglenaName, password: password }) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Authenticate, of), { euglenaName: euglenaName, password: password }) || this;
                     }
                     return Authenticate;
-                }(core_1.euglena.being.ParticleV2));
+                }(core_1.ParticleV2));
                 particle.Authenticate = Authenticate;
                 var Proxy = (function (_super) {
                     __extends(Proxy, _super);
                     function Proxy(from, to, expireTime, of) {
-                        return _super.call(this, new MetaV2(constants.particles.Proxy, of, expireTime), { from: from, to: to }) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Proxy, of, expireTime), { from: from, to: to }) || this;
                     }
                     return Proxy;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.Proxy = Proxy;
                 var SetTime = (function (_super) {
                     __extends(SetTime, _super);
                     function SetTime(time, of) {
-                        return _super.call(this, new MetaV2(constants.particles.SetTime, of), time) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.SetTime, of), time) || this;
                     }
                     return SetTime;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.SetTime = SetTime;
                 var ConnectToEuglena = (function (_super) {
                     __extends(ConnectToEuglena, _super);
                     function ConnectToEuglena(euglenaInfo, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ConnectToEuglena, of), euglenaInfo) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ConnectToEuglena, of), euglenaInfo) || this;
                     }
                     return ConnectToEuglena;
-                }(core_1.euglena.being.ParticleV2));
+                }(core_1.ParticleV2));
                 particle.ConnectToEuglena = ConnectToEuglena;
                 var ConnectedToEuglena = (function (_super) {
                     __extends(ConnectedToEuglena, _super);
                     function ConnectedToEuglena(euglenaInfo, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo) || this;
                     }
                     return ConnectedToEuglena;
-                }(core_1.euglena.being.ParticleV2));
+                }(core_1.ParticleV2));
                 particle.ConnectedToEuglena = ConnectedToEuglena;
                 var DisconnectedFromEuglena = (function (_super) {
                     __extends(DisconnectedFromEuglena, _super);
                     function DisconnectedFromEuglena(euglenaInfo, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo) || this;
                     }
                     return DisconnectedFromEuglena;
-                }(core_1.euglena.being.ParticleV2));
+                }(core_1.ParticleV2));
                 particle.DisconnectedFromEuglena = DisconnectedFromEuglena;
                 var Listen = (function (_super) {
                     __extends(Listen, _super);
                     function Listen(of) {
-                        return _super.call(this, new MetaV2(constants.particles.Listen, of)) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Listen, of)) || this;
                     }
                     return Listen;
                 }(being.particle.VoidParticle));
@@ -429,55 +427,55 @@ var euglena_template;
                 var ThrowImpact = (function (_super) {
                     __extends(ThrowImpact, _super);
                     function ThrowImpact(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ThrowImpact, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ThrowImpact, of), content) || this;
                     }
                     return ThrowImpact;
-                }(core_1.euglena.being.ParticleV2));
+                }(core_1.ParticleV2));
                 particle.ThrowImpact = ThrowImpact;
                 var EuglenaInfo = (function (_super) {
                     __extends(EuglenaInfo, _super);
                     function EuglenaInfo(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.EuglenaInfo, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.EuglenaInfo, of), content) || this;
                     }
                     return EuglenaInfo;
-                }(core_1.euglena.being.ParticleV2));
+                }(core_1.ParticleV2));
                 particle.EuglenaInfo = EuglenaInfo;
                 var CytoplasmInfo = (function (_super) {
                     __extends(CytoplasmInfo, _super);
                     function CytoplasmInfo(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.EuglenaInfo, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.EuglenaInfo, of), content) || this;
                     }
                     return CytoplasmInfo;
-                }(core_1.euglena.being.ParticleV2));
+                }(core_1.ParticleV2));
                 particle.CytoplasmInfo = CytoplasmInfo;
                 var OrganelleList = (function (_super) {
                     __extends(OrganelleList, _super);
                     function OrganelleList(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.OrganelleList, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.OrganelleList, of), content) || this;
                     }
                     return OrganelleList;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.OrganelleList = OrganelleList;
                 var Exception = (function (_super) {
                     __extends(Exception, _super);
                     function Exception(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.Exception, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Exception, of), content) || this;
                     }
                     return Exception;
-                }(core_1.euglena.being.ParticleV2));
+                }(core_1.ParticleV2));
                 particle.Exception = Exception;
                 var Time = (function (_super) {
                     __extends(Time, _super);
                     function Time(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.Time, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Time, of), content) || this;
                     }
                     return Time;
-                }(core_1.euglena.being.ParticleV2));
+                }(core_1.ParticleV2));
                 particle.Time = Time;
                 var Acknowledge = (function (_super) {
                     __extends(Acknowledge, _super);
                     function Acknowledge(of) {
-                        return _super.call(this, new MetaV2(constants.particles.Acknowledge, of)) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Acknowledge, of)) || this;
                     }
                     return Acknowledge;
                 }(being.particle.VoidParticle));
@@ -485,7 +483,7 @@ var euglena_template;
                 var ConnectedToTheInternet = (function (_super) {
                     __extends(ConnectedToTheInternet, _super);
                     function ConnectedToTheInternet(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ConnectedToTheInternet, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ConnectedToTheInternet, of), content) || this;
                     }
                     return ConnectedToTheInternet;
                 }(being.particle.BooleanParticle));
@@ -493,7 +491,7 @@ var euglena_template;
                 var EuglenaHasBeenBorn = (function (_super) {
                     __extends(EuglenaHasBeenBorn, _super);
                     function EuglenaHasBeenBorn(of) {
-                        return _super.call(this, new MetaV2(constants.particles.EuglenaHasBeenBorn, of), true) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.EuglenaHasBeenBorn, of), true) || this;
                     }
                     return EuglenaHasBeenBorn;
                 }(being.particle.BooleanParticle));
@@ -501,74 +499,74 @@ var euglena_template;
                 var SaveParticle = (function (_super) {
                     __extends(SaveParticle, _super);
                     function SaveParticle(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.SaveParticle, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.SaveParticle, of), content) || this;
                     }
                     return SaveParticle;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.SaveParticle = SaveParticle;
                 var SaveMatchedParticle = (function (_super) {
                     __extends(SaveMatchedParticle, _super);
                     function SaveMatchedParticle(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.SaveMatchedParticle, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.SaveMatchedParticle, of), content) || this;
                     }
                     return SaveMatchedParticle;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.SaveMatchedParticle = SaveMatchedParticle;
                 var ReadParticle = (function (_super) {
                     __extends(ReadParticle, _super);
                     function ReadParticle(content, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ReadParticle, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ReadParticle, of), content) || this;
                     }
                     return ReadParticle;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.ReadParticle = ReadParticle;
                 var ReadMatchedParticles = (function (_super) {
                     __extends(ReadMatchedParticles, _super);
                     function ReadMatchedParticles(query, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ReadMatchedParticles, of), query) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ReadMatchedParticles, of), query) || this;
                     }
                     return ReadMatchedParticles;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.ReadMatchedParticles = ReadMatchedParticles;
                 var ReadMatchedParticle = (function (_super) {
                     __extends(ReadMatchedParticle, _super);
                     function ReadMatchedParticle(query, of) {
-                        return _super.call(this, new MetaV2(constants.particles.ReadMatchedParticle, of), query) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.ReadMatchedParticle, of), query) || this;
                     }
                     return ReadMatchedParticle;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.ReadMatchedParticle = ReadMatchedParticle;
                 var Particles = (function (_super) {
                     __extends(Particles, _super);
                     function Particles(particles, of) {
-                        return _super.call(this, new MetaV2(constants.particles.Particles, of), particles) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.Particles, of), particles) || this;
                     }
                     return Particles;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.Particles = Particles;
                 var RemoveParticle = (function (_super) {
                     __extends(RemoveParticle, _super);
                     function RemoveParticle(ref, of) {
-                        return _super.call(this, new MetaV2(constants.particles.RemoveParticle, of), ref) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.RemoveParticle, of), ref) || this;
                     }
                     return RemoveParticle;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.RemoveParticle = RemoveParticle;
                 var RemoveMatchedParticles = (function (_super) {
                     __extends(RemoveMatchedParticles, _super);
                     function RemoveMatchedParticles(query, of) {
-                        return _super.call(this, new MetaV2(constants.particles.RemoveMatchedParticles, of), query) || this;
+                        return _super.call(this, new core_1.MetaV2(constants.particles.RemoveMatchedParticles, of), query) || this;
                     }
                     return RemoveMatchedParticles;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.RemoveMatchedParticles = RemoveMatchedParticles;
                 var DoesParticleExist = (function (_super) {
                     __extends(DoesParticleExist, _super);
                     function DoesParticleExist(content, of) {
-                        return _super.call(this, new MetaV2(alive.constants.particles.DoesParticleExist, of), content) || this;
+                        return _super.call(this, new core_1.MetaV2(alive.constants.particles.DoesParticleExist, of), content) || this;
                     }
                     return DoesParticleExist;
-                }(ParticleV2));
+                }(core_1.ParticleV2));
                 particle.DoesParticleExist = DoesParticleExist;
             })(particle = alive.particle || (alive.particle = {}));
         })(alive = being.alive || (being.alive = {}));
