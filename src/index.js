@@ -99,6 +99,7 @@ var alive;
         var particles;
         (function (particles) {
             particles.Domain = "Domain";
+            particles.ServerRunning = "ServerRunning";
             particles.WhoAmI = "WhoAmI";
             particles.Particles = "Particles";
             particles.EuglenaInfo = "EuglenaInfo";
@@ -330,6 +331,14 @@ var alive;
             return DbIsOnline;
         }(VoidParticle));
         particle.DbIsOnline = DbIsOnline;
+        var ServerRunning = (function (_super) {
+            __extends(ServerRunning, _super);
+            function ServerRunning(of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.ServerRunning, of)) || this;
+            }
+            return ServerRunning;
+        }(VoidParticle));
+        particle.ServerRunning = ServerRunning;
         var ReturnCurrentTime = (function (_super) {
             __extends(ReturnCurrentTime, _super);
             function ReturnCurrentTime(of) {

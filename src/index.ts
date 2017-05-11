@@ -77,6 +77,7 @@ export namespace alive {
     export namespace constants {
         export namespace particles {
             export const Domain = "Domain";
+            export const ServerRunning = "ServerRunning";
             export const WhoAmI = "WhoAmI";
             export const Particles = "Particles";
             export const EuglenaInfo = "EuglenaInfo";
@@ -242,6 +243,9 @@ export namespace alive {
         }
         export class DbIsOnline extends VoidParticle {
             constructor(of: string) { super(new MetaV2(constants.particles.DbIsOnline, of)); }
+        }
+        export class ServerRunning extends VoidParticle {
+            constructor(of: string) { super(new MetaV2(constants.particles.ServerRunning, of)); }
         }
         export class ReturnCurrentTime extends VoidParticle {
             constructor(of: string) { super(new MetaV2(constants.particles.ReturnCurrentTime, of)); }

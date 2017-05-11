@@ -30,6 +30,7 @@ export declare namespace alive {
     namespace constants {
         namespace particles {
             const Domain = "Domain";
+            const ServerRunning = "ServerRunning";
             const WhoAmI = "WhoAmI";
             const Particles = "Particles";
             const EuglenaInfo = "EuglenaInfo";
@@ -191,6 +192,9 @@ export declare namespace alive {
             }, of: string);
         }
         class DbIsOnline extends VoidParticle {
+            constructor(of: string);
+        }
+        class ServerRunning extends VoidParticle {
             constructor(of: string);
         }
         class ReturnCurrentTime extends VoidParticle {
