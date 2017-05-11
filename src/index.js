@@ -442,8 +442,8 @@ var alive;
         })(OrganelleInfoLocationType = particle.OrganelleInfoLocationType || (particle.OrganelleInfoLocationType = {}));
         var OrganelleInfo = (function (_super) {
             __extends(OrganelleInfo, _super);
-            function OrganelleInfo(organelleName, locationType, locationPath, of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.OrganelleInfo, of), { name: organelleName, location: { type: locationType, path: locationPath } }) || this;
+            function OrganelleInfo(organelleName, locationType, locationPath, sap, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.OrganelleInfo, of), { name: organelleName, location: { type: locationType, path: locationPath }, sap: sap }) || this;
             }
             return OrganelleInfo;
         }(core_1.ParticleV2));

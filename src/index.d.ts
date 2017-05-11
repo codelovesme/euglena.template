@@ -263,14 +263,15 @@ export declare namespace alive {
             NodeModules = 1,
             Url = 2,
         }
-        class OrganelleInfo extends ParticleV2<{
+        class OrganelleInfo<SAP> extends ParticleV2<{
             name: string;
             location: {
                 type: OrganelleInfoLocationType;
                 path: string;
             };
+            sap: SAP;
         }> {
-            constructor(organelleName: string, locationType: OrganelleInfoLocationType, locationPath: string, of: string);
+            constructor(organelleName: string, locationType: OrganelleInfoLocationType, locationPath: string, sap: SAP, of: string);
         }
         class CytoplasmInfo extends ParticleV2<{
             particles: AnyParticle[];
