@@ -434,6 +434,12 @@ var alive;
             return EuglenaInfo;
         }(core_1.ParticleV2));
         particle.EuglenaInfo = EuglenaInfo;
+        var OrganelleInfoLocationType;
+        (function (OrganelleInfoLocationType) {
+            OrganelleInfoLocationType[OrganelleInfoLocationType["FileSystemPath"] = 0] = "FileSystemPath";
+            OrganelleInfoLocationType[OrganelleInfoLocationType["NodeModules"] = 1] = "NodeModules";
+            OrganelleInfoLocationType[OrganelleInfoLocationType["Url"] = 2] = "Url";
+        })(OrganelleInfoLocationType = particle.OrganelleInfoLocationType || (particle.OrganelleInfoLocationType = {}));
         var OrganelleInfo = (function (_super) {
             __extends(OrganelleInfo, _super);
             function OrganelleInfo(organelleName, locationType, locationPath, of) {

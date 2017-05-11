@@ -292,8 +292,11 @@ export namespace alive {
         export class EuglenaInfo extends ParticleV2<{ name: string, url: string, port: string }> {
             constructor(content: { name: string, url: string, port: string }, of: string) { super(new MetaV2(constants.particles.EuglenaInfo, of), content); }
         }
-        export class OrganelleInfo extends ParticleV2<{ name: string, location: { type: string, path: string } }>{
-            constructor(organelleName: string, locationType: string, locationPath: string, of: string) { super(new MetaV2(constants.particles.OrganelleInfo, of), { name: organelleName, location: { type: locationType, path: locationPath } }); }
+        export enum OrganelleInfoLocationType {
+            FileSystemPath, NodeModules, Url
+        }
+        export class OrganelleInfo extends ParticleV2<{ name: string, location: { type: OrganelleInfoLocationType, path: string } }>{
+            constructor(organelleName: string, locationType: OrganelleInfoLocationType, locationPath: string, of: string) { super(new MetaV2(constants.particles.OrganelleInfo, of), { name: organelleName, location: { type: locationType, path: locationPath } }); }
         }
         export class CytoplasmInfo extends ParticleV2<{ particles: AnyParticle[], chromosome: core_alive.dna.AnyGene[] }> {
             constructor(content: { particles: AnyParticle[], chromosome: core_alive.dna.AnyGene[] }, of: string) { super(new MetaV2(constants.particles.EuglenaInfo, of), content); }

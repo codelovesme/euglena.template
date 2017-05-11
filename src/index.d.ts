@@ -258,14 +258,19 @@ export declare namespace alive {
                 port: string;
             }, of: string);
         }
+        enum OrganelleInfoLocationType {
+            FileSystemPath = 0,
+            NodeModules = 1,
+            Url = 2,
+        }
         class OrganelleInfo extends ParticleV2<{
             name: string;
             location: {
-                type: string;
+                type: OrganelleInfoLocationType;
                 path: string;
             };
         }> {
-            constructor(organelleName: string, locationType: string, locationPath: string, of: string);
+            constructor(organelleName: string, locationType: OrganelleInfoLocationType, locationPath: string, of: string);
         }
         class CytoplasmInfo extends ParticleV2<{
             particles: AnyParticle[];
