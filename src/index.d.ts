@@ -194,8 +194,10 @@ export declare namespace alive {
         class DbIsOnline extends VoidParticle {
             constructor(of: string);
         }
-        class ServerRunning extends VoidParticle {
-            constructor(of: string);
+        class ServerRunning extends ParticleV2<{
+            port: string;
+        }> {
+            constructor(port: string, of: string);
         }
         class ReturnCurrentTime extends VoidParticle {
             constructor(of: string);

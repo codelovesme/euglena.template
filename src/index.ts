@@ -244,8 +244,8 @@ export namespace alive {
         export class DbIsOnline extends VoidParticle {
             constructor(of: string) { super(new MetaV2(constants.particles.DbIsOnline, of)); }
         }
-        export class ServerRunning extends VoidParticle {
-            constructor(of: string) { super(new MetaV2(constants.particles.ServerRunning, of)); }
+        export class ServerRunning extends ParticleV2<{ port: string }> {
+            constructor(port: string, of: string) { super(new MetaV2(constants.particles.ServerRunning, of), { port }); }
         }
         export class ReturnCurrentTime extends VoidParticle {
             constructor(of: string) { super(new MetaV2(constants.particles.ReturnCurrentTime, of)); }

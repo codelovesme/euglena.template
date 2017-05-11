@@ -333,11 +333,11 @@ var alive;
         particle.DbIsOnline = DbIsOnline;
         var ServerRunning = (function (_super) {
             __extends(ServerRunning, _super);
-            function ServerRunning(of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.ServerRunning, of)) || this;
+            function ServerRunning(port, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.ServerRunning, of), { port: port }) || this;
             }
             return ServerRunning;
-        }(VoidParticle));
+        }(core_1.ParticleV2));
         particle.ServerRunning = ServerRunning;
         var ReturnCurrentTime = (function (_super) {
             __extends(ReturnCurrentTime, _super);
