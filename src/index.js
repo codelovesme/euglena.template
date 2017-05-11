@@ -102,6 +102,7 @@ var alive;
             particles.WhoAmI = "WhoAmI";
             particles.Particles = "Particles";
             particles.EuglenaInfo = "EuglenaInfo";
+            particles.OrganelleInfo = "OrganelleInfo";
             particles.OrganelleList = "OrganelleList";
             particles.EuglenaName = "EuglenaName";
             particles.EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
@@ -433,6 +434,14 @@ var alive;
             return EuglenaInfo;
         }(core_1.ParticleV2));
         particle.EuglenaInfo = EuglenaInfo;
+        var OrganelleInfo = (function (_super) {
+            __extends(OrganelleInfo, _super);
+            function OrganelleInfo(organelleName, locationType, locationPath, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.OrganelleInfo, of), { name: organelleName, location: { type: locationType, path: locationPath } }) || this;
+            }
+            return OrganelleInfo;
+        }(core_1.ParticleV2));
+        particle.OrganelleInfo = OrganelleInfo;
         var CytoplasmInfo = (function (_super) {
             __extends(CytoplasmInfo, _super);
             function CytoplasmInfo(content, of) {

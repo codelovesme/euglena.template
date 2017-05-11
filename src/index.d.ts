@@ -33,6 +33,7 @@ export declare namespace alive {
             const WhoAmI = "WhoAmI";
             const Particles = "Particles";
             const EuglenaInfo = "EuglenaInfo";
+            const OrganelleInfo = "OrganelleInfo";
             const OrganelleList = "OrganelleList";
             const EuglenaName = "EuglenaName";
             const EuglenaHasBeenBorn = "EuglenaHasBeenBorn";
@@ -256,6 +257,15 @@ export declare namespace alive {
                 url: string;
                 port: string;
             }, of: string);
+        }
+        class OrganelleInfo extends ParticleV2<{
+            name: string;
+            location: {
+                type: string;
+                path: string;
+            };
+        }> {
+            constructor(organelleName: string, locationType: string, locationPath: string, of: string);
         }
         class CytoplasmInfo extends ParticleV2<{
             particles: AnyParticle[];
