@@ -84,7 +84,7 @@ export declare namespace alive {
             const SaveMatchedParticle = "SaveMatchedParticle";
             const ReadParticle = "ReadParticle";
             const RemoveParticle = "RemoveParticle";
-            const RemoveParticles = "RemoveMatchedParticles";
+            const RemoveParticles = "RemoveParticles";
         }
         namespace organelles {
             const WebUIOrganelle = "WebUIOrganelle";

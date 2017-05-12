@@ -154,7 +154,7 @@ var alive;
             particles.SaveMatchedParticle = "SaveMatchedParticle";
             particles.ReadParticle = "ReadParticle";
             particles.RemoveParticle = "RemoveParticle";
-            particles.RemoveParticles = "RemoveMatchedParticles";
+            particles.RemoveParticles = "RemoveParticles";
         })(particles = constants.particles || (constants.particles = {}));
         var organelles;
         (function (organelles) {

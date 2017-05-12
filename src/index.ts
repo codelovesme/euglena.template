@@ -132,7 +132,7 @@ export namespace alive {
             export const SaveMatchedParticle = "SaveMatchedParticle";
             export const ReadParticle = "ReadParticle";
             export const RemoveParticle = "RemoveParticle";
-            export const RemoveParticles = "RemoveMatchedParticles";
+            export const RemoveParticles = "RemoveParticles";
         }
         export namespace organelles {
             export const WebUIOrganelle = "WebUIOrganelle";
