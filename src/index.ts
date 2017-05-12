@@ -3,6 +3,11 @@
 
 /**
  * Created by codelovesme on 6/19/2015.
+ * 
+ * 
+ * TODO list
+ * Must be release major because removed some parts
+ * 
  */
 import { interaction, ParticleV2, MetaV2, AnyParticle, alive as core_alive } from "@euglena/core";
 import { sys, js } from "cessnalib";
