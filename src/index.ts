@@ -132,7 +132,7 @@ export namespace alive {
             export const SaveMatchedParticle = "SaveMatchedParticle";
             export const ReadParticle = "ReadParticle";
             export const RemoveParticle = "RemoveParticle";
-            export const RemoveMatchedParticles = "RemoveMatchedParticles";
+            export const RemoveParticles = "RemoveMatchedParticles";
         }
         export namespace organelles {
             export const WebUIOrganelle = "WebUIOrganelle";
@@ -359,9 +359,9 @@ export namespace alive {
         export class RemoveParticle extends ParticleV2<AnyParticle> {
             constructor(ref: AnyParticle, of: string) { super(new MetaV2(constants.particles.RemoveParticle, of), ref); }
         }
-        export class RemoveMatchedParticles extends ParticleV2<AnyParticle> {
+        export class RemoveParticles extends ParticleV2<AnyParticle> {
             constructor(query: any, of: string) {
-                super(new MetaV2(constants.particles.RemoveMatchedParticles, of), query);
+                super(new MetaV2(constants.particles.RemoveParticles, of), query);
             }
         }
         export interface DoesParticleExistContent {

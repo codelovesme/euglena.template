@@ -12,6 +12,11 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Created by codelovesme on 6/19/2015.
+ *
+ *
+ * TODO list
+ * Must be release major because removed some parts
+ *
  */
 var core_1 = require("@euglena/core");
 var cessnalib_1 = require("cessnalib");
@@ -149,7 +154,7 @@ var alive;
             particles.SaveMatchedParticle = "SaveMatchedParticle";
             particles.ReadParticle = "ReadParticle";
             particles.RemoveParticle = "RemoveParticle";
-            particles.RemoveMatchedParticles = "RemoveMatchedParticles";
+            particles.RemoveParticles = "RemoveMatchedParticles";
         })(particles = constants.particles || (constants.particles = {}));
         var organelles;
         (function (organelles) {
@@ -569,14 +574,14 @@ var alive;
             return RemoveParticle;
         }(core_1.ParticleV2));
         particle_1.RemoveParticle = RemoveParticle;
-        var RemoveMatchedParticles = (function (_super) {
-            __extends(RemoveMatchedParticles, _super);
-            function RemoveMatchedParticles(query, of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.RemoveMatchedParticles, of), query) || this;
+        var RemoveParticles = (function (_super) {
+            __extends(RemoveParticles, _super);
+            function RemoveParticles(query, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.RemoveParticles, of), query) || this;
             }
-            return RemoveMatchedParticles;
+            return RemoveParticles;
         }(core_1.ParticleV2));
-        particle_1.RemoveMatchedParticles = RemoveMatchedParticles;
+        particle_1.RemoveParticles = RemoveParticles;
         var DoesParticleExist = (function (_super) {
             __extends(DoesParticleExist, _super);
             function DoesParticleExist(content, of) {

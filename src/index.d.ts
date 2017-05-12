@@ -1,5 +1,10 @@
 /**
  * Created by codelovesme on 6/19/2015.
+ *
+ *
+ * TODO list
+ * Must be release major because removed some parts
+ *
  */
 import { ParticleV2, MetaV2, AnyParticle, alive as core_alive } from "@euglena/core";
 import { sys } from "cessnalib";
@@ -79,7 +84,7 @@ export declare namespace alive {
             const SaveMatchedParticle = "SaveMatchedParticle";
             const ReadParticle = "ReadParticle";
             const RemoveParticle = "RemoveParticle";
-            const RemoveMatchedParticles = "RemoveMatchedParticles";
+            const RemoveParticles = "RemoveMatchedParticles";
         }
         namespace organelles {
             const WebUIOrganelle = "WebUIOrganelle";
@@ -333,7 +338,7 @@ export declare namespace alive {
         class RemoveParticle extends ParticleV2<AnyParticle> {
             constructor(ref: AnyParticle, of: string);
         }
-        class RemoveMatchedParticles extends ParticleV2<AnyParticle> {
+        class RemoveParticles extends ParticleV2<AnyParticle> {
             constructor(query: any, of: string);
         }
         interface DoesParticleExistContent {
