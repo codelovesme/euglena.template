@@ -114,6 +114,7 @@ var alive;
             particles.ConnectedToTheInternet = "ConnectedToTheInternet";
             particles.Token = "Token";
             particles.Impacts = "Impacts";
+            particles.Impact = "Impact";
             particles.DoesParticleExist = "DoesParticleExist";
             particles.DoesUniqueParticleExist = "DoesUniqueParticleExist";
             particles.Gene = "Gene";
@@ -224,7 +225,7 @@ var alive;
         organelle.GPSOrganelle = GPSOrganelle;
     })(organelle = alive.organelle || (alive.organelle = {}));
     var particle;
-    (function (particle) {
+    (function (particle_1) {
         var Password = (function (_super) {
             __extends(Password, _super);
             function Password(euglenaName, value) {
@@ -232,7 +233,7 @@ var alive;
             }
             return Password;
         }(core_1.ParticleV2));
-        particle.Password = Password;
+        particle_1.Password = Password;
         var subscriptionDict = (function (_super) {
             __extends(subscriptionDict, _super);
             function subscriptionDict(of) {
@@ -242,7 +243,7 @@ var alive;
             }
             return subscriptionDict;
         }(core_1.ParticleV2));
-        particle.subscriptionDict = subscriptionDict;
+        particle_1.subscriptionDict = subscriptionDict;
         var Subscribe = (function (_super) {
             __extends(Subscribe, _super);
             function Subscribe(particleReference, of) {
@@ -250,7 +251,7 @@ var alive;
             }
             return Subscribe;
         }(core_1.ParticleV2));
-        particle.Subscribe = Subscribe;
+        particle_1.Subscribe = Subscribe;
         var Coordinate = (function (_super) {
             __extends(Coordinate, _super);
             function Coordinate(lat, lon, of) {
@@ -258,7 +259,7 @@ var alive;
             }
             return Coordinate;
         }(core_1.ParticleV2));
-        particle.Coordinate = Coordinate;
+        particle_1.Coordinate = Coordinate;
         var WhoAmI = (function (_super) {
             __extends(WhoAmI, _super);
             function WhoAmI(of) {
@@ -266,7 +267,7 @@ var alive;
             }
             return WhoAmI;
         }(core_1.ParticleV2));
-        particle.WhoAmI = WhoAmI;
+        particle_1.WhoAmI = WhoAmI;
         var NetClientOrganelleSap = (function (_super) {
             __extends(NetClientOrganelleSap, _super);
             function NetClientOrganelleSap(of) {
@@ -274,7 +275,7 @@ var alive;
             }
             return NetClientOrganelleSap;
         }(core_1.ParticleV2));
-        particle.NetClientOrganelleSap = NetClientOrganelleSap;
+        particle_1.NetClientOrganelleSap = NetClientOrganelleSap;
         var WebUIOrganelleSap = (function (_super) {
             __extends(WebUIOrganelleSap, _super);
             function WebUIOrganelleSap(content, of) {
@@ -282,7 +283,7 @@ var alive;
             }
             return WebUIOrganelleSap;
         }(core_1.ParticleV2));
-        particle.WebUIOrganelleSap = WebUIOrganelleSap;
+        particle_1.WebUIOrganelleSap = WebUIOrganelleSap;
         var WebOrganelleSap = (function (_super) {
             __extends(WebOrganelleSap, _super);
             function WebOrganelleSap(content, of) {
@@ -290,7 +291,7 @@ var alive;
             }
             return WebOrganelleSap;
         }(core_1.ParticleV2));
-        particle.WebOrganelleSap = WebOrganelleSap;
+        particle_1.WebOrganelleSap = WebOrganelleSap;
         var GPSOrganelleSap = (function (_super) {
             __extends(GPSOrganelleSap, _super);
             function GPSOrganelleSap(content, of) {
@@ -298,7 +299,7 @@ var alive;
             }
             return GPSOrganelleSap;
         }(core_1.ParticleV2));
-        particle.GPSOrganelleSap = GPSOrganelleSap;
+        particle_1.GPSOrganelleSap = GPSOrganelleSap;
         var NetOrganelleSap = (function (_super) {
             __extends(NetOrganelleSap, _super);
             function NetOrganelleSap(content, of) {
@@ -306,7 +307,7 @@ var alive;
             }
             return NetOrganelleSap;
         }(core_1.ParticleV2));
-        particle.NetOrganelleSap = NetOrganelleSap;
+        particle_1.NetOrganelleSap = NetOrganelleSap;
         var DbOrganelleSap = (function (_super) {
             __extends(DbOrganelleSap, _super);
             function DbOrganelleSap(content, of) {
@@ -314,7 +315,7 @@ var alive;
             }
             return DbOrganelleSap;
         }(core_1.ParticleV2));
-        particle.DbOrganelleSap = DbOrganelleSap;
+        particle_1.DbOrganelleSap = DbOrganelleSap;
         var TimeOrganelleSap = (function (_super) {
             __extends(TimeOrganelleSap, _super);
             function TimeOrganelleSap(content, of) {
@@ -322,7 +323,7 @@ var alive;
             }
             return TimeOrganelleSap;
         }(core_1.ParticleV2));
-        particle.TimeOrganelleSap = TimeOrganelleSap;
+        particle_1.TimeOrganelleSap = TimeOrganelleSap;
         var DbIsOnline = (function (_super) {
             __extends(DbIsOnline, _super);
             function DbIsOnline(of) {
@@ -330,7 +331,7 @@ var alive;
             }
             return DbIsOnline;
         }(VoidParticle));
-        particle.DbIsOnline = DbIsOnline;
+        particle_1.DbIsOnline = DbIsOnline;
         var ServerRunning = (function (_super) {
             __extends(ServerRunning, _super);
             function ServerRunning(port, of) {
@@ -338,7 +339,7 @@ var alive;
             }
             return ServerRunning;
         }(core_1.ParticleV2));
-        particle.ServerRunning = ServerRunning;
+        particle_1.ServerRunning = ServerRunning;
         var ReturnCurrentTime = (function (_super) {
             __extends(ReturnCurrentTime, _super);
             function ReturnCurrentTime(of) {
@@ -346,7 +347,7 @@ var alive;
             }
             return ReturnCurrentTime;
         }(VoidParticle));
-        particle.ReturnCurrentTime = ReturnCurrentTime;
+        particle_1.ReturnCurrentTime = ReturnCurrentTime;
         var ReturnIfConnectedToTheInternet = (function (_super) {
             __extends(ReturnIfConnectedToTheInternet, _super);
             function ReturnIfConnectedToTheInternet(of) {
@@ -354,7 +355,7 @@ var alive;
             }
             return ReturnIfConnectedToTheInternet;
         }(VoidParticle));
-        particle.ReturnIfConnectedToTheInternet = ReturnIfConnectedToTheInternet;
+        particle_1.ReturnIfConnectedToTheInternet = ReturnIfConnectedToTheInternet;
         var OrganelleHasComeToLife = (function (_super) {
             __extends(OrganelleHasComeToLife, _super);
             function OrganelleHasComeToLife(organelleName, of) {
@@ -362,7 +363,7 @@ var alive;
             }
             return OrganelleHasComeToLife;
         }(core_1.ParticleV2));
-        particle.OrganelleHasComeToLife = OrganelleHasComeToLife;
+        particle_1.OrganelleHasComeToLife = OrganelleHasComeToLife;
         var Domain = (function (_super) {
             __extends(Domain, _super);
             function Domain(domain, of) {
@@ -370,7 +371,7 @@ var alive;
             }
             return Domain;
         }(core_1.ParticleV2));
-        particle.Domain = Domain;
+        particle_1.Domain = Domain;
         var Authenticate = (function (_super) {
             __extends(Authenticate, _super);
             function Authenticate(euglenaName, password, of) {
@@ -378,7 +379,7 @@ var alive;
             }
             return Authenticate;
         }(core_1.ParticleV2));
-        particle.Authenticate = Authenticate;
+        particle_1.Authenticate = Authenticate;
         var Proxy = (function (_super) {
             __extends(Proxy, _super);
             function Proxy(from, to, expireTime, of) {
@@ -386,7 +387,7 @@ var alive;
             }
             return Proxy;
         }(core_1.ParticleV2));
-        particle.Proxy = Proxy;
+        particle_1.Proxy = Proxy;
         var SetTime = (function (_super) {
             __extends(SetTime, _super);
             function SetTime(time, of) {
@@ -394,7 +395,7 @@ var alive;
             }
             return SetTime;
         }(core_1.ParticleV2));
-        particle.SetTime = SetTime;
+        particle_1.SetTime = SetTime;
         var ConnectToEuglena = (function (_super) {
             __extends(ConnectToEuglena, _super);
             function ConnectToEuglena(euglenaInfo, of) {
@@ -402,7 +403,7 @@ var alive;
             }
             return ConnectToEuglena;
         }(core_1.ParticleV2));
-        particle.ConnectToEuglena = ConnectToEuglena;
+        particle_1.ConnectToEuglena = ConnectToEuglena;
         var ConnectedToEuglena = (function (_super) {
             __extends(ConnectedToEuglena, _super);
             function ConnectedToEuglena(euglenaInfo, of) {
@@ -410,7 +411,7 @@ var alive;
             }
             return ConnectedToEuglena;
         }(core_1.ParticleV2));
-        particle.ConnectedToEuglena = ConnectedToEuglena;
+        particle_1.ConnectedToEuglena = ConnectedToEuglena;
         var DisconnectedFromEuglena = (function (_super) {
             __extends(DisconnectedFromEuglena, _super);
             function DisconnectedFromEuglena(euglenaInfo, of) {
@@ -418,7 +419,7 @@ var alive;
             }
             return DisconnectedFromEuglena;
         }(core_1.ParticleV2));
-        particle.DisconnectedFromEuglena = DisconnectedFromEuglena;
+        particle_1.DisconnectedFromEuglena = DisconnectedFromEuglena;
         var Listen = (function (_super) {
             __extends(Listen, _super);
             function Listen(of) {
@@ -426,7 +427,7 @@ var alive;
             }
             return Listen;
         }(VoidParticle));
-        particle.Listen = Listen;
+        particle_1.Listen = Listen;
         var ThrowImpact = (function (_super) {
             __extends(ThrowImpact, _super);
             function ThrowImpact(content, of) {
@@ -434,7 +435,15 @@ var alive;
             }
             return ThrowImpact;
         }(core_1.ParticleV2));
-        particle.ThrowImpact = ThrowImpact;
+        particle_1.ThrowImpact = ThrowImpact;
+        var Impact = (function (_super) {
+            __extends(Impact, _super);
+            function Impact(particle, token, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.Impact, of), { particle: particle, token: token }) || this;
+            }
+            return Impact;
+        }(core_1.ParticleV2));
+        particle_1.Impact = Impact;
         var EuglenaInfo = (function (_super) {
             __extends(EuglenaInfo, _super);
             function EuglenaInfo(content, of) {
@@ -442,13 +451,13 @@ var alive;
             }
             return EuglenaInfo;
         }(core_1.ParticleV2));
-        particle.EuglenaInfo = EuglenaInfo;
+        particle_1.EuglenaInfo = EuglenaInfo;
         var OrganelleInfoLocationType;
         (function (OrganelleInfoLocationType) {
             OrganelleInfoLocationType[OrganelleInfoLocationType["FileSystemPath"] = 0] = "FileSystemPath";
             OrganelleInfoLocationType[OrganelleInfoLocationType["NodeModules"] = 1] = "NodeModules";
             OrganelleInfoLocationType[OrganelleInfoLocationType["Url"] = 2] = "Url";
-        })(OrganelleInfoLocationType = particle.OrganelleInfoLocationType || (particle.OrganelleInfoLocationType = {}));
+        })(OrganelleInfoLocationType = particle_1.OrganelleInfoLocationType || (particle_1.OrganelleInfoLocationType = {}));
         var OrganelleInfo = (function (_super) {
             __extends(OrganelleInfo, _super);
             function OrganelleInfo(organelleName, locationType, locationPath, sap, of) {
@@ -456,7 +465,7 @@ var alive;
             }
             return OrganelleInfo;
         }(core_1.ParticleV2));
-        particle.OrganelleInfo = OrganelleInfo;
+        particle_1.OrganelleInfo = OrganelleInfo;
         var CytoplasmInfo = (function (_super) {
             __extends(CytoplasmInfo, _super);
             function CytoplasmInfo(content, of) {
@@ -464,7 +473,7 @@ var alive;
             }
             return CytoplasmInfo;
         }(core_1.ParticleV2));
-        particle.CytoplasmInfo = CytoplasmInfo;
+        particle_1.CytoplasmInfo = CytoplasmInfo;
         var OrganelleList = (function (_super) {
             __extends(OrganelleList, _super);
             function OrganelleList(content, of) {
@@ -472,7 +481,7 @@ var alive;
             }
             return OrganelleList;
         }(core_1.ParticleV2));
-        particle.OrganelleList = OrganelleList;
+        particle_1.OrganelleList = OrganelleList;
         var Exception = (function (_super) {
             __extends(Exception, _super);
             function Exception(content, of) {
@@ -480,7 +489,7 @@ var alive;
             }
             return Exception;
         }(core_1.ParticleV2));
-        particle.Exception = Exception;
+        particle_1.Exception = Exception;
         var Time = (function (_super) {
             __extends(Time, _super);
             function Time(content, of) {
@@ -488,7 +497,7 @@ var alive;
             }
             return Time;
         }(core_1.ParticleV2));
-        particle.Time = Time;
+        particle_1.Time = Time;
         var Acknowledge = (function (_super) {
             __extends(Acknowledge, _super);
             function Acknowledge(of) {
@@ -496,7 +505,7 @@ var alive;
             }
             return Acknowledge;
         }(VoidParticle));
-        particle.Acknowledge = Acknowledge;
+        particle_1.Acknowledge = Acknowledge;
         var ConnectedToTheInternet = (function (_super) {
             __extends(ConnectedToTheInternet, _super);
             function ConnectedToTheInternet(content, of) {
@@ -504,7 +513,7 @@ var alive;
             }
             return ConnectedToTheInternet;
         }(BooleanParticle));
-        particle.ConnectedToTheInternet = ConnectedToTheInternet;
+        particle_1.ConnectedToTheInternet = ConnectedToTheInternet;
         var EuglenaHasBeenBorn = (function (_super) {
             __extends(EuglenaHasBeenBorn, _super);
             function EuglenaHasBeenBorn(of) {
@@ -512,7 +521,7 @@ var alive;
             }
             return EuglenaHasBeenBorn;
         }(BooleanParticle));
-        particle.EuglenaHasBeenBorn = EuglenaHasBeenBorn;
+        particle_1.EuglenaHasBeenBorn = EuglenaHasBeenBorn;
         var SaveParticle = (function (_super) {
             __extends(SaveParticle, _super);
             function SaveParticle(content, of) {
@@ -520,7 +529,7 @@ var alive;
             }
             return SaveParticle;
         }(core_1.ParticleV2));
-        particle.SaveParticle = SaveParticle;
+        particle_1.SaveParticle = SaveParticle;
         var SaveMatchedParticle = (function (_super) {
             __extends(SaveMatchedParticle, _super);
             function SaveMatchedParticle(content, of) {
@@ -528,7 +537,7 @@ var alive;
             }
             return SaveMatchedParticle;
         }(core_1.ParticleV2));
-        particle.SaveMatchedParticle = SaveMatchedParticle;
+        particle_1.SaveMatchedParticle = SaveMatchedParticle;
         var ReadParticle = (function (_super) {
             __extends(ReadParticle, _super);
             function ReadParticle(content, of) {
@@ -536,7 +545,7 @@ var alive;
             }
             return ReadParticle;
         }(core_1.ParticleV2));
-        particle.ReadParticle = ReadParticle;
+        particle_1.ReadParticle = ReadParticle;
         var ReadMatchedParticles = (function (_super) {
             __extends(ReadMatchedParticles, _super);
             function ReadMatchedParticles(query, of) {
@@ -544,7 +553,7 @@ var alive;
             }
             return ReadMatchedParticles;
         }(core_1.ParticleV2));
-        particle.ReadMatchedParticles = ReadMatchedParticles;
+        particle_1.ReadMatchedParticles = ReadMatchedParticles;
         var ReadMatchedParticle = (function (_super) {
             __extends(ReadMatchedParticle, _super);
             function ReadMatchedParticle(query, of) {
@@ -552,7 +561,7 @@ var alive;
             }
             return ReadMatchedParticle;
         }(core_1.ParticleV2));
-        particle.ReadMatchedParticle = ReadMatchedParticle;
+        particle_1.ReadMatchedParticle = ReadMatchedParticle;
         var Particles = (function (_super) {
             __extends(Particles, _super);
             function Particles(particles, of) {
@@ -560,7 +569,7 @@ var alive;
             }
             return Particles;
         }(core_1.ParticleV2));
-        particle.Particles = Particles;
+        particle_1.Particles = Particles;
         var RemoveParticle = (function (_super) {
             __extends(RemoveParticle, _super);
             function RemoveParticle(ref, of) {
@@ -568,7 +577,7 @@ var alive;
             }
             return RemoveParticle;
         }(core_1.ParticleV2));
-        particle.RemoveParticle = RemoveParticle;
+        particle_1.RemoveParticle = RemoveParticle;
         var RemoveMatchedParticles = (function (_super) {
             __extends(RemoveMatchedParticles, _super);
             function RemoveMatchedParticles(query, of) {
@@ -576,7 +585,7 @@ var alive;
             }
             return RemoveMatchedParticles;
         }(core_1.ParticleV2));
-        particle.RemoveMatchedParticles = RemoveMatchedParticles;
+        particle_1.RemoveMatchedParticles = RemoveMatchedParticles;
         var DoesParticleExist = (function (_super) {
             __extends(DoesParticleExist, _super);
             function DoesParticleExist(content, of) {
@@ -584,7 +593,7 @@ var alive;
             }
             return DoesParticleExist;
         }(core_1.ParticleV2));
-        particle.DoesParticleExist = DoesParticleExist;
+        particle_1.DoesParticleExist = DoesParticleExist;
     })(particle = alive.particle || (alive.particle = {}));
 })(alive = exports.alive || (exports.alive = {}));
 //# sourceMappingURL=index.js.map

@@ -1,9 +1,8 @@
 /**
  * Created by codelovesme on 6/19/2015.
  */
-import { interaction, ParticleV2, MetaV2, AnyParticle, alive as core_alive } from "@euglena/core";
+import { ParticleV2, MetaV2, AnyParticle, alive as core_alive } from "@euglena/core";
 import { sys } from "cessnalib";
-import Impact = interaction.Impact;
 export declare abstract class BooleanParticle extends ParticleV2<Boolean> {
     constructor(meta: MetaV2, data: Boolean);
 }
@@ -45,6 +44,7 @@ export declare namespace alive {
             const ConnectedToTheInternet = "ConnectedToTheInternet";
             const Token = "Token";
             const Impacts = "Impacts";
+            const Impact = "Impact";
             const DoesParticleExist = "DoesParticleExist";
             const DoesUniqueParticleExist = "DoesUniqueParticleExist";
             const Gene = "Gene";
@@ -252,6 +252,12 @@ export declare namespace alive {
                 to: alive.particle.EuglenaInfo;
                 impact: Impact;
             }, of: string);
+        }
+        class Impact extends ParticleV2<{
+            token: string;
+            particle: AnyParticle;
+        }> {
+            constructor(particle: AnyParticle, token: string, of: string);
         }
         class EuglenaInfo extends ParticleV2<{
             name: string;

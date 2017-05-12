@@ -92,6 +92,7 @@ export namespace alive {
             export const ConnectedToTheInternet = "ConnectedToTheInternet";
             export const Token = "Token";
             export const Impacts = "Impacts";
+            export const Impact = "Impact";
             export const DoesParticleExist = "DoesParticleExist";
             export const DoesUniqueParticleExist = "DoesUniqueParticleExist";
             export const Gene = "Gene";
@@ -292,6 +293,11 @@ export namespace alive {
         }
         export class ThrowImpact extends ParticleV2<{ to: alive.particle.EuglenaInfo, impact: Impact }> {
             constructor(content: { to: alive.particle.EuglenaInfo, impact: Impact }, of: string) { super(new MetaV2(constants.particles.ThrowImpact, of), content); }
+        }
+        export class Impact extends ParticleV2<{ token: string, particle: AnyParticle }> {
+            constructor(particle: AnyParticle, token: string, of: string) {
+                super(new MetaV2(constants.particles.Impact, of), { particle, token });
+            }
         }
         export class EuglenaInfo extends ParticleV2<{ name: string, url: string, port: string }> {
             constructor(content: { name: string, url: string, port: string }, of: string) { super(new MetaV2(constants.particles.EuglenaInfo, of), content); }
