@@ -138,8 +138,7 @@ var alive;
             particles.WebUIOrganelleSap = "WebUIOrganelleSap";
             particles.DbOrganelleSap = "DbOrganelleSap";
             particles.CytoplasmInfo = "CytoplasmInfo";
-            particles.ReadMatchedParticles = "ReadMatchedParticles";
-            particles.ReadMatchedParticle = "ReadMatchedParticle";
+            particles.ReadParticles = "ReadParticles";
             particles.Subscribe = "Subscribe";
             particles.subscriptionDict = "subscriptionDict";
             particles.Password = "Password";
@@ -546,22 +545,14 @@ var alive;
             return ReadParticle;
         }(core_1.ParticleV2));
         particle_1.ReadParticle = ReadParticle;
-        var ReadMatchedParticles = (function (_super) {
-            __extends(ReadMatchedParticles, _super);
-            function ReadMatchedParticles(query, of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.ReadMatchedParticles, of), query) || this;
+        var ReadParticles = (function (_super) {
+            __extends(ReadParticles, _super);
+            function ReadParticles(query, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.ReadParticles, of), query) || this;
             }
-            return ReadMatchedParticles;
+            return ReadParticles;
         }(core_1.ParticleV2));
-        particle_1.ReadMatchedParticles = ReadMatchedParticles;
-        var ReadMatchedParticle = (function (_super) {
-            __extends(ReadMatchedParticle, _super);
-            function ReadMatchedParticle(query, of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.ReadMatchedParticle, of), query) || this;
-            }
-            return ReadMatchedParticle;
-        }(core_1.ParticleV2));
-        particle_1.ReadMatchedParticle = ReadMatchedParticle;
+        particle_1.ReadParticles = ReadParticles;
         var Particles = (function (_super) {
             __extends(Particles, _super);
             function Particles(particles, of) {

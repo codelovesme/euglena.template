@@ -116,8 +116,7 @@ export namespace alive {
             export const WebUIOrganelleSap = "WebUIOrganelleSap";
             export const DbOrganelleSap = "DbOrganelleSap";
             export const CytoplasmInfo = "CytoplasmInfo";
-            export const ReadMatchedParticles = "ReadMatchedParticles";
-            export const ReadMatchedParticle = "ReadMatchedParticle";
+            export const ReadParticles = "ReadParticles";
             export const Subscribe = "Subscribe";
             export const subscriptionDict = "subscriptionDict";
             export const Password = "Password";
@@ -340,14 +339,9 @@ export namespace alive {
         export class ReadParticle extends ParticleV2<AnyParticle> {
             constructor(content: AnyParticle, of: string) { super(new MetaV2(constants.particles.ReadParticle, of), content); }
         }
-        export class ReadMatchedParticles extends ParticleV2<AnyParticle> {
+        export class ReadParticles extends ParticleV2<AnyParticle> {
             constructor(query: any, of: string) {
-                super(new MetaV2(constants.particles.ReadMatchedParticles, of), query);
-            }
-        }
-        export class ReadMatchedParticle extends ParticleV2<AnyParticle> {
-            constructor(query: any, of: string) {
-                super(new MetaV2(constants.particles.ReadMatchedParticle, of), query);
+                super(new MetaV2(constants.particles.ReadParticles, of), query);
             }
         }
         export class Particles extends ParticleV2<AnyParticle[]> {

@@ -68,8 +68,7 @@ export declare namespace alive {
             const WebUIOrganelleSap = "WebUIOrganelleSap";
             const DbOrganelleSap = "DbOrganelleSap";
             const CytoplasmInfo = "CytoplasmInfo";
-            const ReadMatchedParticles = "ReadMatchedParticles";
-            const ReadMatchedParticle = "ReadMatchedParticle";
+            const ReadParticles = "ReadParticles";
             const Subscribe = "Subscribe";
             const subscriptionDict = "subscriptionDict";
             const Password = "Password";
@@ -321,10 +320,7 @@ export declare namespace alive {
         class ReadParticle extends ParticleV2<AnyParticle> {
             constructor(content: AnyParticle, of: string);
         }
-        class ReadMatchedParticles extends ParticleV2<AnyParticle> {
-            constructor(query: any, of: string);
-        }
-        class ReadMatchedParticle extends ParticleV2<AnyParticle> {
+        class ReadParticles extends ParticleV2<AnyParticle> {
             constructor(query: any, of: string);
         }
         class Particles extends ParticleV2<AnyParticle[]> {
