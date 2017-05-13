@@ -173,56 +173,56 @@ var alive;
         var Organelle = core_1.alive.Organelle;
         var TimeOrganelle = (function (_super) {
             __extends(TimeOrganelle, _super);
-            function TimeOrganelle(className) {
-                return _super.call(this, alive.constants.organelles.TimeOrganelle, className) || this;
+            function TimeOrganelle() {
+                return _super.call(this, alive.constants.organelles.TimeOrganelle) || this;
             }
             return TimeOrganelle;
         }(Organelle));
         organelle.TimeOrganelle = TimeOrganelle;
         var NetOrganelle = (function (_super) {
             __extends(NetOrganelle, _super);
-            function NetOrganelle(className) {
-                return _super.call(this, constants.organelles.NetOrganelle, className) || this;
+            function NetOrganelle() {
+                return _super.call(this, constants.organelles.NetOrganelle) || this;
             }
             return NetOrganelle;
         }(Organelle));
         organelle.NetOrganelle = NetOrganelle;
         var WebOrganelle = (function (_super) {
             __extends(WebOrganelle, _super);
-            function WebOrganelle(className) {
-                return _super.call(this, constants.organelles.WebOrganelle, className) || this;
+            function WebOrganelle() {
+                return _super.call(this, constants.organelles.WebOrganelle) || this;
             }
             return WebOrganelle;
         }(Organelle));
         organelle.WebOrganelle = WebOrganelle;
         var WebUIOrganelle = (function (_super) {
             __extends(WebUIOrganelle, _super);
-            function WebUIOrganelle(className) {
-                return _super.call(this, constants.organelles.WebUIOrganelle, className) || this;
+            function WebUIOrganelle() {
+                return _super.call(this, constants.organelles.WebUIOrganelle) || this;
             }
             return WebUIOrganelle;
         }(Organelle));
         organelle.WebUIOrganelle = WebUIOrganelle;
         var DbOrganelle = (function (_super) {
             __extends(DbOrganelle, _super);
-            function DbOrganelle(className) {
-                return _super.call(this, constants.organelles.DbOrganelle, className) || this;
+            function DbOrganelle() {
+                return _super.call(this, constants.organelles.DbOrganelle) || this;
             }
             return DbOrganelle;
         }(Organelle));
         organelle.DbOrganelle = DbOrganelle;
         var NetClientOrganelle = (function (_super) {
             __extends(NetClientOrganelle, _super);
-            function NetClientOrganelle(className) {
-                return _super.call(this, constants.organelles.NetClientOrganelle, className) || this;
+            function NetClientOrganelle() {
+                return _super.call(this, constants.organelles.NetClientOrganelle) || this;
             }
             return NetClientOrganelle;
         }(Organelle));
         organelle.NetClientOrganelle = NetClientOrganelle;
         var GPSOrganelle = (function (_super) {
             __extends(GPSOrganelle, _super);
-            function GPSOrganelle(className) {
-                return _super.call(this, constants.organelles.GPSOrganelle, className) || this;
+            function GPSOrganelle() {
+                return _super.call(this, constants.organelles.GPSOrganelle) || this;
             }
             return GPSOrganelle;
         }(Organelle));

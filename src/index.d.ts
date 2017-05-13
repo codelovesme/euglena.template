@@ -100,25 +100,25 @@ export declare namespace alive {
     namespace organelle {
         import Organelle = core_alive.Organelle;
         abstract class TimeOrganelle extends Organelle<core_alive.particles.SapContent> {
-            constructor(className: string);
+            constructor();
         }
         abstract class NetOrganelle extends Organelle<particle.NetOrganelleSapContent> {
-            constructor(className: string);
+            constructor();
         }
         abstract class WebOrganelle extends Organelle<particle.WebOrganelleSapContent> {
-            constructor(className: string);
+            constructor();
         }
         abstract class WebUIOrganelle extends Organelle<particle.WebUIOrganelleSapContent> {
-            constructor(className: string);
+            constructor();
         }
         abstract class DbOrganelle extends Organelle<particle.DbOrganelleSapContent> {
-            constructor(className: string);
+            constructor();
         }
         abstract class NetClientOrganelle extends Organelle<particle.NetClientOrganelleSapContent> {
-            constructor(className: string);
+            constructor();
         }
         abstract class GPSOrganelle extends Organelle<particle.GPSOrganelleSapContent> {
-            constructor(className: string);
+            constructor();
         }
     }
     namespace particle {

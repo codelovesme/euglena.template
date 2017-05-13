@@ -148,25 +148,25 @@ export namespace alive {
     export namespace organelle {
         import Organelle = core_alive.Organelle;
         export abstract class TimeOrganelle extends Organelle<core_alive.particles.SapContent> {
-            constructor(className: string) { super(alive.constants.organelles.TimeOrganelle, className); }
+            constructor() { super(alive.constants.organelles.TimeOrganelle); }
         }
         export abstract class NetOrganelle extends Organelle<particle.NetOrganelleSapContent> {
-            constructor(className: string) { super(constants.organelles.NetOrganelle, className); }
+            constructor() { super(constants.organelles.NetOrganelle); }
         }
         export abstract class WebOrganelle extends Organelle<particle.WebOrganelleSapContent>{
-            constructor(className: string) { super(constants.organelles.WebOrganelle, className); }
+            constructor() { super(constants.organelles.WebOrganelle); }
         }
         export abstract class WebUIOrganelle extends Organelle<particle.WebUIOrganelleSapContent>{
-            constructor(className: string) { super(constants.organelles.WebUIOrganelle, className); }
+            constructor() { super(constants.organelles.WebUIOrganelle); }
         }
         export abstract class DbOrganelle extends Organelle<particle.DbOrganelleSapContent>{
-            constructor(className: string) { super(constants.organelles.DbOrganelle, className); }
+            constructor() { super(constants.organelles.DbOrganelle); }
         }
         export abstract class NetClientOrganelle extends Organelle<particle.NetClientOrganelleSapContent>{
-            constructor(className: string) { super(constants.organelles.NetClientOrganelle, className); }
+            constructor() { super(constants.organelles.NetClientOrganelle); }
         }
         export abstract class GPSOrganelle extends Organelle<particle.GPSOrganelleSapContent>{
-            constructor(className: string) { super(constants.organelles.GPSOrganelle, className); }
+            constructor() { super(constants.organelles.GPSOrganelle); }
         }
     }
     export namespace particle {
