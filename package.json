@@ -11,7 +11,7 @@
   },
   "typings": "./src/index.d.ts",
   "dependencies": {
-    "@euglena/core": "codelovesme/euglena#7ac8c72e2db051ac641bc2e9cbf5a9ad9d6c8042",
+    "@euglena/core": "^0.1.6",
     "cessnalib": "^0.1.2"
   },
   "scripts": {
