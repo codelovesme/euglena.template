@@ -15,7 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  *
  * TODO list
- * Must be release major because removed some parts
+ * * ReadParticle, ReamoveParticle must take query:any instead of AnyParticle
+ *      SaveParticle must be the same with the Cytoplasm saveParticle
  *
  */
 var core_1 = require("@euglena/core");

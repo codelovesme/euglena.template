@@ -11,8 +11,8 @@
   },
   "typings": "./src/index.d.ts",
   "dependencies": {
-    "@euglena/core": "^0.1.6",
-    "cessnalib": "^0.1.2"
+    "@euglena/core": "github:codelovesme/euglena#a010e5d8e72aaba19bd1fdeca9c6d28b76e02473",
+    "cessnalib": "^0.2.0"
   },
   "scripts": {
     "test": "mocha test"

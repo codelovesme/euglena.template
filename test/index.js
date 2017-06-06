@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = require("../src/index");
+var euglena_template = require("../src/index");
 var chai = require("chai");
-var tools = index_1.euglena_template.being.subscription.StaticTools;
+var tools = euglena_template.subscription.StaticTools;
 describe("euglena.template", function () {
     describe("being", function () {
         describe("subscription", function () {

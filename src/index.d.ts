@@ -3,7 +3,8 @@
  *
  *
  * TODO list
- * Must be release major because removed some parts
+ * * ReadParticle, ReamoveParticle must take query:any instead of AnyParticle
+ *      SaveParticle must be the same with the Cytoplasm saveParticle
  *
  */
 import { ParticleV2, MetaV2, AnyParticle, alive as core_alive } from "@euglena/core";
@@ -146,7 +147,6 @@ export declare namespace alive {
         }
         interface WebUIOrganelleSapContent {
             euglenaName: string;
-            rootComponentUrl: string;
         }
         interface NetClientOrganelleSapContent {
             euglenaName: string;

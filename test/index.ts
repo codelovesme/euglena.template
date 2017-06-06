@@ -1,13 +1,13 @@
 ﻿
-import {euglena} from "euglena";
-import {euglena_template} from "../src/index";
-
+import * as euglena from "@euglena/core";
+import * as euglena_template from "../src/index";
+import {sys,js} from "cessnalib";
 import * as chai from "chai";
 
-import Particle = euglena.being.Particle;
+import Particle = euglena.AnyParticle;
 
-import Class = euglena.js.Class;
-import tools = euglena_template.being.subscription.StaticTools;
+import Class = js.Class;
+import tools = euglena_template.subscription.StaticTools;
 
 describe("euglena.template", () => {
     describe("being", () => {
@@ -18,7 +18,7 @@ describe("euglena.template", () => {
                     let particle = { meta: { name: "Token" } };
                     let euglenaName = "idcore";
                     //when
-                    let result = tools.addSubscription(particle as euglena.being.Particle, euglenaName);
+                    let result = tools.addSubscription(particle as euglena.AnyParticle, euglenaName);
                     //then
                     chai.expect(tools["subscriptionDict"]).to.has.length(1);
                     chai.expect(tools["subscriptionDict"][0]).property('particle',particle);
@@ -29,7 +29,7 @@ describe("euglena.template", () => {
                     //given
                     let particle = { meta: { name: "Token" } };
                     let euglenaName = "idcore";
-                    let result = tools.addSubscription(particle as euglena.being.Particle, euglenaName);
+                    let result = tools.addSubscription(particle as euglena.AnyParticle, euglenaName);
                     //when
                     tools.removeSubscription(particle as Particle,euglenaName);
                     //after then
@@ -41,7 +41,7 @@ describe("euglena.template", () => {
                     //given
                     let particle = { meta: { name: "Token" } };
                     let euglenaName = "idcore";
-                    let result = tools.addSubscription(particle as euglena.being.Particle, euglenaName);
+                    let result = tools.addSubscription(particle as euglena.AnyParticle, euglenaName);
                     //when
                     tools.removeSubscriptions(particle as Particle);
                     //after then

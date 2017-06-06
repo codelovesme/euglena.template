@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@euglena/core@codelovesme/euglena#7ac8c72e2db051ac641bc2e9cbf5a9ad9d6c8042":
-  version "0.1.5"
-  resolved "https://codeload.github.com/codelovesme/euglena/tar.gz/7ac8c72e2db051ac641bc2e9cbf5a9ad9d6c8042"
+"@euglena/core@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@euglena/core/-/core-0.1.6.tgz#35f30f9a42682cb1cfb09aa111fe419e0200efa1"
   dependencies:
     cessnalib "^0.1.2"
 
@@ -25,6 +25,12 @@ cessnalib@^0.1.2:
   resolved "https://registry.yarnpkg.com/cessnalib/-/cessnalib-0.1.2.tgz#3fa7fb4d433d761795ce0cc9a33f5e38e51ea424"
   dependencies:
     sift "^3.3.5"
+
+"cessnalib@github:codelovesme/euglena#a010e5d8e72aaba19bd1fdeca9c6d28b76e02473":
+  version "0.1.6"
+  resolved "https://codeload.github.com/codelovesme/euglena/tar.gz/a010e5d8e72aaba19bd1fdeca9c6d28b76e02473"
+  dependencies:
+    cessnalib "^0.1.2"
 
 chai@^3.5.0:
   version "3.5.0"
