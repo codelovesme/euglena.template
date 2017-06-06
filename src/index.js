@@ -529,24 +529,16 @@ var alive;
         particle_1.EuglenaHasBeenBorn = EuglenaHasBeenBorn;
         var SaveParticle = (function (_super) {
             __extends(SaveParticle, _super);
-            function SaveParticle(content, of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.SaveParticle, of), content) || this;
+            function SaveParticle(particle, of, query) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.SaveParticle, of), { particle: particle, query: query }) || this;
             }
             return SaveParticle;
         }(core_1.ParticleV2));
         particle_1.SaveParticle = SaveParticle;
-        var SaveMatchedParticle = (function (_super) {
-            __extends(SaveMatchedParticle, _super);
-            function SaveMatchedParticle(content, of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.SaveMatchedParticle, of), content) || this;
-            }
-            return SaveMatchedParticle;
-        }(core_1.ParticleV2));
-        particle_1.SaveMatchedParticle = SaveMatchedParticle;
         var ReadParticle = (function (_super) {
             __extends(ReadParticle, _super);
-            function ReadParticle(content, of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.ReadParticle, of), content) || this;
+            function ReadParticle(query, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.ReadParticle, of), query) || this;
             }
             return ReadParticle;
         }(core_1.ParticleV2));
@@ -569,8 +561,8 @@ var alive;
         particle_1.Particles = Particles;
         var RemoveParticle = (function (_super) {
             __extends(RemoveParticle, _super);
-            function RemoveParticle(ref, of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.RemoveParticle, of), ref) || this;
+            function RemoveParticle(query, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.RemoveParticle, of), query) || this;
             }
             return RemoveParticle;
         }(core_1.ParticleV2));

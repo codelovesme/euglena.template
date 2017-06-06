@@ -316,29 +316,25 @@ export declare namespace alive {
         class EuglenaHasBeenBorn extends BooleanParticle {
             constructor(of: string);
         }
-        class SaveParticle extends ParticleV2<AnyParticle> {
-            constructor(content: AnyParticle, of: string);
+        class SaveParticle extends ParticleV2<{
+            particle: AnyParticle;
+            query?: any;
+        }> {
+            constructor(particle: AnyParticle, of: string, query?: any);
         }
-        class SaveMatchedParticle extends ParticleV2<AnyParticle> {
-            constructor(content: AnyParticle, of: string);
+        class ReadParticle extends ParticleV2<any> {
+            constructor(query: any, of: string);
         }
-        class ReadParticle extends ParticleV2<AnyParticle> {
-            constructor(content: AnyParticle, of: string);
-        }
-        class ReadParticles extends ParticleV2<AnyParticle> {
+        class ReadParticles extends ParticleV2<any> {
             constructor(query: any, of: string);
         }
         class Particles extends ParticleV2<AnyParticle[]> {
             constructor(particles: AnyParticle[], of: string);
         }
-        interface RemoveParticleContent {
-            name: string;
-            of: string;
+        class RemoveParticle extends ParticleV2<any> {
+            constructor(query: any, of: string);
         }
-        class RemoveParticle extends ParticleV2<AnyParticle> {
-            constructor(ref: AnyParticle, of: string);
-        }
-        class RemoveParticles extends ParticleV2<AnyParticle> {
+        class RemoveParticles extends ParticleV2<any> {
             constructor(query: any, of: string);
         }
         interface DoesParticleExistContent {

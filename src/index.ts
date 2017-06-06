@@ -335,34 +335,23 @@ export namespace alive {
         export class EuglenaHasBeenBorn extends BooleanParticle {
             constructor(of: string) { super(new MetaV2(constants.particles.EuglenaHasBeenBorn, of), true); }
         }
-        export class SaveParticle extends ParticleV2<AnyParticle> {
-            constructor(content: AnyParticle, of: string) { super(new MetaV2(constants.particles.SaveParticle, of), content); }
+        export class SaveParticle extends ParticleV2<{ particle: AnyParticle, query?: any }> {
+            constructor(particle: AnyParticle, of: string, query?: any) { super(new MetaV2(constants.particles.SaveParticle, of), { particle, query }); }
         }
-        export class SaveMatchedParticle extends ParticleV2<AnyParticle> {
-            constructor(content: AnyParticle, of: string) { super(new MetaV2(constants.particles.SaveMatchedParticle, of), content); }
+        export class ReadParticle extends ParticleV2<any> {
+            constructor(query: any, of: string) { super(new MetaV2(constants.particles.ReadParticle, of), query); }
         }
-        export class ReadParticle extends ParticleV2<AnyParticle> {
-            constructor(content: AnyParticle, of: string) { super(new MetaV2(constants.particles.ReadParticle, of), content); }
-        }
-        export class ReadParticles extends ParticleV2<AnyParticle> {
-            constructor(query: any, of: string) {
-                super(new MetaV2(constants.particles.ReadParticles, of), query);
-            }
+        export class ReadParticles extends ParticleV2<any> {
+            constructor(query: any, of: string) { super(new MetaV2(constants.particles.ReadParticles, of), query); }
         }
         export class Particles extends ParticleV2<AnyParticle[]> {
             constructor(particles: AnyParticle[], of: string) { super(new MetaV2(constants.particles.Particles, of), particles); }
         }
-        export interface RemoveParticleContent {
-            name: string,
-            of: string
+        export class RemoveParticle extends ParticleV2<any> {
+            constructor(query: any, of: string) { super(new MetaV2(constants.particles.RemoveParticle, of), query); }
         }
-        export class RemoveParticle extends ParticleV2<AnyParticle> {
-            constructor(ref: AnyParticle, of: string) { super(new MetaV2(constants.particles.RemoveParticle, of), ref); }
-        }
-        export class RemoveParticles extends ParticleV2<AnyParticle> {
-            constructor(query: any, of: string) {
-                super(new MetaV2(constants.particles.RemoveParticles, of), query);
-            }
+        export class RemoveParticles extends ParticleV2<any> {
+            constructor(query: any, of: string) { super(new MetaV2(constants.particles.RemoveParticles, of), query); }
         }
         export interface DoesParticleExistContent {
             name: string,
