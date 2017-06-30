@@ -130,6 +130,7 @@ export namespace alive {
             export const TimeChanged = "TimeChanged";
             export const ExceptionOccurred = "ExceptionOccurred";
             export const SaveParticle = "SaveParticle";
+            export const RenameParticle = "RenameParticle";
             export const SaveMatchedParticle = "SaveMatchedParticle";
             export const ReadParticle = "ReadParticle";
             export const RemoveParticle = "RemoveParticle";
@@ -334,6 +335,9 @@ export namespace alive {
         }
         export class EuglenaHasBeenBorn extends BooleanParticle {
             constructor(of: string) { super(new MetaV2(constants.particles.EuglenaHasBeenBorn, of), true); }
+        }
+        export class RenameParticle extends ParticleV2<{ newName: string, query?: any }> {
+            constructor(newName: string, query: any,of: string) { super(new MetaV2(constants.particles.RenameParticle, of), { newName, query }); }
         }
         export class SaveParticle extends ParticleV2<{ particle: AnyParticle, query?: any }> {
             constructor(particle: AnyParticle, of: string, query?: any) { super(new MetaV2(constants.particles.SaveParticle, of), { particle, query }); }

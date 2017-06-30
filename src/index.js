@@ -152,6 +152,7 @@ var alive;
             particles.TimeChanged = "TimeChanged";
             particles.ExceptionOccurred = "ExceptionOccurred";
             particles.SaveParticle = "SaveParticle";
+            particles.RenameParticle = "RenameParticle";
             particles.SaveMatchedParticle = "SaveMatchedParticle";
             particles.ReadParticle = "ReadParticle";
             particles.RemoveParticle = "RemoveParticle";
@@ -527,6 +528,14 @@ var alive;
             return EuglenaHasBeenBorn;
         }(BooleanParticle));
         particle_1.EuglenaHasBeenBorn = EuglenaHasBeenBorn;
+        var RenameParticle = (function (_super) {
+            __extends(RenameParticle, _super);
+            function RenameParticle(newName, query, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.RenameParticle, of), { newName: newName, query: query }) || this;
+            }
+            return RenameParticle;
+        }(core_1.ParticleV2));
+        particle_1.RenameParticle = RenameParticle;
         var SaveParticle = (function (_super) {
             __extends(SaveParticle, _super);
             function SaveParticle(particle, of, query) {

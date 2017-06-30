@@ -82,6 +82,7 @@ export declare namespace alive {
             const TimeChanged = "TimeChanged";
             const ExceptionOccurred = "ExceptionOccurred";
             const SaveParticle = "SaveParticle";
+            const RenameParticle = "RenameParticle";
             const SaveMatchedParticle = "SaveMatchedParticle";
             const ReadParticle = "ReadParticle";
             const RemoveParticle = "RemoveParticle";
@@ -315,6 +316,12 @@ export declare namespace alive {
         }
         class EuglenaHasBeenBorn extends BooleanParticle {
             constructor(of: string);
+        }
+        class RenameParticle extends ParticleV2<{
+            newName: string;
+            query?: any;
+        }> {
+            constructor(newName: string, query: any, of: string);
         }
         class SaveParticle extends ParticleV2<{
             particle: AnyParticle;
