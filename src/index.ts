@@ -135,7 +135,7 @@ export namespace alive {
             export const ReadParticle = "ReadParticle";
             export const RemoveParticle = "RemoveParticle";
             export const RemoveParticles = "RemoveParticles";
-            export const RetrieveApi = "RetrieveApi";
+            export const Api = "Api";
         }
         export namespace organelles {
             export const WebUIOrganelle = "WebUIOrganelle";
@@ -177,9 +177,9 @@ export namespace alive {
             particleRef: AnyParticle;
             result: AnyParticle[];
         }
-        export class RetrieveApi extends VoidParticle {
+        export class Api extends VoidParticle {
             constructor(of: string) {
-                super(new MetaV2(constants.particles.RetrieveApi, of));
+                super(new MetaV2(constants.particles.Api, of));
             }
         }
         export class Password extends ParticleV2<string> {
