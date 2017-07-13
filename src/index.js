@@ -157,6 +157,7 @@ var alive;
             particles.ReadParticle = "ReadParticle";
             particles.RemoveParticle = "RemoveParticle";
             particles.RemoveParticles = "RemoveParticles";
+            particles.RetrieveApi = "RetrieveApi";
         })(particles = constants.particles || (constants.particles = {}));
         var organelles;
         (function (organelles) {
@@ -232,6 +233,14 @@ var alive;
     })(organelle = alive.organelle || (alive.organelle = {}));
     var particle;
     (function (particle_1) {
+        var RetrieveApi = (function (_super) {
+            __extends(RetrieveApi, _super);
+            function RetrieveApi(of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.RetrieveApi, of)) || this;
+            }
+            return RetrieveApi;
+        }(VoidParticle));
+        particle_1.RetrieveApi = RetrieveApi;
         var Password = (function (_super) {
             __extends(Password, _super);
             function Password(euglenaName, value) {

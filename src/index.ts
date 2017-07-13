@@ -135,6 +135,7 @@ export namespace alive {
             export const ReadParticle = "ReadParticle";
             export const RemoveParticle = "RemoveParticle";
             export const RemoveParticles = "RemoveParticles";
+            export const RetrieveApi = "RetrieveApi";
         }
         export namespace organelles {
             export const WebUIOrganelle = "WebUIOrganelle";
@@ -175,6 +176,11 @@ export namespace alive {
         export interface MatchedParticlesContent {
             particleRef: AnyParticle;
             result: AnyParticle[];
+        }
+        export class RetrieveApi extends VoidParticle {
+            constructor(of: string) {
+                super(new MetaV2(constants.particles.RetrieveApi, of));
+            }
         }
         export class Password extends ParticleV2<string> {
             constructor(euglenaName: string, value: string) { super(new MetaV2(constants.particles.Password, euglenaName), value); }
@@ -337,7 +343,7 @@ export namespace alive {
             constructor(of: string) { super(new MetaV2(constants.particles.EuglenaHasBeenBorn, of), true); }
         }
         export class RenameParticle extends ParticleV2<{ newName: string, query?: any }> {
-            constructor(newName: string, query: any,of: string) { super(new MetaV2(constants.particles.RenameParticle, of), { newName, query }); }
+            constructor(newName: string, query: any, of: string) { super(new MetaV2(constants.particles.RenameParticle, of), { newName, query }); }
         }
         export class SaveParticle extends ParticleV2<{ particle: AnyParticle, query?: any }> {
             constructor(particle: AnyParticle, of: string, query?: any) { super(new MetaV2(constants.particles.SaveParticle, of), { particle, query }); }
