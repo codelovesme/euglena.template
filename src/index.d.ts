@@ -129,8 +129,8 @@ export declare namespace alive {
             particleRef: AnyParticle;
             result: AnyParticle[];
         }
-        class Api extends VoidParticle {
-            constructor(of: string);
+        class Api extends ParticleV2<AnyParticle[]> {
+            constructor(particles: AnyParticle[], of: string);
         }
         class Password extends ParticleV2<string> {
             constructor(euglenaName: string, value: string);

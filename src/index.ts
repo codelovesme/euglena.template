@@ -177,9 +177,9 @@ export namespace alive {
             particleRef: AnyParticle;
             result: AnyParticle[];
         }
-        export class Api extends VoidParticle {
-            constructor(of: string) {
-                super(new MetaV2(constants.particles.Api, of));
+        export class Api extends ParticleV2<AnyParticle[]> {
+            constructor(particles: AnyParticle[], of: string) {
+                super(new MetaV2(constants.particles.Api, of), particles);
             }
         }
         export class Password extends ParticleV2<string> {

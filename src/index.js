@@ -235,11 +235,11 @@ var alive;
     (function (particle_1) {
         var Api = (function (_super) {
             __extends(Api, _super);
-            function Api(of) {
-                return _super.call(this, new core_1.MetaV2(constants.particles.Api, of)) || this;
+            function Api(particles, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.Api, of), particles) || this;
             }
             return Api;
-        }(VoidParticle));
+        }(core_1.ParticleV2));
         particle_1.Api = Api;
         var Password = (function (_super) {
             __extends(Password, _super);
