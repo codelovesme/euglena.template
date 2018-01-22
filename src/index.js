@@ -21,7 +21,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 var core_1 = require("@euglena/core");
 var cessnalib_1 = require("cessnalib");
-var BooleanParticle = (function (_super) {
+var BooleanParticle = /** @class */ (function (_super) {
     __extends(BooleanParticle, _super);
     function BooleanParticle(meta, data) {
         return _super.call(this, meta, data) || this;
@@ -29,7 +29,7 @@ var BooleanParticle = (function (_super) {
     return BooleanParticle;
 }(core_1.ParticleV2));
 exports.BooleanParticle = BooleanParticle;
-var VoidParticle = (function (_super) {
+var VoidParticle = /** @class */ (function (_super) {
     __extends(VoidParticle, _super);
     function VoidParticle(meta) {
         return _super.call(this, meta) || this;
@@ -39,13 +39,13 @@ var VoidParticle = (function (_super) {
 exports.VoidParticle = VoidParticle;
 var subscription;
 (function (subscription) {
-    var Record = (function () {
+    var Record = /** @class */ (function () {
         function Record() {
         }
         return Record;
     }());
     subscription.Record = Record;
-    var StaticTools = (function () {
+    var StaticTools = /** @class */ (function () {
         function StaticTools() {
         }
         StaticTools.addSubscription = function (particleMatch, euglenaName) {
@@ -93,9 +93,9 @@ var subscription;
                 }
             }
         };
+        StaticTools.subscriptionDict = [];
         return StaticTools;
     }());
-    StaticTools.subscriptionDict = [];
     subscription.StaticTools = StaticTools;
 })(subscription = exports.subscription || (exports.subscription = {}));
 var alive;
@@ -174,7 +174,7 @@ var alive;
     var organelle;
     (function (organelle) {
         var Organelle = core_1.alive.Organelle;
-        var TimeOrganelle = (function (_super) {
+        var TimeOrganelle = /** @class */ (function (_super) {
             __extends(TimeOrganelle, _super);
             function TimeOrganelle() {
                 return _super.call(this, alive.constants.organelles.TimeOrganelle) || this;
@@ -182,7 +182,7 @@ var alive;
             return TimeOrganelle;
         }(Organelle));
         organelle.TimeOrganelle = TimeOrganelle;
-        var NetOrganelle = (function (_super) {
+        var NetOrganelle = /** @class */ (function (_super) {
             __extends(NetOrganelle, _super);
             function NetOrganelle() {
                 return _super.call(this, constants.organelles.NetOrganelle) || this;
@@ -190,7 +190,7 @@ var alive;
             return NetOrganelle;
         }(Organelle));
         organelle.NetOrganelle = NetOrganelle;
-        var WebOrganelle = (function (_super) {
+        var WebOrganelle = /** @class */ (function (_super) {
             __extends(WebOrganelle, _super);
             function WebOrganelle() {
                 return _super.call(this, constants.organelles.WebOrganelle) || this;
@@ -198,7 +198,7 @@ var alive;
             return WebOrganelle;
         }(Organelle));
         organelle.WebOrganelle = WebOrganelle;
-        var WebUIOrganelle = (function (_super) {
+        var WebUIOrganelle = /** @class */ (function (_super) {
             __extends(WebUIOrganelle, _super);
             function WebUIOrganelle() {
                 return _super.call(this, constants.organelles.WebUIOrganelle) || this;
@@ -206,7 +206,7 @@ var alive;
             return WebUIOrganelle;
         }(Organelle));
         organelle.WebUIOrganelle = WebUIOrganelle;
-        var DbOrganelle = (function (_super) {
+        var DbOrganelle = /** @class */ (function (_super) {
             __extends(DbOrganelle, _super);
             function DbOrganelle() {
                 return _super.call(this, constants.organelles.DbOrganelle) || this;
@@ -214,7 +214,7 @@ var alive;
             return DbOrganelle;
         }(Organelle));
         organelle.DbOrganelle = DbOrganelle;
-        var NetClientOrganelle = (function (_super) {
+        var NetClientOrganelle = /** @class */ (function (_super) {
             __extends(NetClientOrganelle, _super);
             function NetClientOrganelle() {
                 return _super.call(this, constants.organelles.NetClientOrganelle) || this;
@@ -222,7 +222,7 @@ var alive;
             return NetClientOrganelle;
         }(Organelle));
         organelle.NetClientOrganelle = NetClientOrganelle;
-        var GPSOrganelle = (function (_super) {
+        var GPSOrganelle = /** @class */ (function (_super) {
             __extends(GPSOrganelle, _super);
             function GPSOrganelle() {
                 return _super.call(this, constants.organelles.GPSOrganelle) || this;
@@ -233,7 +233,7 @@ var alive;
     })(organelle = alive.organelle || (alive.organelle = {}));
     var particle;
     (function (particle_1) {
-        var Api = (function (_super) {
+        var Api = /** @class */ (function (_super) {
             __extends(Api, _super);
             function Api(particles, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Api, of), particles) || this;
@@ -241,7 +241,7 @@ var alive;
             return Api;
         }(core_1.ParticleV2));
         particle_1.Api = Api;
-        var Password = (function (_super) {
+        var Password = /** @class */ (function (_super) {
             __extends(Password, _super);
             function Password(euglenaName, value) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Password, euglenaName), value) || this;
@@ -249,7 +249,7 @@ var alive;
             return Password;
         }(core_1.ParticleV2));
         particle_1.Password = Password;
-        var subscriptionDict = (function (_super) {
+        var subscriptionDict = /** @class */ (function (_super) {
             __extends(subscriptionDict, _super);
             function subscriptionDict(of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.subscriptionDict, of), new cessnalib_1.sys.type.Map(function (key1, key2) {
@@ -259,7 +259,7 @@ var alive;
             return subscriptionDict;
         }(core_1.ParticleV2));
         particle_1.subscriptionDict = subscriptionDict;
-        var Subscribe = (function (_super) {
+        var Subscribe = /** @class */ (function (_super) {
             __extends(Subscribe, _super);
             function Subscribe(particleReference, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Subscribe, of), particleReference) || this;
@@ -267,7 +267,7 @@ var alive;
             return Subscribe;
         }(core_1.ParticleV2));
         particle_1.Subscribe = Subscribe;
-        var Coordinate = (function (_super) {
+        var Coordinate = /** @class */ (function (_super) {
             __extends(Coordinate, _super);
             function Coordinate(lat, lon, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Coordinate, of), { lat: lat, lon: lon }) || this;
@@ -275,7 +275,7 @@ var alive;
             return Coordinate;
         }(core_1.ParticleV2));
         particle_1.Coordinate = Coordinate;
-        var WhoAmI = (function (_super) {
+        var WhoAmI = /** @class */ (function (_super) {
             __extends(WhoAmI, _super);
             function WhoAmI(of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.WhoAmI, of)) || this;
@@ -283,7 +283,7 @@ var alive;
             return WhoAmI;
         }(core_1.ParticleV2));
         particle_1.WhoAmI = WhoAmI;
-        var NetClientOrganelleSap = (function (_super) {
+        var NetClientOrganelleSap = /** @class */ (function (_super) {
             __extends(NetClientOrganelleSap, _super);
             function NetClientOrganelleSap(of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.NetClientOrganelleSap, of), { euglenaName: of }) || this;
@@ -291,7 +291,7 @@ var alive;
             return NetClientOrganelleSap;
         }(core_1.ParticleV2));
         particle_1.NetClientOrganelleSap = NetClientOrganelleSap;
-        var WebUIOrganelleSap = (function (_super) {
+        var WebUIOrganelleSap = /** @class */ (function (_super) {
             __extends(WebUIOrganelleSap, _super);
             function WebUIOrganelleSap(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.WebUIOrganelleSap, of), content) || this;
@@ -299,7 +299,7 @@ var alive;
             return WebUIOrganelleSap;
         }(core_1.ParticleV2));
         particle_1.WebUIOrganelleSap = WebUIOrganelleSap;
-        var WebOrganelleSap = (function (_super) {
+        var WebOrganelleSap = /** @class */ (function (_super) {
             __extends(WebOrganelleSap, _super);
             function WebOrganelleSap(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.WebOrganelleSap, of), content) || this;
@@ -307,7 +307,7 @@ var alive;
             return WebOrganelleSap;
         }(core_1.ParticleV2));
         particle_1.WebOrganelleSap = WebOrganelleSap;
-        var GPSOrganelleSap = (function (_super) {
+        var GPSOrganelleSap = /** @class */ (function (_super) {
             __extends(GPSOrganelleSap, _super);
             function GPSOrganelleSap(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.GPSOrganelleSap, of), content) || this;
@@ -315,7 +315,7 @@ var alive;
             return GPSOrganelleSap;
         }(core_1.ParticleV2));
         particle_1.GPSOrganelleSap = GPSOrganelleSap;
-        var NetOrganelleSap = (function (_super) {
+        var NetOrganelleSap = /** @class */ (function (_super) {
             __extends(NetOrganelleSap, _super);
             function NetOrganelleSap(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.NetOrganelleSap, of), content) || this;
@@ -323,7 +323,7 @@ var alive;
             return NetOrganelleSap;
         }(core_1.ParticleV2));
         particle_1.NetOrganelleSap = NetOrganelleSap;
-        var DbOrganelleSap = (function (_super) {
+        var DbOrganelleSap = /** @class */ (function (_super) {
             __extends(DbOrganelleSap, _super);
             function DbOrganelleSap(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.DbOrganelleSap, of), content) || this;
@@ -331,7 +331,7 @@ var alive;
             return DbOrganelleSap;
         }(core_1.ParticleV2));
         particle_1.DbOrganelleSap = DbOrganelleSap;
-        var TimeOrganelleSap = (function (_super) {
+        var TimeOrganelleSap = /** @class */ (function (_super) {
             __extends(TimeOrganelleSap, _super);
             function TimeOrganelleSap(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.TimeOrganelleSap, of), content) || this;
@@ -339,7 +339,7 @@ var alive;
             return TimeOrganelleSap;
         }(core_1.ParticleV2));
         particle_1.TimeOrganelleSap = TimeOrganelleSap;
-        var DbIsOnline = (function (_super) {
+        var DbIsOnline = /** @class */ (function (_super) {
             __extends(DbIsOnline, _super);
             function DbIsOnline(of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.DbIsOnline, of)) || this;
@@ -347,7 +347,7 @@ var alive;
             return DbIsOnline;
         }(VoidParticle));
         particle_1.DbIsOnline = DbIsOnline;
-        var ServerRunning = (function (_super) {
+        var ServerRunning = /** @class */ (function (_super) {
             __extends(ServerRunning, _super);
             function ServerRunning(port, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ServerRunning, of), { port: port }) || this;
@@ -355,7 +355,7 @@ var alive;
             return ServerRunning;
         }(core_1.ParticleV2));
         particle_1.ServerRunning = ServerRunning;
-        var ReturnCurrentTime = (function (_super) {
+        var ReturnCurrentTime = /** @class */ (function (_super) {
             __extends(ReturnCurrentTime, _super);
             function ReturnCurrentTime(of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ReturnCurrentTime, of)) || this;
@@ -363,7 +363,7 @@ var alive;
             return ReturnCurrentTime;
         }(VoidParticle));
         particle_1.ReturnCurrentTime = ReturnCurrentTime;
-        var ReturnIfConnectedToTheInternet = (function (_super) {
+        var ReturnIfConnectedToTheInternet = /** @class */ (function (_super) {
             __extends(ReturnIfConnectedToTheInternet, _super);
             function ReturnIfConnectedToTheInternet(of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ReturnIfConnectedToTheInternet, of)) || this;
@@ -371,7 +371,7 @@ var alive;
             return ReturnIfConnectedToTheInternet;
         }(VoidParticle));
         particle_1.ReturnIfConnectedToTheInternet = ReturnIfConnectedToTheInternet;
-        var OrganelleHasComeToLife = (function (_super) {
+        var OrganelleHasComeToLife = /** @class */ (function (_super) {
             __extends(OrganelleHasComeToLife, _super);
             function OrganelleHasComeToLife(organelleName, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.OrganelleHasComeToLife, of), { organelleName: organelleName }) || this;
@@ -379,7 +379,7 @@ var alive;
             return OrganelleHasComeToLife;
         }(core_1.ParticleV2));
         particle_1.OrganelleHasComeToLife = OrganelleHasComeToLife;
-        var Domain = (function (_super) {
+        var Domain = /** @class */ (function (_super) {
             __extends(Domain, _super);
             function Domain(domain, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Domain, of), domain) || this;
@@ -387,7 +387,7 @@ var alive;
             return Domain;
         }(core_1.ParticleV2));
         particle_1.Domain = Domain;
-        var Authenticate = (function (_super) {
+        var Authenticate = /** @class */ (function (_super) {
             __extends(Authenticate, _super);
             function Authenticate(euglenaName, password, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Authenticate, of), { euglenaName: euglenaName, password: password }) || this;
@@ -395,7 +395,7 @@ var alive;
             return Authenticate;
         }(core_1.ParticleV2));
         particle_1.Authenticate = Authenticate;
-        var Proxy = (function (_super) {
+        var Proxy = /** @class */ (function (_super) {
             __extends(Proxy, _super);
             function Proxy(from, to, expireTime, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Proxy, of, expireTime), { from: from, to: to }) || this;
@@ -403,7 +403,7 @@ var alive;
             return Proxy;
         }(core_1.ParticleV2));
         particle_1.Proxy = Proxy;
-        var SetTime = (function (_super) {
+        var SetTime = /** @class */ (function (_super) {
             __extends(SetTime, _super);
             function SetTime(time, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.SetTime, of), time) || this;
@@ -411,7 +411,7 @@ var alive;
             return SetTime;
         }(core_1.ParticleV2));
         particle_1.SetTime = SetTime;
-        var ConnectToEuglena = (function (_super) {
+        var ConnectToEuglena = /** @class */ (function (_super) {
             __extends(ConnectToEuglena, _super);
             function ConnectToEuglena(euglenaInfo, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ConnectToEuglena, of), euglenaInfo) || this;
@@ -419,7 +419,7 @@ var alive;
             return ConnectToEuglena;
         }(core_1.ParticleV2));
         particle_1.ConnectToEuglena = ConnectToEuglena;
-        var ConnectedToEuglena = (function (_super) {
+        var ConnectedToEuglena = /** @class */ (function (_super) {
             __extends(ConnectedToEuglena, _super);
             function ConnectedToEuglena(euglenaInfo, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo) || this;
@@ -427,7 +427,7 @@ var alive;
             return ConnectedToEuglena;
         }(core_1.ParticleV2));
         particle_1.ConnectedToEuglena = ConnectedToEuglena;
-        var DisconnectedFromEuglena = (function (_super) {
+        var DisconnectedFromEuglena = /** @class */ (function (_super) {
             __extends(DisconnectedFromEuglena, _super);
             function DisconnectedFromEuglena(euglenaInfo, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ConnectedToEuglena, of), euglenaInfo) || this;
@@ -435,7 +435,7 @@ var alive;
             return DisconnectedFromEuglena;
         }(core_1.ParticleV2));
         particle_1.DisconnectedFromEuglena = DisconnectedFromEuglena;
-        var Listen = (function (_super) {
+        var Listen = /** @class */ (function (_super) {
             __extends(Listen, _super);
             function Listen(of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Listen, of)) || this;
@@ -443,7 +443,7 @@ var alive;
             return Listen;
         }(VoidParticle));
         particle_1.Listen = Listen;
-        var ThrowImpact = (function (_super) {
+        var ThrowImpact = /** @class */ (function (_super) {
             __extends(ThrowImpact, _super);
             function ThrowImpact(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ThrowImpact, of), content) || this;
@@ -451,7 +451,7 @@ var alive;
             return ThrowImpact;
         }(core_1.ParticleV2));
         particle_1.ThrowImpact = ThrowImpact;
-        var Impact = (function (_super) {
+        var Impact = /** @class */ (function (_super) {
             __extends(Impact, _super);
             function Impact(particle, token, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Impact, of), { particle: particle, token: token }) || this;
@@ -459,7 +459,7 @@ var alive;
             return Impact;
         }(core_1.ParticleV2));
         particle_1.Impact = Impact;
-        var EuglenaInfo = (function (_super) {
+        var EuglenaInfo = /** @class */ (function (_super) {
             __extends(EuglenaInfo, _super);
             function EuglenaInfo(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.EuglenaInfo, of), content) || this;
@@ -473,7 +473,7 @@ var alive;
             OrganelleInfoLocationType[OrganelleInfoLocationType["NodeModules"] = 1] = "NodeModules";
             OrganelleInfoLocationType[OrganelleInfoLocationType["Url"] = 2] = "Url";
         })(OrganelleInfoLocationType = particle_1.OrganelleInfoLocationType || (particle_1.OrganelleInfoLocationType = {}));
-        var OrganelleInfo = (function (_super) {
+        var OrganelleInfo = /** @class */ (function (_super) {
             __extends(OrganelleInfo, _super);
             function OrganelleInfo(organelleName, locationType, locationPath, sap, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.OrganelleInfo, of), { name: organelleName, location: { type: locationType, path: locationPath }, sap: sap }) || this;
@@ -481,7 +481,7 @@ var alive;
             return OrganelleInfo;
         }(core_1.ParticleV2));
         particle_1.OrganelleInfo = OrganelleInfo;
-        var CytoplasmInfo = (function (_super) {
+        var CytoplasmInfo = /** @class */ (function (_super) {
             __extends(CytoplasmInfo, _super);
             function CytoplasmInfo(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.EuglenaInfo, of), content) || this;
@@ -489,7 +489,7 @@ var alive;
             return CytoplasmInfo;
         }(core_1.ParticleV2));
         particle_1.CytoplasmInfo = CytoplasmInfo;
-        var OrganelleList = (function (_super) {
+        var OrganelleList = /** @class */ (function (_super) {
             __extends(OrganelleList, _super);
             function OrganelleList(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.OrganelleList, of), content) || this;
@@ -497,7 +497,7 @@ var alive;
             return OrganelleList;
         }(core_1.ParticleV2));
         particle_1.OrganelleList = OrganelleList;
-        var Exception = (function (_super) {
+        var Exception = /** @class */ (function (_super) {
             __extends(Exception, _super);
             function Exception(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Exception, of), content) || this;
@@ -505,7 +505,7 @@ var alive;
             return Exception;
         }(core_1.ParticleV2));
         particle_1.Exception = Exception;
-        var Time = (function (_super) {
+        var Time = /** @class */ (function (_super) {
             __extends(Time, _super);
             function Time(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Time, of), content) || this;
@@ -513,7 +513,7 @@ var alive;
             return Time;
         }(core_1.ParticleV2));
         particle_1.Time = Time;
-        var Acknowledge = (function (_super) {
+        var Acknowledge = /** @class */ (function (_super) {
             __extends(Acknowledge, _super);
             function Acknowledge(of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Acknowledge, of)) || this;
@@ -521,7 +521,7 @@ var alive;
             return Acknowledge;
         }(VoidParticle));
         particle_1.Acknowledge = Acknowledge;
-        var ConnectedToTheInternet = (function (_super) {
+        var ConnectedToTheInternet = /** @class */ (function (_super) {
             __extends(ConnectedToTheInternet, _super);
             function ConnectedToTheInternet(content, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ConnectedToTheInternet, of), content) || this;
@@ -529,7 +529,7 @@ var alive;
             return ConnectedToTheInternet;
         }(BooleanParticle));
         particle_1.ConnectedToTheInternet = ConnectedToTheInternet;
-        var EuglenaHasBeenBorn = (function (_super) {
+        var EuglenaHasBeenBorn = /** @class */ (function (_super) {
             __extends(EuglenaHasBeenBorn, _super);
             function EuglenaHasBeenBorn(of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.EuglenaHasBeenBorn, of), true) || this;
@@ -537,7 +537,7 @@ var alive;
             return EuglenaHasBeenBorn;
         }(BooleanParticle));
         particle_1.EuglenaHasBeenBorn = EuglenaHasBeenBorn;
-        var RenameParticle = (function (_super) {
+        var RenameParticle = /** @class */ (function (_super) {
             __extends(RenameParticle, _super);
             function RenameParticle(newName, query, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.RenameParticle, of), { newName: newName, query: query }) || this;
@@ -545,7 +545,7 @@ var alive;
             return RenameParticle;
         }(core_1.ParticleV2));
         particle_1.RenameParticle = RenameParticle;
-        var SaveParticle = (function (_super) {
+        var SaveParticle = /** @class */ (function (_super) {
             __extends(SaveParticle, _super);
             function SaveParticle(particle, of, query) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.SaveParticle, of), { particle: particle, query: query }) || this;
@@ -553,7 +553,7 @@ var alive;
             return SaveParticle;
         }(core_1.ParticleV2));
         particle_1.SaveParticle = SaveParticle;
-        var ReadParticle = (function (_super) {
+        var ReadParticle = /** @class */ (function (_super) {
             __extends(ReadParticle, _super);
             function ReadParticle(query, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ReadParticle, of), query) || this;
@@ -561,7 +561,7 @@ var alive;
             return ReadParticle;
         }(core_1.ParticleV2));
         particle_1.ReadParticle = ReadParticle;
-        var ReadParticles = (function (_super) {
+        var ReadParticles = /** @class */ (function (_super) {
             __extends(ReadParticles, _super);
             function ReadParticles(query, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.ReadParticles, of), query) || this;
@@ -569,7 +569,7 @@ var alive;
             return ReadParticles;
         }(core_1.ParticleV2));
         particle_1.ReadParticles = ReadParticles;
-        var Particles = (function (_super) {
+        var Particles = /** @class */ (function (_super) {
             __extends(Particles, _super);
             function Particles(particles, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.Particles, of), particles) || this;
@@ -577,7 +577,7 @@ var alive;
             return Particles;
         }(core_1.ParticleV2));
         particle_1.Particles = Particles;
-        var RemoveParticle = (function (_super) {
+        var RemoveParticle = /** @class */ (function (_super) {
             __extends(RemoveParticle, _super);
             function RemoveParticle(query, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.RemoveParticle, of), query) || this;
@@ -585,7 +585,7 @@ var alive;
             return RemoveParticle;
         }(core_1.ParticleV2));
         particle_1.RemoveParticle = RemoveParticle;
-        var RemoveParticles = (function (_super) {
+        var RemoveParticles = /** @class */ (function (_super) {
             __extends(RemoveParticles, _super);
             function RemoveParticles(query, of) {
                 return _super.call(this, new core_1.MetaV2(constants.particles.RemoveParticles, of), query) || this;
@@ -593,7 +593,7 @@ var alive;
             return RemoveParticles;
         }(core_1.ParticleV2));
         particle_1.RemoveParticles = RemoveParticles;
-        var DoesParticleExist = (function (_super) {
+        var DoesParticleExist = /** @class */ (function (_super) {
             __extends(DoesParticleExist, _super);
             function DoesParticleExist(content, of) {
                 return _super.call(this, new core_1.MetaV2(alive.constants.particles.DoesParticleExist, of), content) || this;
