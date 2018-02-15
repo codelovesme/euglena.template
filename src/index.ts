@@ -136,6 +136,7 @@ export namespace alive {
             export const RemoveParticle = "RemoveParticle";
             export const RemoveParticles = "RemoveParticles";
             export const Api = "Api";
+            export const IAmReady = "IAmReady";
         }
         export namespace organelles {
             export const WebUIOrganelle = "WebUIOrganelle";
@@ -173,6 +174,9 @@ export namespace alive {
         }
     }
     export namespace particle {
+        export class IamReady extends VoidParticle {
+            constructor(of: string) { super(new MetaV2(constants.particles.IAmReady, of)) }
+        }
         export interface MatchedParticlesContent {
             particleRef: AnyParticle;
             result: AnyParticle[];

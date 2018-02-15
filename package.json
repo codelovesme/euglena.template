@@ -2,25 +2,31 @@
   "name": "@euglena/template",
   "domain": "codeloves.me",
   "version": "2.0.2",
-  "main": "src/index.js",
+  "main": ".dist/src/index.js",
   "private": false,
   "license": "GPL v2",
   "author": {
     "name": "Fedai Kaya",
     "email": "codelovesme@gmail.com"
   },
-  "typings": "./src/index.d.ts",
+  "typings": ".dist/src/index.d.ts",
+  "scripts": {
+    "test": "gulp test",
+    "build": "gulp build",
+    "start": "gulp watch"
+  },
   "dependencies": {
     "@euglena/core": "^0.1.7",
     "cessnalib": "^0.2.0"
   },
-  "scripts": {
-    "test": "mocha test"
-  },
   "devDependencies": {
-    "@types/chai": "^3.4.35",
-    "@types/mocha": "^2.2.40",
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.41",
     "chai": "^3.5.0",
-    "mocha": "^3.4.2"
+    "gulp-mocha": "^4.3.1",
+    "gulp-typescript": "^3.2.2",
+    "merge2": "^1.2.0",
+    "mocha": "^3.4.2",
+    "typescript": "^2.7.1"
   }
 }
