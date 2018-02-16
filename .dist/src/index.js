@@ -159,6 +159,7 @@ var alive;
             particles.RemoveParticles = "RemoveParticles";
             particles.Api = "Api";
             particles.IAmReady = "IAmReady";
+            particles.OrganelleReady = "OrganelleReady";
         })(particles = constants.particles || (constants.particles = {}));
         var organelles;
         (function (organelles) {
@@ -242,6 +243,14 @@ var alive;
             return IamReady;
         }(VoidParticle));
         particle_1.IamReady = IamReady;
+        var OrganelleReady = /** @class */ (function (_super) {
+            __extends(OrganelleReady, _super);
+            function OrganelleReady(organelleName, of) {
+                return _super.call(this, new core_1.MetaV2(constants.particles.OrganelleReady, of), { organelleName: organelleName }) || this;
+            }
+            return OrganelleReady;
+        }(core_1.ParticleV2));
+        particle_1.OrganelleReady = OrganelleReady;
         var Api = /** @class */ (function (_super) {
             __extends(Api, _super);
             function Api(particles, of) {

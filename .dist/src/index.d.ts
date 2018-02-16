@@ -89,6 +89,7 @@ export declare namespace alive {
             const RemoveParticles = "RemoveParticles";
             const Api = "Api";
             const IAmReady = "IAmReady";
+            const OrganelleReady = "OrganelleReady";
         }
         namespace organelles {
             const WebUIOrganelle = "WebUIOrganelle";
@@ -128,6 +129,11 @@ export declare namespace alive {
     namespace particle {
         class IamReady extends VoidParticle {
             constructor(of: string);
+        }
+        class OrganelleReady extends ParticleV2<{
+            organelleName: string;
+        }> {
+            constructor(organelleName: string, of: string);
         }
         interface MatchedParticlesContent {
             particleRef: AnyParticle;
