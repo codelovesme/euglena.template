@@ -175,6 +175,14 @@ export namespace alive {
         }
     }
     export namespace particle {
+        export interface Base64FileContent { content: string, name: string, type: string }
+
+        export class Base64File extends ParticleV2<Base64FileContent>{
+            public static readonly NAME = "Base64File";
+            constructor(content: Base64FileContent, of: string) {
+                super(new MetaV2(Base64File.NAME, of), content);
+            }
+        }
         export class IamReady extends VoidParticle {
             constructor(of: string) { super(new MetaV2(constants.particles.IAmReady, of)) }
         }

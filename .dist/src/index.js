@@ -235,6 +235,15 @@ var alive;
     })(organelle = alive.organelle || (alive.organelle = {}));
     var particle;
     (function (particle_1) {
+        var Base64File = /** @class */ (function (_super) {
+            __extends(Base64File, _super);
+            function Base64File(content, of) {
+                return _super.call(this, new core_1.MetaV2(Base64File.NAME, of), content) || this;
+            }
+            Base64File.NAME = "Base64File";
+            return Base64File;
+        }(core_1.ParticleV2));
+        particle_1.Base64File = Base64File;
         var IamReady = /** @class */ (function (_super) {
             __extends(IamReady, _super);
             function IamReady(of) {

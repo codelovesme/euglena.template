@@ -127,6 +127,15 @@ export declare namespace alive {
         }
     }
     namespace particle {
+        interface Base64FileContent {
+            content: string;
+            name: string;
+            type: string;
+        }
+        class Base64File extends ParticleV2<Base64FileContent> {
+            static readonly NAME: string;
+            constructor(content: Base64FileContent, of: string);
+        }
         class IamReady extends VoidParticle {
             constructor(of: string);
         }
